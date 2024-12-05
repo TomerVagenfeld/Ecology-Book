@@ -1,4 +1,4 @@
-<div class='en_quote'>"All people---living in ancient or modern times, in luxury or
+<div class='en_quote'> <p>"All people---living in ancient or modern times, in luxury or
 
 destitution, in mega-cities or vast hinterlands---depend
 
@@ -17,10 +17,10 @@ us, providing the material basics of nutrition, health, and
 security to ethereal senses of attachment, beauty, and spirit."
 
 Gretchen C. Daily, Stanford University
-</div>
+</p></div>
 
 # פגיעה בביוספרה, שטחים פתוחים וקרקעות
-test
+
 ## מבוא ומושגי יסוד
 
 יחסי הגומלין בין הביוטה (צמחים, בעלי חיים ומיקרואורגניזמים) לסביבת החיים
