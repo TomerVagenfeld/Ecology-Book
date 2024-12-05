@@ -1,0 +1,15 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+options:
+  numbered: true
+chapters:
+- file: ch1
+- file: ch2
+- file: ch3
+- file: ch4
+- file: ch5
+- file: ch6
+- file: ch7_py_headers
