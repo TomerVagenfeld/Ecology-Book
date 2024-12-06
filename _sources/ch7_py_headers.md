@@ -8,8 +8,8 @@ subtle and extensive net of relationships sustains and fulfills<br>
 us, providing the material basics of nutrition, health, and<br>  
 security to ethereal senses of attachment, beauty, and spirit."<br>  
 
-*Gretchen C. Daily, Stanford University*
-</p></div>
+Gretchen C. Daily, Stanford University
+</div>
 
 # פגיעה בביוספרה, שטחים פתוחים וקרקעות
 
