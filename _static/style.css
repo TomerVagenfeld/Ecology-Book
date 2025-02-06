@@ -10,7 +10,7 @@ body {
   text-align: right;
   font-family: sans-serif;
   /* Optionally adjust the base font size */
-  font-size: 16px;
+  /*font-size: 16px; */
 }
 
 /* If you have any English quotes or passages, this rule forces them to LTR */
