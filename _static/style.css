@@ -1,27 +1,54 @@
+/* Global Page Direction (Hebrew - RTL) */
 body {
   direction: rtl;
   unicode-bidi: embed;
 }
 
-.en_quote { 
-	direction: ltr;
-	unicode-bidi: embed;
-	font-style: italic;
+/* English quotes inside RTL text */
+.en_quote {
+  direction: ltr;
+  unicode-bidi: embed;
+  font-style: italic;
 }
 
-/* Align all search results to the right */
-.search-results, .search-results * {
-    direction: rtl;
-    text-align: right;
+/* General Search Results Container */
+/* Applies RTL and right alignment to the entire search results block */
+.search-results,
+.search-results * {
+  direction: rtl;
+  text-align: right;
 }
 
-/* Adjust highlighted text alignment */
-.search-results .highlighted .search .context .snippet {
-    direction: rtl;
-    background-color: yellow; /* Optional: highlight the text for better testing */
+/* Specific rule for the snippet element (if your search engine outputs an element with class "snippet") */
+.search-results .snippet {
+  direction: rtl !important;
+  text-align: right !important;
+  /* background-color: #ffff99;  Uncomment to test highlighting */
 }
 
+/* If your search result markup includes a "context" container, ensure it’s RTL as well */
+.search-results .context {
+  direction: rtl;
+  text-align: right;
+}
 
+/* Ensure highlighted text within search results remains RTL and stands out */
+.search-results .highlighted {
+  direction: rtl;
+  text-align: right;
+  background-color: #ffff99; /* Light yellow for visibility */
+}
+
+/* Optional: If search results include links that need RTL styling */
+.search-results a {
+  direction: rtl;
+  text-align: right;
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+}
+
+/* Optional: Additional styling for headings within search result pages */
 h1, h2, h3, h4, h5, h6 {
-  /* Additional styling if needed */
+  /* Add any custom heading styling here if needed */
 }
