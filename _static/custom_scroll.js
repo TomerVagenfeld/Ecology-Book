@@ -1,36 +1,39 @@
 window.addEventListener("DOMContentLoaded", () => {
     console.log("Custom search script loaded.");
 
+    // Function to scroll to the first highlighted result
+    const scrollToResult = () => {
+        const firstResult = document.querySelector('.highlighted');
+        if (firstResult) {
+            firstResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            console.log("Scrolled to the first highlighted result.");
+            return true; // Scrolling succeeded
+        } else {
+            console.warn("No highlighted result found.");
+            return false; // No result to scroll to
+        }
+    };
+
     // Wait for the search functionality to initialize
     const checkSearchIndex = setInterval(() => {
         console.log("Checking for search index...");
         if (window.Search && window.Search.query) {
             console.log("Search functionality initialized.");
 
-            // Stop the interval as the search functionality is found
+            // Stop the interval once the search functionality is found
             clearInterval(checkSearchIndex);
 
-            // Scroll to the first highlighted result when results are loaded
-            const scrollToResult = () => {
-                const firstResult = document.querySelector('.search-results .highlighted');
-                if (firstResult) {
-                    firstResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    console.log("Scrolled to first search result.");
-                } else {
-                    console.warn("No highlighted result found.");
-                }
-            };
-
-            // Observe changes in the search results
+            // Observe the search results container for changes
             const searchResultsContainer = document.querySelector('.search-results');
             if (searchResultsContainer) {
-                const observer = new MutationObserver((mutationsList) => {
-                    for (let mutation of mutationsList) {
-                        if (mutation.type === 'childList') {
-                            scrollToResult(); // Scroll when new results are added
-                            observer.disconnect(); // Stop observing after scrolling
-                            break;
-                        }
+                console.log("Search results container found, setting up observer.");
+
+                const observer = new MutationObserver(() => {
+                    console.log("Search results updated.");
+                    const scrolled = scrollToResult();
+                    if (scrolled) {
+                        observer.disconnect(); // Stop observing after scrolling
+                        console.log("Observer disconnected after scrolling.");
                     }
                 });
 
@@ -39,5 +42,5 @@ window.addEventListener("DOMContentLoaded", () => {
                 console.warn("Search results container not found.");
             }
         }
-    }, 100); // Check every 100ms
+    }, 500); // Check every 500ms to avoid excessive checks
 });
