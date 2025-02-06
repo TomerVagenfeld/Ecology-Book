@@ -1,5 +1,6 @@
 /* Global Page Direction (Hebrew - RTL) */
 body {
+  border: 5px solid red;
   direction: rtl;
   unicode-bidi: embed;
 }
