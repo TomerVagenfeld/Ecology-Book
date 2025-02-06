@@ -16,7 +16,7 @@ body {
 }
 
 /* Adjust highlighted text alignment */
-.search-results .highlighted {
+.search-results .highlighted .search .context {
     direction: rtl;
     background-color: yellow; /* Optional: highlight the text for better testing */
 }
