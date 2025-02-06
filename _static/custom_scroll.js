@@ -1,12 +1,16 @@
 window.addEventListener("DOMContentLoaded", () => {
     console.log("Custom search script loaded.");
 
+    // Wait for the search functionality to initialize
     const checkSearchIndex = setInterval(() => {
         console.log("Checking for search index...");
         if (window.Search && window.Search.query) {
             console.log("Search functionality initialized.");
 
-            // Scroll to the first highlighted result
+            // Stop the interval as the search functionality is found
+            clearInterval(checkSearchIndex);
+
+            // Scroll to the first highlighted result when results are loaded
             const scrollToResult = () => {
                 const firstResult = document.querySelector('.search-results .highlighted');
                 if (firstResult) {
@@ -17,18 +21,23 @@ window.addEventListener("DOMContentLoaded", () => {
                 }
             };
 
-            // Hook into search result rendering
-            const searchResults = document.querySelector('.search-results');
-            if (searchResults) {
-                // Wait for results to be rendered before scrolling
-                const observer = new MutationObserver(() => {
-                    scrollToResult();
-                    observer.disconnect(); // Stop observing once done
+            // Observe changes in the search results
+            const searchResultsContainer = document.querySelector('.search-results');
+            if (searchResultsContainer) {
+                const observer = new MutationObserver((mutationsList) => {
+                    for (let mutation of mutationsList) {
+                        if (mutation.type === 'childList') {
+                            scrollToResult(); // Scroll when new results are added
+                            observer.disconnect(); // Stop observing after scrolling
+                            break;
+                        }
+                    }
                 });
-                observer.observe(searchResults, { childList: true, subtree: true });
-            }
 
-            clearInterval(checkSearchIndex); // Stop checking once initialized
+                observer.observe(searchResultsContainer, { childList: true, subtree: true });
+            } else {
+                console.warn("Search results container not found.");
+            }
         }
     }, 100); // Check every 100ms
 });
