@@ -16,10 +16,10 @@ body {
 /* If you have any English quotes or passages, this rule forces them to LTR */
 .en_quote {
   direction: ltr;
+  text-align: left;
   unicode-bidi: embed;
   font-style: italic;
 }
-
 
 /* =============================================================================
    Search Results Styling
