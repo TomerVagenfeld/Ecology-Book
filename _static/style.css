@@ -9,7 +9,16 @@ body {
 	font-style: italic;
 }
 
+/* Align search results text to the right for RTL languages */
+.search-results {
+    direction: rtl;
+    text-align: right;
+}
 
+/* Ensure the highlighted text is also properly aligned */
+.highlighted {
+    direction: rtl;
+}
 
 h1, h2, h3, h4, h5, h6 {
   /* Additional styling if needed */
