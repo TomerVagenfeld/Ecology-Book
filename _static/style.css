@@ -1,55 +1,100 @@
-/* Global Page Direction (Hebrew - RTL) */
+/* =============================================================================
+   Global Settings
+============================================================================= */
+
+/* Set the overall page direction to RTL.
+   (This will affect most content, but you can override specific blocks if needed.) */
 body {
-  border: 5px solid red;
   direction: rtl;
   unicode-bidi: embed;
+  text-align: right;
+  font-family: sans-serif;
+  /* Optionally adjust the base font size */
+  font-size: 16px;
 }
 
-/* English quotes inside RTL text */
+/* If you have any English quotes or passages, this rule forces them to LTR */
 .en_quote {
   direction: ltr;
   unicode-bidi: embed;
   font-style: italic;
 }
 
-/* General Search Results Container */
-/* Applies RTL and right alignment to the entire search results block */
-.search-results,
-.search-results * {
+
+/* =============================================================================
+   Search Results Styling
+============================================================================= */
+
+/* The main search-results container (note: in your HTML it has an ID of "search-results") */
+#search-results {
+  margin: 20px;
   direction: rtl;
   text-align: right;
 }
 
-/* Specific rule for the snippet element (if your search engine outputs an element with class "snippet") */
-.search-results .snippet {
-  direction: rtl !important;
-  text-align: right !important;
-  /* background-color: #ffff99;  Uncomment to test highlighting */
-}
-
-/* If your search result markup includes a "context" container, ensure it’s RTL as well */
-.search-results .context {
+/* Style the search summary message */
+#search-results .search-summary {
   direction: rtl;
   text-align: right;
+  font-style: italic;
+  margin-bottom: 1em;
 }
 
-/* Ensure highlighted text within search results remains RTL and stands out */
-.search-results .highlighted {
-  direction: rtl;
-  text-align: right;
-  background-color: #ffff99; /* Light yellow for visibility */
+/* The unordered list containing the results */
+#search-results ul.search {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* Optional: If search results include links that need RTL styling */
-.search-results a {
-  direction: rtl;
-  text-align: right;
-  display: block;
-  padding: 5px;
+/* Each search result item */
+#search-results ul.search li {
+  border-bottom: 1px solid #ccc;
+  margin: 1em 0;
+  padding-bottom: 1em;
+}
+
+/* The clickable title link for each result */
+#search-results ul.search li a {
+  font-weight: bold;
+  color: #007bff;
   text-decoration: none;
+  display: block;
+  margin-bottom: 0.5em;
+  direction: rtl;
+  text-align: right;
 }
 
-/* Optional: Additional styling for headings within search result pages */
-h1, h2, h3, h4, h5, h6 {
-  /* Add any custom heading styling here if needed */
+/* On hover, underline the title link */
+#search-results ul.search li a:hover {
+  text-decoration: underline;
+}
+
+/* The context snippet (search result preview) */
+#search-results ul.search li p.context {
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: embed;
+}
+
+/* Highlighted search term(s) within the snippet */
+#search-results ul.search li p.context .highlighted {
+  background-color: #ffff99;  /* Light yellow highlight */
+  direction: rtl;
+  text-align: right;
+}
+
+/* =============================================================================
+   Responsive Tweaks (Optional)
+============================================================================= */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+  #search-results {
+    margin: 10px;
+  }
 }
