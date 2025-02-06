@@ -9,16 +9,18 @@ body {
 	font-style: italic;
 }
 
-/* Align search results text to the right for RTL languages */
-.search-results {
+/* Align all search results to the right */
+.search-results, .search-results * {
     direction: rtl;
     text-align: right;
 }
 
-/* Ensure the highlighted text is also properly aligned */
-.highlighted {
+/* Adjust highlighted text alignment */
+.search-results .highlighted {
     direction: rtl;
+    background-color: yellow; /* Optional: highlight the text for better testing */
 }
+
 
 h1, h2, h3, h4, h5, h6 {
   /* Additional styling if needed */
