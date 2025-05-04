@@ -188,11 +188,9 @@ name: fig-7.1
 אחרים) המביאים לפגיעה בטבע (גודל אקוסיסטמות, הכחדת מינים, חברות
 אקולוגיות, ביומסה ו-evenness, קהילות מקומיות וילידים) באקוסיסטמות
 יבשתיות, מימיות (מים מתוקים), וימיות. מקור --
+
+ IPBES (2019)[^45]. Reprinted with permission.
 ```
-
- IPBES (2019)[^45]. Reprinted with
-permission.
-
 
 ```{figure} media/7.2_download.jpg
 ---
@@ -294,10 +292,9 @@ name: fig-7.3
 ---
 שינויים יחסיים במגוון הביולוגי ביבשות השונות בין 1970 ל-2018.
 מקור --
-```
-
 WWF (2022) Living Planet Report; © 2022
 WWF - World Wide Fund For Nature. Reprinted with permission.
+```
 
 ### *מינים פולשים*
 
@@ -468,8 +465,7 @@ name: fig-7.4
 שחור -- מין הנמצא בסכנת הכחדה. סימון צהוב -- מינים שהוכחדו באחד מחמשת
 אירועי ההכחדה הגדולים של העבר. מקור --
 
-Barnosky et al. (2011) <https://doi.org/10.1038/nature09678> ; Reprinted
-with permission from Nature.
+Barnosky et al. (2011) <https://doi.org/10.1038/nature09678> ; Reprinted with permission from Nature.
 ```
 
 
@@ -506,8 +502,7 @@ name: fig-7.5
 חלוקת סוגים ושימושים של שטח היבשות. מקור -
 
 Making Peace with Nature (2021)
-<https://www.unep.org/resources/making-peace-nature>; © 2024 UNEP,
-Reprinted with permission.
+<https://www.unep.org/resources/making-peace-nature>; © 2024 UNEP,Reprinted with permission.
 ```
 
 
@@ -581,8 +576,7 @@ name: fig-7.6
 נפיצות מינים מקוריים של צמחים. מקור -
 
 Making Peace with Nature (2021)
-<https://www.unep.org/resources/making-peace-nature>; © 2024 UNEP;
-Reprinted with permission.
+<https://www.unep.org/resources/making-peace-nature>; © 2024 UNEP; Reprinted with permission.
 ```
 
 
@@ -613,8 +607,7 @@ name: fig-7.7
 וירידה במגוון המינים והשפעתם על איכות החיים של בני אדם. מקור -
 
 Making Peace with Nature (2021)
-<https://www.unep.org/resources/making-peace-nature>; © 2024 UNEP;
-Reprinted with permission.
+<https://www.unep.org/resources/making-peace-nature>; © 2024 UNEP; Reprinted with permission.
 ```
 
 

@@ -1,22 +1,15 @@
-"All people---living in ancient or modern times, in luxury or
-
-destitution, in mega-cities or vast hinterlands---depend
-
-intimately and utterly on nature. Through the microbiome
-
-inhabiting our body, the nature in local parks and farms, and
-
-exotic forests and underwater realms across the world, we
-
-are all deeply embedded within the web of life. This extremely
-
-subtle and extensive net of relationships sustains and fulfills
-
-us, providing the material basics of nutrition, health, and
-
-security to ethereal senses of attachment, beauty, and spirit."
+<div class='en_quote'> <p>"All people---living in ancient or modern times, in luxury or<br>
+destitution, in mega-cities or vast hinterlands---depend<br>
+intimately and utterly on nature. Through the microbiome<br>
+inhabiting our body, the nature in local parks and farms, and<br>
+exotic forests and underwater realms across the world, we<br>
+are all deeply embedded within the web of life. This extremely<br>  
+subtle and extensive net of relationships sustains and fulfills<br>  
+us, providing the material basics of nutrition, health, and<br>  
+security to ethereal senses of attachment, beauty, and spirit."<br>  
 
 Gretchen C. Daily, Stanford University
+</div>
 
 # ***פגיעה בביוספרה, שטחים פתוחים וקרקעות***
 
@@ -187,12 +180,8 @@ name: fig-7.1
 שימושי קרקע, ניצול יתר, שינוי אקלים, זיהום, חדירת מינים פולשים וגורמים
 אחרים) המביאים לפגיעה בטבע (גודל אקוסיסטמות, הכחדת מינים, חברות
 אקולוגיות, ביומסה ו-evenness, קהילות מקומיות וילידים) באקוסיסטמות
-יבשתיות, מימיות (מים מתוקים), וימיות. מקור --
+יבשתיות, מימיות (מים מתוקים), וימיות. מקור -- IPBES (2019)[^45]. Reprinted with permission.
 ```
-
- IPBES (2019)[^45]. Reprinted with
-permission.
-
 
 ```{figure} media/7.2_download.jpg
 ---
@@ -200,9 +189,7 @@ height: 6.46875in
 name: fig-7.2
 ---
 סכנת ההכחדה ופגיעה במגוון של פטריות, צמחים, חסרי חוליות, בעלי
-חוליות. שימו לב לחלונות הזמן השונים באיורים (B, C). מקור --
-
-IPBES (2019). Reprinted with permission.
+חוליות. שימו לב לחלונות הזמן השונים באיורים (B, C). מקור -- IPBES (2019). Reprinted with permission.
 ```
 
 
@@ -293,11 +280,8 @@ height: 5.034027777777778in
 name: fig-7.3
 ---
 שינויים יחסיים במגוון הביולוגי ביבשות השונות בין 1970 ל-2018.
-מקור --
+מקור -- WWF (2022) Living Planet Report; © 2022 WWF - World Wide Fund For Nature. Reprinted with permission.
 ```
-
-WWF (2022) Living Planet Report; © 2022
-WWF - World Wide Fund For Nature. Reprinted with permission.
 
 ### *מינים פולשים*
 
@@ -466,10 +450,7 @@ name: fig-7.4
 המחלקה[^118]), והשוואה לאירועי הכחדה בעבר. הקו השחור מסמן את המדד המייצג
 לדעת המחברים ארוע הכחדה (75% הכחדה). סימון לבן -- מין שהוכחד בטבע. סימון
 שחור -- מין הנמצא בסכנת הכחדה. סימון צהוב -- מינים שהוכחדו באחד מחמשת
-אירועי ההכחדה הגדולים של העבר. מקור --
-
-Barnosky et al. (2011) <https://doi.org/10.1038/nature09678> ; Reprinted
-with permission from Nature.
+אירועי ההכחדה הגדולים של העבר. מקור -- Barnosky et al. (2011) <https://doi.org/10.1038/nature09678> ; Reprinted with permission from Nature.
 ```
 
 
@@ -505,9 +486,7 @@ name: fig-7.5
 ---
 חלוקת סוגים ושימושים של שטח היבשות. מקור -
 
-Making Peace with Nature (2021)
-<https://www.unep.org/resources/making-peace-nature>; © 2024 UNEP,
-Reprinted with permission.
+Making Peace with Nature (2021) <https://www.unep.org/resources/making-peace-nature>; © 2024 UNEP,Reprinted with permission.
 ```
 
 
@@ -580,9 +559,7 @@ name: fig-7.6
 אנושית, (b) סחף קרקעות, (c) החלק היחסי של יצרנות ראשונית מחקלאות, (d)
 נפיצות מינים מקוריים של צמחים. מקור -
 
-Making Peace with Nature (2021)
-<https://www.unep.org/resources/making-peace-nature>; © 2024 UNEP;
-Reprinted with permission.
+Making Peace with Nature (2021) <https://www.unep.org/resources/making-peace-nature>; © 2024 UNEP; Reprinted with permission.
 ```
 
 
@@ -612,9 +589,7 @@ name: fig-7.7
 הקשרים הדו-כיווניים בין שינויי אקלים, פגיעה בשטחים פתוחים
 וירידה במגוון המינים והשפעתם על איכות החיים של בני אדם. מקור -
 
-Making Peace with Nature (2021)
-<https://www.unep.org/resources/making-peace-nature>; © 2024 UNEP;
-Reprinted with permission.
+Making Peace with Nature (2021) <https://www.unep.org/resources/making-peace-nature>; © 2024 UNEP; Reprinted with permission.
 ```
 
 
@@ -847,10 +822,7 @@ height: 3.5145833333333334in
 name: fig-7.8
 ---
 שינויים בשטח היערות וסוגי שטחים אחרים בעשרת אלפי השנה
-האחרונות. מקור --
-
-OUR WORLD IN DATA, <https://ourworldindata.org/forest-area> ; Reprinted
-with permission.
+האחרונות. מקור -- OUR WORLD IN DATA, <https://ourworldindata.org/forest-area> ; Reprinted with permission.
 ```
 
 
@@ -863,15 +835,11 @@ name: fig-7.9
 ---
 קצב בירוא היערות בעבר ובהווה, והקצב הדרוש עד שנת 2030 על מנת
 לעמוד ביעד של התחממות גלובלית מירבית של 1.5 מעלות צלזיוס. למרבה הצער,
-עדכון של הדו\"ח בשנת 2024 מציג תמונה עגומה[^212]. מקור --
-```
-
-Forest Declaration Assessment Partners.
-(2023). Off track and falling behind: Tracking progress on 2030 forest
+עדכון של הדו\"ח בשנת 2024 מציג תמונה עגומה[^212]. מקור -- Forest Declaration Assessment Partners.(2023).
+Off track and falling behind: Tracking progress on 2030 forest
 goals. Climate Focus (coordinator and editor).
-[www.forestdeclaration.org](http://www.forestdeclaration.org); Reprinted
-with permission.
-
+[www.forestdeclaration.org](http://www.forestdeclaration.org); Reprinted with permission.
+```
 
 ```{figure} media/image10.jpeg
 ---
@@ -879,12 +847,8 @@ height: 2.984027777777778in
 name: fig-7.10
 ---
 תמונת לווין של שריפות (אזורים אדומים) ברחבי העולם ב-19
-בספטמבר 2019. מקור --
+בספטמבר 2019. מקור -- NASA, Worldview[^213] ; Reprinted with permission.
 ```
-
-
-NASA, Worldview[^213] ; Reprinted with permission.
-
 #### *יערות ושינויי אקלים*
 
 לבירוא יערות והפיכתם לשטחים חקלאיים (או שינויים אחרים בשימושי קרקע כמו
