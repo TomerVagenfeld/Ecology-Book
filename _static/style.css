@@ -93,12 +93,13 @@ html[dir="rtl"] .figure .caption, html[dir="rtl"] figure figcaption {
 ============================================================================= */
 @media (min-width: 992px) {
   .bd-container__inner { display: flex; gap: var(--pst-horizontal-spacing, 2rem); }
+  #pst-secondary-sidebar { order: 1; flex: 0 0 var(--bd-sidebar-secondary-width, 18rem); }
   .bd-main { order: 2; flex: 1 1 auto; }
-  #pst-primary-sidebar { order: 1; flex: 0 0 var(--bd-sidebar-primary-width, 18rem); }
+  #pst-primary-sidebar { order: 3; flex: 0 0 var(--bd-sidebar-primary-width, 18rem); }
 
   #pst-primary-sidebar { transition: transform .2s ease, width .2s ease; will-change: transform; }
   body.rtl-sidebar-collapsed #pst-primary-sidebar {
-    transform: translateX(-100%);
+    transform: translateX(100%);
     width: 0 !important; flex-basis: 0 !important;
     margin: 0 !important; padding: 0 !important; overflow: hidden !important;
   }
@@ -114,13 +115,42 @@ html[dir="rtl"] .figure .caption, html[dir="rtl"] figure figcaption {
   #pst-primary-sidebar { display: none !important; }
 
   dialog#pst-primary-sidebar-modal {
-    position: fixed; top: 0; left: 0; bottom: 0; right: auto;
+    position: fixed; top: 0; left: auto; bottom: 0; right: 0;
     margin: 0; padding: 0; width: min(84vw, 420px); max-width: 100%; height: 100%;
     border: 0; background: var(--bs-body-bg, #fff);
-    transform: translateX(-100%); transition: transform .2s ease-out;
+    transform: translateX(100%); transition: transform .2s ease-out;
   }
   dialog#pst-primary-sidebar-modal[open] { transform: none; }
 dialog#pst-primary-sidebar-modal::backdrop { background: rgba(0,0,0,.45); }
+
+  dialog#pst-secondary-sidebar-modal {
+    position: fixed; top: 0; right: auto; bottom: 0; left: 0;
+    margin: 0; padding: 0; width: min(84vw, 420px); max-width: 100%; height: 100%;
+    border: 0; background: var(--bs-body-bg, #fff);
+    transform: translateX(-100%);
+    transition: transform .2s ease-out;
+  }
+  dialog#pst-secondary-sidebar-modal[open] { transform: none; }
+  dialog#pst-secondary-sidebar-modal::backdrop { background: rgba(0,0,0,.45); }
+}
+
+/* =============================================================================
+   Secondary sidebar (page ToC) alignment on desktop + RTL tweaks
+============================================================================= */
+.bd-sidebar-secondary {
+  direction: rtl;
+  text-align: right;
+}
+
+.bd-sidebar-secondary .bd-toc-nav,
+.bd-sidebar-secondary .bd-toc-nav .nav,
+.bd-sidebar-secondary .bd-toc-nav .nav-link {
+  direction: rtl;
+  text-align: right;
+}
+
+.bd-sidebar-secondary .page-toc {
+  justify-content: flex-end;
 }
 
 /* =============================================================================
