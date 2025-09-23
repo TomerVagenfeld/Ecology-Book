@@ -1,18 +1,21 @@
 /* =============================================================================
-   Base: layout LTR so theme math works; content blocks RTL for Hebrew
+   Base: default RTL for Hebrew content with LTR override when needed
 ============================================================================= */
-html, body { direction: ltr; text-align: left; font-family: sans-serif; }
+html, body { direction: rtl; text-align: right; font-family: sans-serif; }
 /* style.css — minimal, consistent, RTL-first with clean quote styling */
 
-/* Base RTL layout (Hebrew) */
+/* Base LTR layout override (English) */
 html[dir="ltr"] body {
   direction: ltr;
-  text-align: right;
+  text-align: left;
 }
 
 /* Make paragraphs and headings render nicely in RTL */
 html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3,
-html[dir="rtl"] h4, html[dir="rtl"] h5, html[dir="rtl"] h6,
+html[dir="rtl"] h4, html[dir="rtl"] h5, html[dir="rtl"] h6 {
+  unicode-bidi: plaintext;
+  text-align: right;
+}
 html[dir="rtl"] p, html[dir="rtl"] li {
   unicode-bidi: plaintext;
 }
@@ -92,12 +95,32 @@ html[dir="rtl"] .figure .caption, html[dir="rtl"] figure figcaption {
    Desktop (≥992px): left sidebar as a static column you can collapse
 ============================================================================= */
 @media (min-width: 992px) {
-  .bd-container__inner { display: flex; gap: var(--pst-horizontal-spacing, 2rem); }
+  .bd-container__inner {
+    display: flex;
+    gap: var(--pst-horizontal-spacing, 2rem);
+    direction: ltr; /* keep flex row logical order regardless of document dir */
+  }
+  #pst-secondary-sidebar { order: 1; flex: 0 0 var(--bd-sidebar-secondary-width, 18rem); }
   .bd-main { order: 2; flex: 1 1 auto; }
-  #pst-primary-sidebar { order: 1; flex: 0 0 var(--bd-sidebar-primary-width, 18rem); }
+  #pst-primary-sidebar { order: 3; flex: 0 0 var(--bd-sidebar-primary-width, 18rem); }
 
-  #pst-primary-sidebar { transition: transform .2s ease, width .2s ease; will-change: transform; }
+  html[dir="rtl"] #pst-secondary-sidebar,
+  html[dir="rtl"] .bd-main,
+  html[dir="rtl"] #pst-primary-sidebar {
+    direction: rtl;
+  }
+
+  #pst-primary-sidebar,
+  #pst-secondary-sidebar {
+    transition: transform .2s ease, width .2s ease;
+    will-change: transform;
+  }
   body.rtl-sidebar-collapsed #pst-primary-sidebar {
+    transform: translateX(100%);
+    width: 0 !important; flex-basis: 0 !important;
+    margin: 0 !important; padding: 0 !important; overflow: hidden !important;
+  }
+  body.rtl-secondary-collapsed #pst-secondary-sidebar {
     transform: translateX(-100%);
     width: 0 !important; flex-basis: 0 !important;
     margin: 0 !important; padding: 0 !important; overflow: hidden !important;
@@ -114,13 +137,42 @@ html[dir="rtl"] .figure .caption, html[dir="rtl"] figure figcaption {
   #pst-primary-sidebar { display: none !important; }
 
   dialog#pst-primary-sidebar-modal {
-    position: fixed; top: 0; left: 0; bottom: 0; right: auto;
+    position: fixed; top: 0; left: auto; bottom: 0; right: 0;
     margin: 0; padding: 0; width: min(84vw, 420px); max-width: 100%; height: 100%;
     border: 0; background: var(--bs-body-bg, #fff);
-    transform: translateX(-100%); transition: transform .2s ease-out;
+    transform: translateX(100%); transition: transform .2s ease-out;
   }
   dialog#pst-primary-sidebar-modal[open] { transform: none; }
 dialog#pst-primary-sidebar-modal::backdrop { background: rgba(0,0,0,.45); }
+
+  dialog#pst-secondary-sidebar-modal {
+    position: fixed; top: 0; right: auto; bottom: 0; left: 0;
+    margin: 0; padding: 0; width: min(84vw, 420px); max-width: 100%; height: 100%;
+    border: 0; background: var(--bs-body-bg, #fff);
+    transform: translateX(-100%);
+    transition: transform .2s ease-out;
+  }
+  dialog#pst-secondary-sidebar-modal[open] { transform: none; }
+  dialog#pst-secondary-sidebar-modal::backdrop { background: rgba(0,0,0,.45); }
+}
+
+/* =============================================================================
+   Secondary sidebar (page ToC) alignment on desktop + RTL tweaks
+============================================================================= */
+.bd-sidebar-secondary {
+  direction: rtl;
+  text-align: right;
+}
+
+.bd-sidebar-secondary .bd-toc-nav,
+.bd-sidebar-secondary .bd-toc-nav .nav,
+.bd-sidebar-secondary .bd-toc-nav .nav-link {
+  direction: rtl;
+  text-align: right;
+}
+
+.bd-sidebar-secondary .page-toc {
+  justify-content: flex-end;
 }
 
 /* =============================================================================
