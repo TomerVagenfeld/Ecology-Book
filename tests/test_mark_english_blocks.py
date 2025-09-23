@@ -27,16 +27,14 @@ def test_mark_english_blocks_emits_valid_colon_fences():
 
     rendered = mark_english_blocks(source)
 
-    assert ":::{div}" in rendered
+    assert ":::{container}" in rendered
     assert "::{{}}" not in rendered
     assert "::: {" not in rendered
 
     expected_paragraph = textwrap.dedent(
         """
-        :::{div}
+        :::{container}
         :class: en_quote
-        :dir: ltr
-
         An English paragraph that should be wrapped.
         :::
         """
@@ -45,10 +43,8 @@ def test_mark_english_blocks_emits_valid_colon_fences():
 
     expected_top_level = textwrap.dedent(
         """
-        :::{div}
+        :::{container}
         :class: en_quote
-        :dir: ltr
-
         > Energy is the only universal currency.
         > One of its many forms must be transformed to get anything done.
         :::
@@ -59,13 +55,12 @@ def test_mark_english_blocks_emits_valid_colon_fences():
     lines = rendered.splitlines()
     list_index = lines.index("- רשומה ברשימה")
     assert lines[list_index + 1].strip() == ""
-    assert lines[list_index + 2] == "  :::{div}"
+    assert lines[list_index + 2] == "  :::{container}"
     assert lines[list_index + 3] == "  :class: en_quote"
-    assert lines[list_index + 4] == "  :dir: ltr"
-    assert lines[list_index + 5].strip() == ""
-    assert lines[list_index + 6] == "  > This is an English quote inside a list."
-    assert lines[list_index + 7] == "  > It should keep its indentation."
-    assert lines[list_index + 8] == "  :::"
+    assert lines[list_index + 4].strip() == ""
+    assert lines[list_index + 5] == "  > This is an English quote inside a list."
+    assert lines[list_index + 6] == "  > It should keep its indentation."
+    assert lines[list_index + 7] == "  :::"
 
     assert "Another paragraph" in rendered
     assert "עם קצת Hebrew" in rendered

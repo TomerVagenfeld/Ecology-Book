@@ -13,6 +13,7 @@ from md_post_processing import (
     promote_top_title_line_to_h1,
     normalize_md_file_headings,
     number_md_headings,
+    remove_unreferenced_footnotes_file,
 )
 from build_book import (
     _first_h1_title,
@@ -58,6 +59,7 @@ def generate_md_files(input_dir, output_dir, copy_raw=False):
         # If you ever want the old behavior, call: mark_english_blocks_file(md_output, scope="before_first_h1", mode="paragraphs_and_blockquotes")
         mark_english_blocks_file(md_output, scope="before_first_h1")
         normalize_pandoc_attrs(Path(md_output))
+        remove_unreferenced_footnotes_file(md_output)
 
         # Insert figures from the external assets directory into MyST figure blocks
         process_markdown_insert_figures(

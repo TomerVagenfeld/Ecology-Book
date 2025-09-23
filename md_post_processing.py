@@ -10,7 +10,9 @@ HEADING_RE = re.compile(r'^(#{1,6})\s+(.*)$')
 HEBREW_RE = re.compile(r'[\u0590-\u05FF]')          # Hebrew Unicode block
 LATIN_RE  = re.compile(r'[A-Za-z]')
 FOOTNOTE_DEF_RE = re.compile(r'^\s*\[\^[^\]]+\]:')   # [^1]:
+FOOTNOTE_DEF_CAPTURE_RE = re.compile(r'^\s*\[\^([^\]]+)\]:')
 FOOTNOTE_REF_RE = re.compile(r'\[\^[^\]]+\]')        # inline refs [^1]
+FOOTNOTE_REF_CAPTURE_RE = re.compile(r'\[\^([^\]]+)\](?!\s*:)')
 FIRST_NONBLANK_HEADING_FORMS = re.compile(r'^\s*(?:[*_]{1,3}\s*)?(.+?)(?:\s*[*_]{1,3})?\s*$')
 URL_RE = re.compile(r'(https?://|www\.)', re.IGNORECASE)
 
@@ -21,13 +23,13 @@ _HTML_EN_QUOTE_BLOCK_RE = re.compile(
 )
 
 # New MyST colon-fence wrapper for en_quote blocks
-# Captures: indent, header (opening + attrs), payload, and closing fence with same indent
+# Captures: indent, directive name, options, payload, and closing fence with same indent
 _COLON_EN_QUOTE_BLOCK_RE = re.compile(
-    r'(?ms)^([ \t]*):::\{div\}\s*\n'                                  # indent + :::{div}
-    r'(?:(?:[ \t]*:class:\s*en_quote\s*\n|[ \t]*:dir:\s*ltr\s*\n)){2}' # two lines containing class and dir (any order)
-    r'\n?'                                                             # optional spacer line
-    r'(.*?)'                                                           # payload (group 2)
-    r'\n\1:::\s*$'                                                     # closing fence at same indent
+    r'(?ms)^([ \t]*):::\{(?P<directive>div|container)\}\s*\n'  # indent + :::{div|container}
+    r'(?P<options>(?:[ \t]*:[^\n]+\n)*)'                        # option lines (if any)
+    r'\n?'                                                        # optional spacer line
+    r'(?P<body>.*?)'                                               # payload content
+    r'\n\1:::\s*$'                                              # closing fence at same indent
 )
 
 # --- Title promotion ---------------------------------------------------------
@@ -92,11 +94,10 @@ def _common_indent(block_lines: list[str]) -> str:
 
 def mark_english_blocks(md_text: str, scope: str = "anywhere") -> str:
     """
-    Wrap English-only blockquotes/paragraphs in a MyST div using colon-fences:
+    Wrap English-only blockquotes/paragraphs in a MyST container using colon-fences:
 
-        ::: {div}
+        ::: {container}
         :class: en_quote
-        :dir: ltr
 
         > ...
         :::
@@ -174,10 +175,10 @@ def mark_english_blocks(md_text: str, scope: str = "anywhere") -> str:
                 indent = _common_indent(block)
                 if out and out[-1] is not None and out[-1].strip():
                     out.append(indent if indent else "")
-                out.append(f"{indent}:::{{div}}")
+                out.append(f"{indent}:::{{container}}")
                 out.append(f"{indent}:class: en_quote")
-                out.append(f"{indent}:dir: ltr")
-                out.append(indent if indent else "")
+                if indent:
+                    out.append(indent)
                 out.extend(block)                               # keep the original '>' lines
                 out.append(f"{indent}:::")
             else:
@@ -197,10 +198,10 @@ def mark_english_blocks(md_text: str, scope: str = "anywhere") -> str:
                 indent = _common_indent(block)
                 if out and out[-1] is not None and out[-1].strip():
                     out.append(indent if indent else "")
-                out.append(f"{indent}:::{{div}}")
+                out.append(f"{indent}:::{{container}}")
                 out.append(f"{indent}:class: en_quote")
-                out.append(f"{indent}:dir: ltr")
-                out.append(indent if indent else "")
+                if indent:
+                    out.append(indent)
                 out.extend(block)
                 out.append(f"{indent}:::")
             else:
@@ -245,18 +246,75 @@ def _fix_html_en_quote_blocks(text: str) -> str:
 
 def _fix_colon_en_quote_blocks(text: str) -> str:
     def _fix(m: re.Match) -> str:
-        indent, payload = m.group(1), m.group(2)
-        payload_fixed = _unescape_in_en_quote(payload)
-        lines = [
-            f"{indent}:::{{div}}",
-            f"{indent}:class: en_quote",
-            f"{indent}:dir: ltr",
-            indent if indent else "",
-        ]
+        indent = m.group(1)
+        payload_fixed = _unescape_in_en_quote(m.group('body'))
+        lines = [f"{indent}:::{{container}}", f"{indent}:class: en_quote"]
+        if indent:
+            lines.append(indent)
         lines.extend(payload_fixed.splitlines())
         lines.append(f"{indent}:::")
         return "\n".join(lines)
     return _COLON_EN_QUOTE_BLOCK_RE.sub(_fix, text)
+
+
+def remove_unreferenced_footnotes(md_text: str) -> str:
+    """Strip footnote definitions that are never referenced in the document."""
+    if not FOOTNOTE_DEF_RE.search(md_text):
+        return md_text
+
+    lines = md_text.splitlines()
+    refs: set[str] = set()
+    for line in lines:
+        if FOOTNOTE_DEF_CAPTURE_RE.match(line):
+            continue
+        refs.update(m.group(1) for m in FOOTNOTE_REF_CAPTURE_RE.finditer(line))
+
+    cleaned: list[str] = []
+    i = 0
+
+    while i < len(lines):
+        line = lines[i]
+        m = FOOTNOTE_DEF_CAPTURE_RE.match(line)
+        if not m:
+            cleaned.append(line)
+            i += 1
+            continue
+
+        label = m.group(1)
+        block_start = i
+        i += 1
+        while i < len(lines):
+            nxt = lines[i]
+            if FOOTNOTE_DEF_CAPTURE_RE.match(nxt):
+                break
+            if nxt.startswith("    ") or nxt.startswith("\t"):
+                i += 1
+                continue
+            if not nxt.strip() and i + 1 < len(lines) and (
+                lines[i + 1].startswith("    ") or lines[i + 1].startswith("\t")
+            ):
+                i += 1
+                continue
+            break
+
+        if label in refs:
+            cleaned.extend(lines[block_start:i])
+        else:
+            while cleaned and not cleaned[-1].strip():
+                cleaned.pop()
+
+    result = "\n".join(cleaned)
+    if md_text.endswith("\n") and not result.endswith("\n"):
+        result += "\n"
+    return result
+
+
+def remove_unreferenced_footnotes_file(md_path: str | Path) -> None:
+    p = Path(md_path)
+    text = p.read_text(encoding="utf-8")
+    fixed = remove_unreferenced_footnotes(text)
+    if fixed != text:
+        p.write_text(fixed, encoding="utf-8")
 
 def normalize_pandoc_attrs(md_path: Path):
     """Normalize smart quotes, drop Pandoc attribute blocks, remove stray backslash
