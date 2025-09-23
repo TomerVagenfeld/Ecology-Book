@@ -1,0 +1,35 @@
+format: jb-book
+root: index
+options:
+  numbered: false
+chapters:
+  - file: book-source/md/ch1_introduction
+    title: "1. מבוא: עקרונות, היסטוריה והגורמים למשבר הסביבה"
+  - file: book-source/md/ch2_agriculture
+    title: "2. חקלאות וסביבה"
+  - file: book-source/md/ch3_energy
+    title: "3. משק האנרגיה"
+  - file: book-source/md/ch4_industry
+    title: "4. תעשיה וחומרי גלם"
+  - file: book-source/md/ch5_biogeochemical_cycles
+    title: "5. מחזורים ביוגאוכימיים"
+  - file: book-source/md/ch6_global_warming
+    title: "6. התחממות גלובלית ושיבוש האקלים"
+  - file: book-source/md/ch7_biosphere
+    title: "7. פגיעה בביוספרה"
+  - file: book-source/md/ch8_open_spaces_soils
+    title: "8. פגיעה בשטחים פתוחים וקרקעות"
+  - file: book-source/md/ch9_water
+    title: "9. פגיעה במקורות ובאיכות מים מתוקים"
+  - file: book-source/md/ch10_marine
+    title: "10. פגיעה בסביבה הימית"
+  - file: book-source/md/ch11_atm
+    title: "11. פגיעה באטמוספרה וזיהום אוויר"
+  - file: book-source/md/ch12_urban
+    title: "12. הסביבה העירונית"
+  - file: book-source/md/ch13_summary
+    title: "13. סיכום: הבעיות הניצבות לפתחנו ודרכי התמודדות"
+  - file: book-source/md/ch14_IL
+    title: "14. סיכום מצב הסביבה בישראל"
+  - file: book-source/md/ch15_appendices
+    title: "15. נספחים"
