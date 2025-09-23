@@ -172,15 +172,14 @@ def mark_english_blocks(md_text: str, scope: str = "anywhere") -> str:
             text = text_for_detection(block, is_quote=True)
             if _looks_english_only(text) and not (FOOTNOTE_DEF_RE.search(text) or FOOTNOTE_REF_RE.search(text) or URL_RE.search(text)):
                 indent = _common_indent(block)
-                out.append(f'{indent}::{{}}')                  # harmless spacer for readability
-                out.append(f'{indent}::{{}}')                  # (keeps a blank line after attrs)
-                out.append(f'{indent}::{{}}')                  # (these empty colons are ignored)
-                out.append(f'{indent}:::{ { "div" } }'.replace(' ', ''))  # -> ':::{div}'
-                out.append(f'{indent}:class: en_quote')
-                out.append(f'{indent}:dir: ltr')
-                out.append('')
+                if out and out[-1] is not None and out[-1].strip():
+                    out.append(indent if indent else "")
+                out.append(f"{indent}:::{{div}}")
+                out.append(f"{indent}:class: en_quote")
+                out.append(f"{indent}:dir: ltr")
+                out.append(indent if indent else "")
                 out.extend(block)                               # keep the original '>' lines
-                out.append(f'{indent}:::')
+                out.append(f"{indent}:::")
             else:
                 out.extend(block)
             i = j
@@ -196,12 +195,14 @@ def mark_english_blocks(md_text: str, scope: str = "anywhere") -> str:
             text = text_for_detection(block, is_quote=False)
             if _looks_english_only(text) and not (FOOTNOTE_DEF_RE.search(text) or FOOTNOTE_REF_RE.search(text) or URL_RE.search(text)):
                 indent = _common_indent(block)
-                out.append(f'{indent}:::{ { "div" } }'.replace(' ', ''))
-                out.append(f'{indent}:class: en_quote')
-                out.append(f'{indent}:dir: ltr')
-                out.append('')
+                if out and out[-1] is not None and out[-1].strip():
+                    out.append(indent if indent else "")
+                out.append(f"{indent}:::{{div}}")
+                out.append(f"{indent}:class: en_quote")
+                out.append(f"{indent}:dir: ltr")
+                out.append(indent if indent else "")
                 out.extend(block)
-                out.append(f'{indent}:::')
+                out.append(f"{indent}:::")
             else:
                 out.extend(block)
             i = j
@@ -246,9 +247,15 @@ def _fix_colon_en_quote_blocks(text: str) -> str:
     def _fix(m: re.Match) -> str:
         indent, payload = m.group(1), m.group(2)
         payload_fixed = _unescape_in_en_quote(payload)
-        return f"{indent}:::{ { 'div' } }".replace(' ', '') + \
-               f"\n{indent}:class: en_quote\n{indent}:dir: ltr\n\n" + \
-               payload_fixed + f"\n{indent}:::"
+        lines = [
+            f"{indent}:::{{div}}",
+            f"{indent}:class: en_quote",
+            f"{indent}:dir: ltr",
+            indent if indent else "",
+        ]
+        lines.extend(payload_fixed.splitlines())
+        lines.append(f"{indent}:::")
+        return "\n".join(lines)
     return _COLON_EN_QUOTE_BLOCK_RE.sub(_fix, text)
 
 def normalize_pandoc_attrs(md_path: Path):
