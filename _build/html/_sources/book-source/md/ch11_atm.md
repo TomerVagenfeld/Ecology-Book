@@ -1,31 +1,21 @@
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 "When you look at the ... atmosphere on the limb of the Earth,
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 I wouldn't say it looks unhealthy, but it definitely looks very,
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 very fragile and just kind of like this thin film,
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 so it looks like something that we definitely need to take care of."
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 Scott Kelly, NASA.
 :::
 # 11. פגיעה באטמוספרה וזיהום אוויר

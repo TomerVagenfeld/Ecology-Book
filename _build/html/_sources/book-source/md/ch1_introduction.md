@@ -1,61 +1,41 @@
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 "All people---living in ancient or modern times, in luxury or
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 destitution, in mega-cities or vast hinterlands---depend
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 intimately and utterly on nature. Through the microbiome
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 inhabiting our body, the nature in local parks and farms, and
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 exotic forests and underwater realms across the world, we
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 are all deeply embedded within the web of life. This extremely
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 subtle and extensive net of relationships sustains and fulfills
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 us, providing the material basics of nutrition, health, and
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 security to ethereal senses of attachment, beauty, and spirit."
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 Gretchen C. Daily, Stanford University
 :::
 # 1. מבוא: עקרונות, היסטוריה והגורמים למשבר הסביבה
@@ -178,74 +158,52 @@ Day).[^19] מיליוני אמריקנים יצאו לרחובותיהם של י
 
 טבלה 1.1: אבני דרך ב\"היסטוריה הסביבתית\".
 
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 The great smog, London (1952)
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 CO~2~ rise, the Mauna Loa record - C. Keeling (1957)
 :::
 *Silent Spring*, נio-magnification of pesticides - R. Carson (1962)
 
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 Pollution is global & ancient, polar ice cores of Pb - C. C. Patterson
 (1969)
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 Earth Day -- G. Nelson & D. Hayes (1970)
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 *Limits to Growth* - The Club of Rome (1972)
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 The central role of oceans in climate regulation - W. Broecker & DSDP
 (1970s)
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 The stratospheric O~3~ depletion -- M. Molina & S. Rowland (1974-1980s)
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 The Gaia Hypothesis -- J. Lovelock & L. Margulis (1970s)
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 Ecological Footprint concept -- W. Rees & M. Wackernagel (1992)
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 *Earth in the Balance* -- A. Gore (1992)
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 Global warming -- 1896 (S. Arrhenius), 1930's (G. Callendar), 1970's,
 1990s (Rio -- 1992) - present (COP21, Paris 2015, COP29, Baku 2024)
 :::
@@ -284,16 +242,14 @@ change). לגבי כל אחד מהמדדים הללו ניסו החוקרים ל
 היכחדות. איור 1.1ב מציג את המצב ב-2009, ב-2015 וב-2023 ומראה כיצד מצב
 הסביבה הלך והחמיר.[^42]
 
-איור 1.1: גבולות פלנטריים -- (א) מעודכן לשנת 2320.[^43] (ב) בשנים 2009,
-2015, 2023. Reprinted with permission
+```{figure} ../media/1_1.jpg
+---
+height: 400px
+name: fig 1-1
+---
+איור 1.1: גבולות פלנטריים -- (א) מעודכן לשנת 2320.[^43] (ב) בשנים 2009, 2015, 2023. Reprinted with permission
+```
 
-(א)
-
-:::{div}
-:class: en_quote
-:dir: ltr
-
-![](media/image1.jpeg)
 :::
 ![](media/image2.jpeg)(ב)
 
@@ -420,16 +376,14 @@ P\*A\*T, הטוענת שהשפעת האנושות על הטבע (I) שווה ל�
 עבודות עכשוויות יותר, למשל פרסומיהם של טים ג\'קסון (Jackson) וג\'ייסון
 היקל (Hickel).[^71]
 
+```{figure} ../media/1_2.png
+---
+height: 400px
+name: fig 1-2
+---
 איור 1.2: תחזיות שונות לגבי גודל האוכלוסייה העולמית עד שנת 2100. מקור -
+```
 
-<https://population.un.org/wpp/Graphs/Probabilistic/POP/TOT/900> ;
-Reprinted with permission
-
-:::{div}
-:class: en_quote
-:dir: ltr
-
-![](media/image3.png)
 :::
 ```{figure} ../media/1_3.jpg
 ---
@@ -561,18 +515,14 @@ IPCC (2022)[^91]. Reprinted with permission.
 
 (א)
 
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 ![](media/image5.png)
 :::
 (ב)
 
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 ![](media/image6.png)
 :::
 ## 1.5 מבנה הספר
@@ -691,9 +641,9 @@ IPCC (2022)[^91]. Reprinted with permission.
 
 [^14]: Mann C. C., (2018) The wizard and the prophet: Two remarkable
     
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     scientists and their dueling visions to shape tomorrow's world. New
     York, Knopf Doubleday Publishing Group.
@@ -709,9 +659,9 @@ IPCC (2022)[^91]. Reprinted with permission.
 
 [^18]: \(1\) Osborn F. (1948) Our Plundered Planet. Little, Brown and
     
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     Company; (2) Vogt W. (1948) Road to Survival. ISBN 0548385165; (3)
     Leopold A. (1949) Sand County Almanac: And Sketches Here and There,
@@ -729,9 +679,9 @@ IPCC (2022)[^91]. Reprinted with permission.
 
 [^23]: \(1\) Paddock W. and Paddock P. (1967) Famine 1975! America\'s
     
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     Decision: Who Will Survive? Little, Brown and Co.; (2) Ehrlich P. R.
     (1968) The Population Bomb, The Sierra Club-Ballantine.
@@ -750,9 +700,9 @@ IPCC (2022)[^91]. Reprinted with permission.
 
 [^28]: Murozumi M., Chow T. J., and Patterson C. C. (1969) Chemical
     
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     concentrations of pollutant lead aerosols, terrestrial dusts and sea
     salts in Greenland and Antarctic snow strata. *Geochim. Cosmochim.
@@ -769,9 +719,9 @@ IPCC (2022)[^91]. Reprinted with permission.
 
 [^30]: \(1\) Daly, H. E. (1991) \[1977\] Steady-State Economics (2nd
     
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     ed.). Washington, DC, Island Press. ISBN 978-1559630719; (2) Catton
     W. (1980) Overshoot: The Ecological Basis of Revolutionary Change.
@@ -779,9 +729,9 @@ IPCC (2022)[^91]. Reprinted with permission.
     :::
 [^31]: Gore A. A. (1993) Earth in the Balance: Ecology and the Human
     
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     Spirit. New York, Plume.
     :::
@@ -857,17 +807,17 @@ IPCC (2022)[^91]. Reprinted with permission.
 
 [^38]: Steffen, W. et al. (2015) Planetary boundaries: Guiding human
     
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     development on a changing planet. *Science* **347**, 1259855.
     :::
 [^39]: Stratosphere: The atmosphere is made of layers based on changes
     
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     in temperature with height. The lower layer is the troposphere. The
     stratosphere lies above the troposphere. There is no turbulence in
@@ -878,9 +828,9 @@ IPCC (2022)[^91]. Reprinted with permission.
     :::
 [^40]: In 2015 the expression E/MSY was used: E/MSY -- number of
     
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     extinctions per million species per year, see Fig. 1.1b.
     :::
@@ -935,9 +885,9 @@ IPCC (2022)[^91]. Reprinted with permission.
 [^55]: Adam D. (2021) How far will global population rise? *Nature*
     **597**, 462-465.
 
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     The United Nations forecasts that nearly 11 billion people will be
     living on Earth at the end of the century, but other demographic
@@ -960,9 +910,9 @@ IPCC (2022)[^91]. Reprinted with permission.
 
 [^59]: GHA = global hectares, which measures the area needed to support
     
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     the needs of a specific country or the entire world's population.
     :::
@@ -1031,9 +981,9 @@ IPCC (2022)[^91]. Reprinted with permission.
 
 [^73]: Naess A. (1973) The shallow and the deep, long-range ecology
     
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     movement. A summary, *Inquiry*, **16**, 95-100.
     :::
@@ -1046,9 +996,9 @@ IPCC (2022)[^91]. Reprinted with permission.
 
 [^75]: Lag time versus response time - lag time is the time lapse
     
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     between the beginning of an overshoot in the input or output of
     matter or energy to or from the system, and the moment when there is
@@ -1068,9 +1018,9 @@ IPCC (2022)[^91]. Reprinted with permission.
     ההתחלתי שביחס אליו מחושב הגידול ובמספרים מוחלטים באותו פרק זמן יש
     תוספת גדולה יותר. ניתן לחשב בקלות את הזמן הדרוש להכפלת הערך ההתחלתי:
 
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     t~(x2)~ = 70/R, where t~(x2)~ = time needed for the initial value to
     double itself, and R = growth rate in %
@@ -1085,9 +1035,9 @@ IPCC (2022)[^91]. Reprinted with permission.
 
 [^79]: Strange, A., O. Jasnos, L. T. Toth, N. G. Prouty, and T. M.
     
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     DeCarlo (2025), A coral core archive designed for transparency and
     :::
@@ -1152,9 +1102,9 @@ IPCC (2022)[^91]. Reprinted with permission.
 
 [^91]: IPCC, 2022: Summary for Policymakers \[H.-O. Pörtner, D.C.
     
-    :::{div}
+    :::{container}
     :class: en_quote
-    :dir: ltr
+    
     
     Roberts, E.S. Poloczanska, K. Mintenbeck, M. Tignor, A. Alegría, M.
     Craig, S. Langsdorf, S. Löschke, V. Möller, A. Okem (eds.)]. In:

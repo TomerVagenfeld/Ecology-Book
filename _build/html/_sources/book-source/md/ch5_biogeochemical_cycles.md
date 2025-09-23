@@ -1,37 +1,25 @@
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 "Applied science and engineering technology,
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 these were the powers of darkness
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 which had poisoned land, air and water,
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 the forests, the animals, the cities,
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 and our own human cells."
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 Saul Bellow, The Dean's December, 1982.
 :::
 # 5. מחזורים ביוגאוכימיים

@@ -1,37 +1,25 @@
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 "Climb the mountains and get their good tidings.
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 Nature's peace will flow into you as sunshine flows into trees.
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 The winds will blow their own freshness into you,
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 and the storms their energy,
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 while cares will drop away from you like the leaves of Autumn."
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 John Muir, The Mountains of California
 :::
 # 8. פגיעה בשטחים פתוחים וקרקעות

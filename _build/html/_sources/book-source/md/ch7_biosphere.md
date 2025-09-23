@@ -1,25 +1,17 @@
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 "A thing is right when it tends to preserve the integrity,
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 stability, and beauty of the biotic community.
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 It is wrong when it tends otherwise."
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 Aldo Leopold, A Sand County Almanac, 1949.
 :::
 # 7. פגיעה בביוספרה

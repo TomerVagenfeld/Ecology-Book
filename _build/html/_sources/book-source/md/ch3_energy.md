@@ -1,25 +1,17 @@
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 "Energy is the only universal currency:
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 One of its many forms must be transformed
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 to get anything done."
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 Vaclav Smil, Energy and Civilization: A History
 :::
 # 3. משק האנרגיה

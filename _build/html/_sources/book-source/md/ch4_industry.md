@@ -1,7 +1,5 @@
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 > "There is no such thing as away.
 >
 > When you throw something away,

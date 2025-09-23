@@ -1,37 +1,25 @@
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 "In its broader meaning, that other concept of the ancients
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 Remains. For the sea lies all about us. The commerce of all lands
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 must cross it. The very winds that move over the lands have
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 been cradled on its broad expanse and seek ever to return to it.
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 The continents themselves dissolve and pass to the sea, in grain
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 after grain of eroded land." - Rachel L. Carson, The Sea Around Us
 :::
 # 10. פגיעה בסביבה הימית

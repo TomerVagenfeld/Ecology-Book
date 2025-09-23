@@ -1,31 +1,21 @@
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 "With them the seed of Wisdom did I sow,
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 And with mine own hand wrought to make it grow;
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 And this was all the Harvest that I reap'd --
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 I came like Water and like Wind I go."
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 Omar Khayyam, Les Rubaïyat
 :::
 # 9. פגיעה במקורות ובאיכות מים מתוקים

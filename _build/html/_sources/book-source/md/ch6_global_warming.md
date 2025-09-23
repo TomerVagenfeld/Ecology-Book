@@ -1,26 +1,18 @@
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 "The basic science is very well established;
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 it is well understood that global warming is due to greenhouse gases.
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 What is uncertain is projections about specifics in the next few
 decades,
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 by how much will the climate change." - Mario J. Molina
 :::
 # 6. התחממות גלובלית ושיבוש האקלים

@@ -1,15 +1,11 @@
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 "Cities, like dreams, are made of desires and fears, even if the thread
 of their discourse is secret, their rules are absurd, their perspectives
 deceitful, and everything conceals something else."
 :::
-:::{div}
+:::{container}
 :class: en_quote
-:dir: ltr
-
 Italo Calvino, Invisible Cities
 :::
 # 12. הסביבה העירונית
