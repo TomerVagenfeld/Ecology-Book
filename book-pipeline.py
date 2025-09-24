@@ -14,6 +14,7 @@ from md_post_processing import (
     normalize_md_file_headings,
     number_md_headings,
     remove_unreferenced_footnotes_file,
+    strip_anonymous_colon_fences_file,
 )
 from build_book import (
     _first_h1_title,
@@ -68,6 +69,8 @@ def generate_md_files(input_dir, output_dir, copy_raw=False):
             media_dir=MEDIA_DIR,
             default_height_px=400,
         )
+
+        strip_anonymous_colon_fences_file(md_output)
 
         if "ch15" in docx_file:
             promote_top_title_line_to_h1(md_output)

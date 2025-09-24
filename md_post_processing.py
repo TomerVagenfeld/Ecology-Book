@@ -15,6 +15,9 @@ FOOTNOTE_REF_RE = re.compile(r'\[\^[^\]]+\]')        # inline refs [^1]
 FOOTNOTE_REF_CAPTURE_RE = re.compile(r'\[\^([^\]]+)\](?!\s*:)')
 FIRST_NONBLANK_HEADING_FORMS = re.compile(r'^\s*(?:[*_]{1,3}\s*)?(.+?)(?:\s*[*_]{1,3})?\s*$')
 URL_RE = re.compile(r'(https?://|www\.)', re.IGNORECASE)
+ANON_FENCE_LINE_RE = re.compile(r'^[ \t]*:::\s*$')
+ANON_FENCE_DIRECTIVE_RE = re.compile(r'^[ \t]*:::\{')
+COLON_FENCE_RE = re.compile(r'^([ \t]*):::(\{[^}]+\})?\s*$')
 
 # Old HTML wrapper (kept for backward compat only)
 _HTML_EN_QUOTE_BLOCK_RE = re.compile(
@@ -255,6 +258,78 @@ def _fix_colon_en_quote_blocks(text: str) -> str:
         lines.append(f"{indent}:::")
         return "\n".join(lines)
     return _COLON_EN_QUOTE_BLOCK_RE.sub(_fix, text)
+
+
+def strip_anonymous_colon_fences(md_text: str) -> str:
+    """Remove bare MyST colon-fence containers that have no directive/options.
+
+    This walks the Markdown line-by-line while keeping a stack of open colon
+    fences. Anonymous containers (``:::`` without ``{directive}``) that don’t
+    provide option lines (``:class:``, ``:name:``, …) are dropped by skipping
+    both their opening and closing fence while leaving the enclosed payload
+    intact. Nested colon fences are handled correctly so that inner directives
+    like ``:::{container}`` survive even when wrapped in an empty anonymous
+    block.
+    """
+
+    lines = md_text.splitlines()
+    out: list[str] = []
+    stack: list[dict[str, object]] = []
+
+    def _has_options(start_index: int, indent: str) -> bool:
+        k = start_index
+        while k < len(lines):
+            nxt = lines[k]
+            if not nxt.strip():
+                k += 1
+                continue
+            if nxt.startswith(f"{indent}:") and not nxt.startswith(f"{indent}::"):
+                return True
+            return False
+        return False
+
+    for idx, line in enumerate(lines):
+        m = COLON_FENCE_RE.match(line)
+        if not m:
+            out.append(line)
+            continue
+
+        indent, directive = m.groups()
+        directive = directive or ""
+
+        if directive:
+            stack.append({"indent": indent, "anonymous": False, "drop": False})
+            out.append(line)
+            continue
+
+        # Anonymous fence – determine whether this is a closing fence for the
+        # innermost open entry with matching indent, or the start of a new block
+        if stack and stack[-1]["indent"] == indent:
+            entry = stack.pop()
+            if entry["anonymous"] and entry["drop"]:
+                continue
+            out.append(line)
+            continue
+
+        has_options = _has_options(idx + 1, indent)
+        drop = not has_options
+        stack.append({"indent": indent, "anonymous": True, "drop": drop})
+        if drop:
+            continue
+        out.append(line)
+
+    result = "\n".join(out)
+    if md_text.endswith("\n") and not result.endswith("\n"):
+        result += "\n"
+    return result
+
+
+def strip_anonymous_colon_fences_file(md_path: str | Path) -> None:
+    p = Path(md_path)
+    text = p.read_text(encoding="utf-8")
+    fixed = strip_anonymous_colon_fences(text)
+    if fixed != text:
+        p.write_text(fixed, encoding="utf-8")
 
 
 def remove_unreferenced_footnotes(md_text: str) -> str:
