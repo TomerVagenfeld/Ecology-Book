@@ -4,7 +4,7 @@ from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
-from md_post_processing import mark_english_blocks
+from md_post_processing import mark_english_blocks, strip_anonymous_colon_fences
 
 
 def test_mark_english_blocks_emits_valid_colon_fences():
@@ -64,3 +64,65 @@ def test_mark_english_blocks_emits_valid_colon_fences():
 
     assert "Another paragraph" in rendered
     assert "עם קצת Hebrew" in rendered
+
+
+def test_strip_anonymous_colon_fences_removes_bare_blocks():
+    source = textwrap.dedent(
+        """
+        :::
+
+        ## 1.3 Heading inside anonymous container
+        Some paragraph text.
+
+        :::
+        """
+    ).strip("\n")
+
+    cleaned = strip_anonymous_colon_fences(source)
+
+    assert ":::" not in cleaned
+    assert "## 1.3 Heading" in cleaned
+
+
+def test_strip_anonymous_colon_fences_preserves_directives():
+    source = textwrap.dedent(
+        """
+        :::{container}
+        :class: en_quote
+
+        > English quote stays wrapped.
+        :::
+        """
+    ).strip("\n")
+
+    cleaned = strip_anonymous_colon_fences(source)
+
+    assert cleaned.strip("\n") == source
+
+
+def test_strip_anonymous_colon_fences_drops_outer_wrapper_but_keeps_inner():
+    source = textwrap.dedent(
+        """
+        :::
+        :::{container}
+        :class: en_quote
+
+        > Nested quote survives.
+        :::
+        :::
+        """
+    ).strip("\n")
+
+    cleaned = strip_anonymous_colon_fences(source)
+
+    expected = textwrap.dedent(
+        """
+        :::{container}
+        :class: en_quote
+
+        > Nested quote survives.
+        :::
+        """
+    ).strip("\n")
+
+    assert cleaned.strip("\n") == expected
