@@ -37,6 +37,7 @@ sphinx:
     - "rtl-sidebar.js"
     - "footnote-dir.js"
     - "list-dir.js"
+    - "en-quote.js"
 
 
 html:
