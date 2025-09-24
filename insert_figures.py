@@ -17,6 +17,9 @@ _IMG_LINE_RE = re.compile(r'!\[[^\]]*\]\(([^)]+)\)')
 # If the caption continues on following lines, we gather until a blank line or another block starts.
 _STOP_BLOCK_RE = re.compile(r'^\s*($|#{1,6}\s|```|~~~|> |\[\^|\!\[)')
 
+# Caption tails that indicate a missing source
+_SOURCE_SUFFIX_RE = re.compile(r'(מקור)\s*[:：־–—-]*\s*$', re.UNICODE)
+
 # Extensions preference
 _PREFERRED_EXTS = [".jpg", ".jpeg", ".png", ".webp", ".svg", ".pdf"]
 
@@ -81,6 +84,54 @@ def _collect_block(lines: list[str], start: int) -> tuple[int, list[str]]:
         out.append(L)
         i += 1
     return i, out
+
+def _collect_source_lines(lines: list[str], start: int) -> tuple[int, int, list[str]]:
+    """Collect source/credit lines that immediately follow a caption block."""
+    cursor = start
+    remove_start = start
+
+    # consume blank lines immediately after the caption block
+    while cursor < len(lines) and not lines[cursor].strip():
+        cursor += 1
+
+    src_lines: list[str] = []
+    while cursor < len(lines):
+        L = lines[cursor]
+        if not L.strip():
+            break
+        if _CAPTION_START_RE.match(L):
+            break
+        if _STOP_BLOCK_RE.match(L):
+            break
+        src_lines.append(L.strip())
+        cursor += 1
+
+    if not src_lines:
+        return start, start, []
+
+    return remove_start, cursor, src_lines
+
+def _merge_caption_with_source(caption: str, source_lines: list[str]) -> str:
+    if not source_lines:
+        return caption
+
+    source_text = " ".join(s.strip() for s in source_lines if s.strip())
+    if not source_text:
+        return caption
+
+    def repl(m: re.Match[str]) -> str:
+        return f"{m.group(1)} – "
+
+    new_caption = _SOURCE_SUFFIX_RE.sub(repl, caption)
+    if new_caption == caption:
+        # fallback: append with spacing
+        if caption.endswith(" "):
+            return caption + source_text
+        return caption + " " + source_text
+
+    if not new_caption.endswith(" "):
+        new_caption += " "
+    return new_caption + source_text
 
 def _find_nearby_image(lines: list[str], start: int, max_distance: int = 6) -> tuple[Optional[int], Optional[str]]:
     """Search up to `max_distance` lines below AND above for a pandoc image artifact."""
@@ -150,6 +201,15 @@ def process_markdown_insert_figures(
         # Build caption text (caption lines + any inline text after the artifact line)
         caption_text = _clean_caption_lines(cap_block)
 
+        source_start = block_end
+        source_end = block_end
+        if _SOURCE_SUFFIX_RE.search(caption_text):
+            src_remove_start, src_end, src_lines = _collect_source_lines(lines, block_end)
+            if src_lines:
+                caption_text = _merge_caption_with_source(caption_text, src_lines)
+                source_start = src_remove_start
+                source_end = src_end
+
         # Best asset selection
         key = _figure_key(ch, num, suffix or "")
         asset = _best_asset_for_figure(key, assets_dir)
@@ -172,11 +232,11 @@ def process_markdown_insert_figures(
         figure_block = _emit_figure_block(rel_media, default_height_px, fig_name, caption_text)
 
         # Decide patch range: remove caption block and the artifact line (wherever it is)
-        start = min(i, img_idx)
-        end = max(block_end, img_idx + 1)
+        start = min(i, img_idx, source_start)
+        end = max(block_end, img_idx + 1, source_end)
         patches.append((start, end, figure_block))
 
-        i = block_end  # continue scan after caption block
+        i = max(block_end, source_end)  # continue scan after caption/source block
 
     # Apply patches from bottom to top to keep indices valid
     if patches:
