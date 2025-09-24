@@ -98,6 +98,8 @@ if __name__ == "__main__":
         print("[Index exists]", (BOOK_ROOT / "index.md").exists())
         print("[TOC exists]", (BOOK_ROOT / "_toc.yml").exists())
         print("---- _toc.yml ----")
+
         if (BOOK_ROOT / "_toc.yml").exists():
             print((BOOK_ROOT / "_toc.yml").read_text(encoding="utf-8"))
+
         build_book(BOOK_ROOT, clean=clean)

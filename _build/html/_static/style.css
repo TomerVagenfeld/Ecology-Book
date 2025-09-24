@@ -99,67 +99,78 @@ blockquote,
 @media (max-width: 768px) { #search-results { margin: 10px; } }
 
 /* =============================================================================
-   Desktop (≥992px): keep chapter nav on the left and the ToC on the right
+   Desktop (≥992px): secondary (LEFT) • main (MIDDLE/RIGHT side visually) • primary (RIGHT)
+   Force LTR on the layout container so "order" maps to left→right, regardless of page RTL.
 ============================================================================= */
 @media (min-width: 992px) {
   .bd-container__inner {
     display: flex;
     gap: var(--pst-horizontal-spacing, 2rem);
+    flex-direction: row;   /* be explicit */
+    direction: ltr;        /* layout only: left→right */
   }
-  #pst-primary-sidebar { order: 2; flex: 0 0 var(--bd-sidebar-primary-width, 18rem); }
-  .bd-main { order: 1; flex: 1 1 auto; }
-  #pst-secondary-sidebar { order: 0; flex: 0 0 var(--bd-sidebar-secondary-width, 18rem); }
 
-:root:not([dir="ltr"]) #pst-secondary-sidebar,
-:root:not([dir="ltr"]) .bd-main,
-:root:not([dir="ltr"]) #pst-primary-sidebar {
+  /* Visual positions: 0=left, 1=middle, 2=right */
+  #pst-secondary-sidebar { order: 0; flex: 0 0 var(--bd-sidebar-secondary-width, 18rem); } /* LEFT  */
+  .bd-main               { order: 1; flex: 1 1 auto; }                                      /* MIDDLE */
+  #pst-primary-sidebar   { order: 2; flex: 0 0 var(--bd-sidebar-primary-width, 18rem); }    /* RIGHT */
+
+  /* Restore RTL text flow inside panes (since the container is LTR now) */
+  #pst-secondary-sidebar,
+  #pst-primary-sidebar,
+  .bd-main {
     direction: rtl;
+    text-align: right;
   }
 
+  /* Transitions/collapse (unchanged) */
   #pst-primary-sidebar,
   #pst-secondary-sidebar {
     transition: transform .2s ease, width .2s ease;
     will-change: transform;
   }
-  body.rtl-sidebar-collapsed #pst-primary-sidebar {
-    transform: translateX(-100%);
-    width: 0 !important; flex-basis: 0 !important;
-    margin: 0 !important; padding: 0 !important; overflow: hidden !important;
-  }
+  body.rtl-sidebar-collapsed #pst-primary-sidebar,
   body.rtl-secondary-collapsed #pst-secondary-sidebar {
     transform: translateX(100%);
     width: 0 !important; flex-basis: 0 !important;
     margin: 0 !important; padding: 0 !important; overflow: hidden !important;
   }
 
-  #pst-primary-sidebar-modal { display: none !important; }
+  #pst-primary-sidebar-modal,
   #pst-primary-sidebar-modal::backdrop { display: none !important; }
 }
-
+/* Push the primary toggle to the outer edge */
+#pst-primary-sidebar-toggle {
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
 /* =============================================================================
-   Mobile (<992px): primary slides in from the left, ToC from the right
+   Mobile (<992px): primary slides in from the right • ToC (secondary) from the left
 ============================================================================= */
 @media (max-width: 991.98px) {
   #pst-primary-sidebar { display: none !important; }
 
+  /* Primary (right drawer) */
   dialog#pst-primary-sidebar-modal {
-    position: fixed; top: 0; left: 0; bottom: 0; right: auto;
-    margin: 0; padding: 0; width: min(84vw, 420px); max-width: 100%; height: 100%;
-    border: 0; background: var(--bs-body-bg, #fff);
-    transform: translateX(-100%); transition: transform .2s ease-out;
-  }
-  dialog#pst-primary-sidebar-modal[open] { transform: none; }
-dialog#pst-primary-sidebar-modal::backdrop { background: rgba(0,0,0,.45); }
-
-  dialog#pst-secondary-sidebar-modal {
-    position: fixed; top: 0; right: 0; bottom: 0; left: auto;
+    position: fixed; top: 0; left: auto; bottom: 0; right: 0;
     margin: 0; padding: 0; width: min(84vw, 420px); max-width: 100%; height: 100%;
     border: 0; background: var(--bs-body-bg, #fff);
     transform: translateX(100%);
     transition: transform .2s ease-out;
   }
+  dialog#pst-primary-sidebar-modal[open] { transform: none; }
+  dialog#pst-primary-sidebar-modal::backdrop { background: rgba(0,0,0,.45); }
+
+  /* Secondary (left drawer) */
+  dialog#pst-secondary-sidebar-modal {
+    position: fixed; top: 0; right: auto; bottom: 0; left: 0;
+    margin: 0; padding: 0; width: min(84vw, 420px); max-width: 100%; height: 100%;
+    border: 0; background: var(--bs-body-bg, #fff);
+    transform: translateX(-100%);
+    transition: transform .2s ease-out;
+  }
   dialog#pst-secondary-sidebar-modal[open] { transform: none; }
-  dialog#pst-secondary-sidebar-modal::backdrop { background: rgba(0,0,0,.45); }
+  dialog#pst-secondary-sidebar-modal::backdrop { background: rgba(0,0,0,.45); } /* fixed typo */
 }
 
 /* =============================================================================
@@ -184,9 +195,10 @@ dialog#pst-primary-sidebar-modal::backdrop { background: rgba(0,0,0,.45); }
 /* =============================================================================
    Typography
 ============================================================================= */
+/* Header groups: keep the START group on the right in RTL */
 .header-article-items { display: flex; }
-.header-article-items__start { order: 2; }
-.header-article-items__end { order: 1; }
+.header-article-items__start { order: 1; }  /* right side in RTL */
+.header-article-items__end   { order: 2; }  /* left side in RTL */
 
 .bd-article p { text-align: justify; } /* don’t force lists; handled below */
 
