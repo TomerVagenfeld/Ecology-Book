@@ -19,11 +19,7 @@ repository:
 
 sphinx:
   config:
-    numfig: true
-    numfig_format:
-      figure: "איור %s"
-      table: "טבלה %s"
-      code-block: "קוד %s"
+    numfig: false
     exclude_patterns:
       - "_build/**"
       - "_build/*"

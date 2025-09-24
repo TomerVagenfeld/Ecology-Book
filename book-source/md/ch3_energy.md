@@ -55,15 +55,8 @@ CH~4~) בכמויות הולכות וגדלות. בעשורים האחרונים
 height: 400px
 name: fig 3-1
 ---
-איור 3.1: הפקת אנרגיה לפי סוגים החל משנת 1800 ועד 2023. מקור --
+איור 3.1: הפקת אנרגיה לפי סוגים החל משנת 1800 ועד 2023. מקור – ![](media/image2.emf)טבלה 3.1: צריכת וייצור אנרגיה בעולם מ-1990 ועד 2019. נתונים מדוחות הסוכנות הבינלאומית לאנרגיה (IEA - International Energy Agency) [^6]. הפער בין ייצור לצריכה נובע מאיבוד אנרגיה, בעיקר חום שנפלט לסביבה בזמן הייצור, וכן הפסדים בזמן הולכת האנרגיה ממקום הייצור אל הצרכנים.
 ```
-
-
-![](media/image2.emf)טבלה 3.1: צריכת וייצור אנרגיה בעולם מ-1990
-ועד 2019. נתונים מדוחות הסוכנות הבינלאומית לאנרגיה (IEA - International
-Energy Agency) [^6]. הפער בין ייצור לצריכה נובע מאיבוד אנרגיה, בעיקר חום
-שנפלט לסביבה בזמן הייצור, וכן הפסדים בזמן הולכת האנרגיה ממקום הייצור אל
-הצרכנים.
 
 Source: IEA World Energy Balances
 <https://www.iea.org/data-and-statistics/data-product/world-energy-statistics-and-balances>
@@ -171,11 +164,8 @@ cycle / combined heat and power - CHP)[^28], שבו היעילות עולה
 height: 400px
 name: fig 3-2
 ---
-איור 3.2: סכמה של איבוד אנרגיה בתהליך ייצור חשמל בדרך מתחנת הכוח אל הצרכנים. מקור --
+איור 3.2: סכמה של איבוד אנרגיה בתהליך ייצור חשמל בדרך מתחנת הכוח אל הצרכנים. מקור – <https://www.iea.org/reports/combined-heat-and-power>, CC BY 4.0; Reprinted with permission.
 ```
-
-<https://www.iea.org/reports/combined-heat-and-power>, CC BY 4.0;
-Reprinted with permission.
 
 ### 3.2.3 סילוק מזהמים ולכידת פד\"ח
 

@@ -137,10 +137,8 @@
 height: 400px
 name: fig 2-1
 ---
-איור 2.1: פירוט השטחים המשמשים את החקלאות על פני כדור הארץ. מקור --
+איור 2.1: פירוט השטחים המשמשים את החקלאות על פני כדור הארץ. מקור – <https://ourworldindata.org/land-use> ; Reprinted with permission.
 ```
-
-<https://ourworldindata.org/land-use> ; Reprinted with permission.
 
 ## 2.3 מגמות בתפוקת החקלאות
 
@@ -208,10 +206,8 @@ name: fig 2-3
 height: 400px
 name: fig 2-4
 ---
-איור 2.4: אחוז האנשים הסובלים מתת-תזונה מתמדת באזורים שונים בעולם. מקור --
+איור 2.4: אחוז האנשים הסובלים מתת-תזונה מתמדת באזורים שונים בעולם. מקור – FAO (2021) (FIG 47), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
 ```
-
-FAO (2021) (FIG 47), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
 
 ```{figure} ../media/2_5.jpg
 ---
@@ -472,10 +468,8 @@ Organization of the United Nations) לקידום הנושא של חקלאות פ
 height: 400px
 name: fig 2-9
 ---
-איור 2.9: חלקה היחסי של חקלאות אורגנית בארצות עם האחוזים הגבוהים ביותר של חקלאות אורגנית. מקור --
+איור 2.9: חלקה היחסי של חקלאות אורגנית בארצות עם האחוזים הגבוהים ביותר של חקלאות אורגנית. מקור – Reprinted with permission.
 ```
-
-Reprinted with permission.
 
 ## 2.8 תרומת החקלאות לפליטות גזי חממה והשפעת ההתחממות הגלובלית על החקלאות
 
@@ -579,10 +573,8 @@ fertilization)[^135]. בשלושים השנים האחרונות נעשו מחק
 height: 400px
 name: fig 2-10
 ---
-איור 2.10: פליטות גזי חממה מפעילות חקלאית, השוואה במשך שני העשורים הראשונים של המאה ה-21. מקור --
+איור 2.10: פליטות גזי חממה מפעילות חקלאית, השוואה במשך שני העשורים הראשונים של המאה ה-21. מקור – Reprinted with permission.
 ```
-
-Reprinted with permission.
 
 ```{figure} ../media/2_11.jpg
 ---
