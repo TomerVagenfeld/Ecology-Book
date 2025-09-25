@@ -28,12 +28,13 @@
 /* Shared “quote panel” look used for normal blockquotes and English quotes */
 blockquote,
 .en_quote {
-  background: #f3f5f7;
+  background: rgba(168, 207, 64, 0.13);
   padding: 0.6rem 1rem;
   border-radius: 6px;
   /* logical border for RTL/LTR */
-  border-inline-start: 4px solid #7a8da3;
+  border-inline-start: 4px solid #a8cf40;
   margin: 1rem 0;
+  border-left: .25em solid #a8cf40;
 }
 
 /* English epigraphs/quotes: force LTR and left alignment, isolate bidi */
