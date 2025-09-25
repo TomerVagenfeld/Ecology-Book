@@ -26,6 +26,9 @@ _SOURCE_LINE_RE = re.compile(
     re.IGNORECASE,
 )
 
+# Caption tails that indicate a missing source
+_SOURCE_SUFFIX_RE = re.compile(r'(מקור)\s*[:：־–—-]*\s*$', re.UNICODE)
+
 # Extensions preference
 _PREFERRED_EXTS = [".jpg", ".jpeg", ".png", ".webp", ".svg", ".pdf"]
 
@@ -91,6 +94,7 @@ def _collect_block(lines: list[str], start: int) -> tuple[int, list[str]]:
         i += 1
     return i, out
 
+
 def _collect_source_lines(
     lines: list[str], start: int, *, force: bool = False
 ) -> tuple[int, int, list[str]]:
@@ -102,6 +106,7 @@ def _collect_source_lines(
     # consume blank lines immediately after the caption block
     while cursor < len(lines) and not lines[cursor].strip():
         cursor += 1
+
 
     if cursor >= len(lines):
         return start, start, []
@@ -233,6 +238,7 @@ def process_markdown_insert_figures(
             source_start = src_remove_start
             source_end = src_end
 
+
         # Best asset selection
         key = _figure_key(ch, num, suffix or "")
         asset = _best_asset_for_figure(key, assets_dir)
@@ -258,6 +264,7 @@ def process_markdown_insert_figures(
         start = min(i, img_idx, source_start)
         end = max(block_end, img_idx + 1, source_end)
 
+
         # Expand removal range to swallow adjacent Pandoc image artefacts that belong
         # to the same figure (common when DOCX exports emit multiple placeholders).
         scan = start - 1
@@ -271,6 +278,7 @@ def process_markdown_insert_figures(
         ):
             end = max(end, scan + 1)
             scan += 1
+
         patches.append((start, end, figure_block))
 
         i = max(block_end, source_end)  # continue scan after caption/source block
