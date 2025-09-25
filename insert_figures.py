@@ -15,7 +15,16 @@ _CAPTION_START_RE = re.compile(r'^\s*(איור|טבלה)\s+(\d+)\.(\d+)([a-zA-Z]
 _IMG_LINE_RE = re.compile(r'!\[[^\]]*\]\(([^)]+)\)')
 
 # If the caption continues on following lines, we gather until a blank line or another block starts.
-_STOP_BLOCK_RE = re.compile(r'^\s*($|#{1,6}\s|```|~~~|> |\[\^|\!\[)')
+_STOP_BLOCK_RE = re.compile(r'^\s*($|#{1,6}\s|```|~~~|:::\s|> |\[\^|\!\[)')
+
+# Caption tails that indicate a missing source
+_SOURCE_SUFFIX_RE = re.compile(r'(מקור)\s*[:：־–—-]*\s*$', re.UNICODE)
+
+# Source paragraphs that appear on a new line
+_SOURCE_LINE_RE = re.compile(
+    r'^(?:מקור|מקורות|קרדיט|צילום|מקורן|Source|Credit|Photo)[\s:：־–—-]',
+    re.IGNORECASE,
+)
 
 # Caption tails that indicate a missing source
 _SOURCE_SUFFIX_RE = re.compile(r'(מקור)\s*[:：־–—-]*\s*$', re.UNICODE)
@@ -85,8 +94,12 @@ def _collect_block(lines: list[str], start: int) -> tuple[int, list[str]]:
         i += 1
     return i, out
 
-def _collect_source_lines(lines: list[str], start: int) -> tuple[int, int, list[str]]:
+
+def _collect_source_lines(
+    lines: list[str], start: int, *, force: bool = False
+) -> tuple[int, int, list[str]]:
     """Collect source/credit lines that immediately follow a caption block."""
+
     cursor = start
     remove_start = start
 
@@ -94,7 +107,19 @@ def _collect_source_lines(lines: list[str], start: int) -> tuple[int, int, list[
     while cursor < len(lines) and not lines[cursor].strip():
         cursor += 1
 
-    src_lines: list[str] = []
+
+    if cursor >= len(lines):
+        return start, start, []
+
+    first = lines[cursor].strip()
+    # Without a strong hint from the caption, require the next block to start like a
+    # credit/source line to avoid swallowing regular paragraphs.
+    if not force and not _SOURCE_LINE_RE.match(first):
+        return start, start, []
+
+    src_lines: list[str] = [first]
+    cursor += 1
+
     while cursor < len(lines):
         L = lines[cursor]
         if not L.strip():
@@ -203,12 +228,16 @@ def process_markdown_insert_figures(
 
         source_start = block_end
         source_end = block_end
-        if _SOURCE_SUFFIX_RE.search(caption_text):
-            src_remove_start, src_end, src_lines = _collect_source_lines(lines, block_end)
-            if src_lines:
-                caption_text = _merge_caption_with_source(caption_text, src_lines)
-                source_start = src_remove_start
-                source_end = src_end
+        want_source = bool(_SOURCE_SUFFIX_RE.search(caption_text))
+        src_remove_start, src_end, src_lines = _collect_source_lines(
+            lines, block_end, force=want_source
+        )
+
+        if src_lines:
+            caption_text = _merge_caption_with_source(caption_text, src_lines)
+            source_start = src_remove_start
+            source_end = src_end
+
 
         # Best asset selection
         key = _figure_key(ch, num, suffix or "")
@@ -234,6 +263,22 @@ def process_markdown_insert_figures(
         # Decide patch range: remove caption block and the artifact line (wherever it is)
         start = min(i, img_idx, source_start)
         end = max(block_end, img_idx + 1, source_end)
+
+
+        # Expand removal range to swallow adjacent Pandoc image artefacts that belong
+        # to the same figure (common when DOCX exports emit multiple placeholders).
+        scan = start - 1
+        while scan >= 0 and (_IMG_LINE_RE.search(lines[scan]) or not lines[scan].strip()):
+            start = min(start, scan)
+            scan -= 1
+
+        scan = end
+        while scan < len(lines) and (
+            _IMG_LINE_RE.search(lines[scan]) or not lines[scan].strip()
+        ):
+            end = max(end, scan + 1)
+            scan += 1
+
         patches.append((start, end, figure_block))
 
         i = max(block_end, source_end)  # continue scan after caption/source block

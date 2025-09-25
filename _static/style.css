@@ -79,6 +79,12 @@ blockquote,
   unicode-bidi: plaintext;
 }
 
+/* Suppress automatic figure numbering – captions already include the label */
+.figure .caption-number,
+figure .caption-number {
+  display: none;
+}
+
 /* Footnotes (keep compact but readable) */
 .footnote, .footnotes {
   font-size: 0.95em;
