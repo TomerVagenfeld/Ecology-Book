@@ -1,14 +1,9 @@
-# Book settings
-# Learn more at https://jupyterbook.org/customize/config.html
-
-title: My sample book
-author: The Jupyter Book Community
+title: אקולוגיה
+author: יגאל אראל
 logo: logo.png
 
-# Force re-execution of notebooks on each build.
-# See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+  execute_notebooks: off
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -16,17 +11,50 @@ latex:
     targetname: book.tex
 
 # Add a bibtex file so that we can create citations
-bibtex_bibfiles:
-  - references.bib
-
-# Information about where the book exists on the web
+#bibtex_bibfiles:
+#  - references.bib
 repository:
-  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
-  branch: master  # Which branch of the repository should be used when creating links (optional)
+  url: https://github.com/TomerVagenfeld/Ecology-Book
+  branch: main
 
-# Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+parse:
+  myst_enable_extensions:
+    - deflist
+    - colon_fence
+    - substitution
+    - linkify
+
+sphinx:
+  config:
+    language: he
+    numfig: false
+    mathjax3_config:
+      tex:
+        displayMath: [["$$", "$$"]]
+        inlineMath: [["$", "$"]]
+    exclude_patterns:
+      - "_build/**"
+      - "_build/*"
+      - "pipeline/book-source/docx/**"
+      - "pipeline/book-source/raw/**"
+      - "pipeline/_build/**"
+      - "pipeline/test_output/**"
+      - ".ipynb_checkpoints/**"
+      - "igal_original_docx/**"
+      - "figs/**"
+  html_static_path: ["_static"]
+  html_css_files:
+    - "style.css"
+  html_js_files:
+    - "rtl-sidebar.js"
+    - "footnote-dir.js"
+    - "list-dir.js"
+    - "en-quote.js"
+    - "footnote-tooltip.js"
+    - "search-hebrew.js"
+
 html:
-  use_issues_button: true
-  use_repository_button: true
+  use_issues_button: false
+  use_repository_button: false
+  use_multitoc_numbering: false
+  extra_footer: "יגאל אראל 2025"

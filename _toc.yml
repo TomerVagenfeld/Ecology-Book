@@ -1,23 +1,35 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
 format: jb-book
 root: intro
 options:
-  numbered: true
+  numbered: false
 chapters:
-- file: pipeline/book-source/md/ch1_introduction
-- file: pipeline/book-source/md/ch2_agriculture
-- file: pipeline/book-source/md/ch3_energy
-- file: pipeline/book-source/md/ch4_industry
-- file: pipeline/book-source/md/ch5_biogeochemical_cycles
-- file: pipeline/book-source/md/ch6_global_warming
-- file: pipeline/book-source/md/ch7_biosphere
-- file: pipeline/book-source/md/ch8_open_spaces_soils
-- file: pipeline/book-source/md/ch9_water
-- file: pipeline/book-source/md/ch10_marine
-- file: pipeline/book-source/md/ch11_atm
-- file: pipeline/book-source/md/ch12_urban
-- file: pipeline/book-source/md/ch13_summary
-- file: pipeline/book-source/md/ch14_IL
-- file: pipeline/book-source/md/ch15_appendices
+  - file: pipeline/book-source/md/ch1_introduction
+    title: "1. מבוא - עקרונות, היסטוריה והגורמים למשבר הסביבה והאקלים"
+  - file: pipeline/book-source/md/ch2_agriculture
+    title: "2. חקלאות וסביבה"
+  - file: pipeline/book-source/md/ch3_energy
+    title: "3. משק האנרגיה"
+  - file: pipeline/book-source/md/ch4_industry
+    title: "4. תעשייה וחומרי גלם"
+  - file: pipeline/book-source/md/ch5_biogeochemical_cycles
+    title: "5. מחזורים ביוגאוכימיים"
+  - file: pipeline/book-source/md/ch6_global_warming
+    title: "6. התחממות גלובלית ושיבוש האקלים"
+  - file: pipeline/book-source/md/ch7_biosphere
+    title: "7. פגיעה בביוספרה"
+  - file: pipeline/book-source/md/ch8_open_spaces_soils
+    title: "8. פגיעה בשטחים פתוחים וקרקעות"
+  - file: pipeline/book-source/md/ch9_water
+    title: "9. פגיעה במקורות ובאיכות מים מתוקים"
+  - file: pipeline/book-source/md/ch10_marine
+    title: "10. פגיעה בסביבה הימית"
+  - file: pipeline/book-source/md/ch11_atm
+    title: "11. פגיעה באטמוספרה וזיהום אוויר"
+  - file: pipeline/book-source/md/ch12_urban
+    title: "12. הסביבה העירונית"
+  - file: pipeline/book-source/md/ch13_summary
+    title: "13. סיכום - הבעיות הניצבות לפתחנו ודרכי התמודדות"
+  - file: pipeline/book-source/md/ch14_IL
+    title: "14. סיכום מצב הסביבה בישראל"
+  - file: pipeline/book-source/md/ch15_appendices
+    title: "15. נספחים"

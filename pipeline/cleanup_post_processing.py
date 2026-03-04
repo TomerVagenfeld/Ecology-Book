@@ -377,6 +377,80 @@ def clean_broken_image_refs(text: str) -> str:
     return '\n'.join(out)
 
 
+# ── 5. Convert standalone inline math to display math ─────────────────────
+
+def convert_inline_to_display_math(text: str) -> str:
+    """
+    Convert standalone single-dollar formula lines to double-dollar display math.
+    A line is standalone if the entire line (after stripping) is $formula$.
+    Also merges fragmented inline math like $A$ + $B$ → $A + B$ on standalone lines.
+    """
+    lines = text.split('\n')
+    out = []
+    in_code = False
+    in_figure = False
+
+    for line in lines:
+        stripped = line.strip()
+
+        if re.match(r'^\s*```', line):
+            if '```{figure}' in stripped:
+                in_figure = True
+            elif in_figure and stripped == '```':
+                in_figure = False
+            else:
+                in_code = not in_code
+            out.append(line)
+            continue
+
+        if in_code or in_figure:
+            out.append(line)
+            continue
+
+        # Skip lines that are already display math
+        if stripped.startswith('$$'):
+            out.append(line)
+            continue
+
+        # Skip footnote definitions
+        if stripped.startswith('[^'):
+            out.append(line)
+            continue
+
+        # Pattern 1: Entire line is a single $formula$
+        m = re.match(r'^\$([^$]+)\$$', stripped)
+        if m:
+            out.append(f'$${m.group(1)}$$')
+            continue
+
+        # Pattern 2: Fragmented formulas like "$A$ + $B$ ↔ $C$"
+        # where the line contains only math fragments and operators
+        # Check if the line is composed entirely of $...$, operators, numbers, parens, etc.
+        if stripped.startswith('$') and '$' in stripped:
+            # Remove all $...$ fragments and see what's left
+            remaining = re.sub(r'\$[^$]+\$', '', stripped)
+            remaining = remaining.strip()
+            # If what's left is only operators, numbers, element symbols, parens, arrows, spaces
+            if remaining and re.match(r'^[\s+\-↔→←=\d()A-Za-z,.\\\\/]*$', remaining):
+                # Check it has at least one arrow/operator suggesting it's a formula
+                if '↔' in stripped or '→' in stripped or '←' in stripped or '\\leftrightarrow' in stripped or '\\rightarrow' in stripped:
+                    # Merge into single display math
+                    merged = stripped
+                    # Remove internal dollar signs to merge
+                    merged = re.sub(r'\$\s*\$', ' ', merged)  # $..$ $..$ → merge
+                    merged = merged.strip('$').strip()
+                    # Convert text arrows to LaTeX
+                    merged = merged.replace('↔', r'\leftrightarrow')
+                    merged = merged.replace('→', r'\rightarrow')
+                    merged = merged.replace('←', r'\leftarrow')
+                    out.append(f'$${merged}$$')
+                    continue
+
+        out.append(line)
+
+    return '\n'.join(out)
+
+
 # ── Main ──────────────────────────────────────────────────────────────────
 
 def cleanup_chapter(md_path: Path) -> bool:
@@ -389,6 +463,7 @@ def cleanup_chapter(md_path: Path) -> bool:
     text = clean_broken_image_refs(text)
     text = convert_tilde_subscripts(text)
     text = convert_standalone_formulas_to_latex(text)
+    text = convert_inline_to_display_math(text)
 
     if text != original:
         md_path.write_text(text, encoding='utf-8')
