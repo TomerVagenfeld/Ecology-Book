@@ -1,4 +1,5 @@
 # Build outputs
+_build/
 pipeline/_build/
 pipeline/book-source/media/
 

@@ -1,23 +1,9 @@
-"All people --- living in ancient or modern times, in luxury or
+:::{div} .en-quote
 
-destitution, in mega-cities or vast hinterlands --- depend
+"All people — living in ancient or modern times, in luxury or destitution, in mega-cities or vast hinterlands — depend intimately and utterly on nature. Through the microbiome inhabiting our body, the nature in local parks and farms, and exotic forests and underwater realms across the world, we are all deeply embedded within the web of life. This extremely subtle and extensive net of relationships sustains and fulfills us, providing the material basics of nutrition, health, and security to ethereal senses of attachment, beauty, and spirit."
 
-intimately and utterly on nature. Through the microbiome
-
-inhabiting our body, the nature in local parks and farms, and
-
-exotic forests and underwater realms across the world, we
-
-are all deeply embedded within the web of life. This extremely
-
-subtle and extensive net of relationships sustains and fulfills
-
-us, providing the material basics of nutrition, health, and
-
-security to ethereal senses of attachment, beauty, and spirit."
-
-Gretchen C. Daily, Stanford University, 2021
-(<https://www.gov.uk/government/publications/final-report-the-economics-of-biodiversity-the-dasgupta-review/the-economics-of-biodiversity-the-dasgupta-review-reactions>)
+Gretchen C. Daily, Stanford University, 2021 [^daily2021]
+:::
 
 # 1. מבוא - עקרונות, היסטוריה והגורמים למשבר הסביבה והאקלים
 
@@ -148,7 +134,7 @@ name: fig 1-1
 
 The great smog, London (1952)
 
-CO~2~ rise, the Mauna Loa record -- C. Keeling (1957)
+$CO_{2}$ rise, the Mauna Loa record -- C. Keeling (1957)
 
 Silent Spring, bio-magnification of pesticides - R. Carson (1962)
 
@@ -161,7 +147,7 @@ Limits to Growth -- The Club of Rome (1972)
 The central role of oceans in climate regulation -- W. Broecker & DSDP
 (1970s)
 
-The stratospheric O~3~ depletion -- M. Molina & S. Rowland (1974--1980s)
+The stratospheric $O_{3}$ depletion -- M. Molina & S. Rowland (1974--1980s)
 
 The Gaia Hypothesis -- J. Lovelock & L. Margulis (1970s)
 
@@ -213,13 +199,6 @@ integrity); (9) שינויי אקלים (climate change).
 2009 ו-2015, אך לא בשנת 2023).[^40] אידרש לכל הנושאים הללו בפרקים הבאים
 של הספר.
 
-```{figure} ../media/1_1.jpg
----
-height: 400px
-name: fig 1-1
----
-איור 1.1: גבולות פלנטריים (א) מעודכן לשנת 2320; (ב) בשנים 2009, 2015, 2023. 2023
-```
 
 > מקור:
 >
@@ -355,7 +334,7 @@ P\*A\*T, הטוענת שהשפעת האנושות על הטבע (I) שווה ל�
 וכן עבודות עכשוויות יותר, כגון של טים ג\'קסון (Jackson) וג\'ייסון היקל
 (Hickel).[^68]
 
-![](media/image3.png)איור 1.2: טווח התחזיות של האו\"ם לגבי גודל
+איור 1.2: טווח התחזיות של האו\"ם לגבי גודל
 האוכלוסייה העולמית עד שנת 2100
 
 מקור:
@@ -498,7 +477,6 @@ name: fig 1-4
 
 > ב.
 
-![](media/image7.png)
 
 מקור:
 
@@ -523,6 +501,8 @@ IPCC (2022)[^88], Reprinted with permission
 למציאת פתרון למשבר (**פרק** **13**) ואת מצב הסביבה בישראל (**פרק 14**).
 ה**נספחים** מציגים את האֲמָנוֹת העיקריות שעסקו בנושאי סביבה ודמויות מעוררות
 השראה במחקר ובתנועה הסביבתית.
+
+[^daily2021]: Gretchen C. Daily, Stanford University, 2021. In: The Economics of Biodiversity: The Dasgupta Review — Reactions. HM Treasury, UK Government.
 
 [^1]: \(1\)
     <https://www.theguardian.com/environment/2022/nov/07/why-scientists-are-using-the-word-scary-over-the-climate-crisis>
@@ -791,10 +771,10 @@ IPCC (2022)[^88], Reprinted with permission
 
 [^45]: <https://ourworldindata.org/child-mortality-in-the-past#:~:text=The%20average%20across%20a%20large,has%20fallen%20around%20the%20world>.
 
-[^46]: <https://ourworldindata.org/explorers/population-and-demography?facet=none&Metric=Annual+population+change&Sex=Both+sexes&Age+group=Total&Projection+Scenario=None&country=CHN~IND~USA~IDN~PAK~OWID_WRL>
+[^46]: <https://ourworldindata.org/explorers/population-and-demography?facet=none&Metric=Annual+population+change&Sex=Both+sexes&Age+group=Total&Projection+Scenario=None&country=CH$N_{IND}$US$A_{IDN}$PAK~OWID_WRL>
     <https://ourworldindata.org/explorers/population-and-demography?facet=none&country=OWID_EUR~OWID_WRL&indicator=Population&Sex=Both+sexes&Age=Total&Projection+scenario=None>
 
-[^47]: <https://ourworldindata.org/explorers/population-and-demography?facet=none&Metric=Annual+population+change&Sex=Both+sexes&Age+group=Total&Projection+Scenario=None&country=CHN~IND~USA~IDN~PAK~Europe~JPN>
+[^47]: <https://ourworldindata.org/explorers/population-and-demography?facet=none&Metric=Annual+population+change&Sex=Both+sexes&Age+group=Total&Projection+Scenario=None&country=CH$N_{IND}$US$A_{IDN}$PA$K_{Europe}$JPN>
 
 [^48]: Bhattacharjee, N. V. et al (2021) Global fertility in 204
     countries and territories, 1950 - 2021, with forecasts to 2100: A
