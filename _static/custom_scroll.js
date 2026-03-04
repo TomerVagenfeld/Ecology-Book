@@ -1,26 +1,17 @@
-window.addEventListener("DOMContentLoaded", () => {
-    console.log("Custom search script loaded.");
+// custom_scroll.js
+// Scroll to the first highlighted search result using MutationObserver.
+// (search-hebrew.js also handles this; this file is kept as a fallback)
+window.addEventListener("DOMContentLoaded", function () {
+  var container = document.getElementById("search-results");
+  if (!container) return;
 
-    // Function to scroll to the first highlighted result
-    const scrollToResult = () => {
-        const firstResult = document.querySelector('.highlighted');
-        if (firstResult) {
-            firstResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            console.log("Scrolled to the first highlighted result.");
-            return true; // Scrolling succeeded
-        } else {
-            console.log("No highlighted result found yet.");
-            return false; // No result to scroll to
-        }
-    };
+  var observer = new MutationObserver(function () {
+    var first = document.querySelector(".highlighted");
+    if (first) {
+      first.scrollIntoView({ behavior: "smooth", block: "center" });
+      observer.disconnect();
+    }
+  });
 
-    // Periodically check for highlighted elements
-    const checkForHighlight = setInterval(() => {
-        console.log("Checking for highlighted results...");
-        const scrolled = scrollToResult();
-        if (scrolled) {
-            clearInterval(checkForHighlight); // Stop checking after scrolling
-            console.log("Stopped checking after successful scroll.");
-        }
-    }, 300); // Check every 300ms
+  observer.observe(container, { childList: true, subtree: true });
 });
