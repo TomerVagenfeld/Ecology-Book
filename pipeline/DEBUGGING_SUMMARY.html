@@ -1,0 +1,798 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pipeline Debugging Summary - 2025-11-15 &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=3dfcc3b8" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pipeline/DEBUGGING_SUMMARY';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    אקולוגיה
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch1.html">1. פרק ראשון</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2.html">2. פרק שני</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch3.html">3. פרק שלישי</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4.html">4. פרק רביעי</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch5.html">5. פרק חמישי</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch6.html">6. פרק שישי</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch7_py_headers.html">7. <em><strong>פגיעה בביוספרה, שטחים פתוחים וקרקעות</strong></em></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpipeline/DEBUGGING_SUMMARY.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/pipeline/DEBUGGING_SUMMARY.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pipeline Debugging Summary - 2025-11-15</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#issues-reported-by-user">Issues Reported by User</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#root-causes-identified">Root Causes Identified</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-page-titles-fixed">1. Missing Page Titles (FIXED ✅)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#header-numbering-fixed">2. Header Numbering (FIXED ✅)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#malformed-figure-blocks-partially-fixed">3. Malformed Figure Blocks (PARTIALLY FIXED ⚠️)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#name-fig-2-3-missing-figure-line">name: fig 2-3    ← MISSING ```{figure} line!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidebar-position-not-fixed">4. Sidebar Position (NOT FIXED ❌)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes-not-rendering-not-fixed">5. Footnotes Not Rendering (NOT FIXED ❌)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-9-gray-box-not-investigated">6. Section 2.9 Gray Box (NOT INVESTIGATED ❌)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#files-modified-summary">Files Modified (Summary)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-order-current">Pipeline Order (Current)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps-recommendations">Next Steps / Recommendations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-priority">High Priority</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medium-priority">Medium Priority</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-commands">Test Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-git-commits">Important Git Commits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#known-working-features">Known Working Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#known-broken-features">Known Broken Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-approach-for-next-developer">Suggested Approach for Next Developer</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pipeline-debugging-summary-2025-11-15">
+<h1>Pipeline Debugging Summary - 2025-11-15<a class="headerlink" href="#pipeline-debugging-summary-2025-11-15" title="Link to this heading">#</a></h1>
+<section id="issues-reported-by-user">
+<h2>Issues Reported by User<a class="headerlink" href="#issues-reported-by-user" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Missing page titles</strong> - Some chapters weren’t showing in TOC</p></li>
+<li><p><strong>Sidebar on wrong side</strong> - TOC appears on LEFT but should be on RIGHT for Hebrew</p></li>
+<li><p><strong>Footnotes not rendering</strong> - <code class="docutils literal notranslate"><span class="pre">[^39]</span></code> shows as literal text instead of clickable links</p></li>
+<li><p><strong>Weird headers</strong> - “height: 400px name: fig 2-3” appearing as H2 headers</p></li>
+<li><p><strong>Images not showing</strong> - Figures display as artifacts or don’t show at all</p></li>
+<li><p><strong>Section 2.9 in gray box</strong> - Headers appearing with gray background</p></li>
+<li><p><strong>Header numbering wrong</strong> - Chapters starting with X.1 instead of X</p></li>
+<li><p><strong>Inconsistent RTL</strong> - Some pages have RTL, some don’t</p></li>
+</ol>
+</section>
+<section id="root-causes-identified">
+<h2>Root Causes Identified<a class="headerlink" href="#root-causes-identified" title="Link to this heading">#</a></h2>
+<section id="missing-page-titles-fixed">
+<h3>1. Missing Page Titles (FIXED ✅)<a class="headerlink" href="#missing-page-titles-fixed" title="Link to this heading">#</a></h3>
+<p><strong>Cause:</strong> English quote div blocks (<code class="docutils literal notranslate"><span class="pre">:::{div}</span> <span class="pre">.en-quote</span></code>) were not being closed before H1 titles, causing Sphinx to not detect the title.</p>
+<p><strong>Fix Applied:</strong></p>
+<ul class="simple">
+<li><p>Created <code class="docutils literal notranslate"><span class="pre">fix_en_quote_blocks.py</span></code> to properly close div blocks before H1</p></li>
+<li><p>Integrated into pipeline in <code class="docutils literal notranslate"><span class="pre">book-pipeline.py</span></code> line 87</p></li>
+</ul>
+<p><strong>Files Modified:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fix_en_quote_blocks.py</span></code> (new file)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">book-pipeline.py</span></code></p></li>
+</ul>
+</section>
+<section id="header-numbering-fixed">
+<h3>2. Header Numbering (FIXED ✅)<a class="headerlink" href="#header-numbering-fixed" title="Link to this heading">#</a></h3>
+<p><strong>Cause:</strong> When promoting <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">1.1</span> <span class="pre">Title</span></code> to H1, the subsection number was kept, resulting in <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">1.1</span> <span class="pre">Title</span></code> instead of <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">1.</span> <span class="pre">Title</span></code></p>
+<p><strong>Fix Applied:</strong></p>
+<ul class="simple">
+<li><p>Modified <code class="docutils literal notranslate"><span class="pre">normalize_markdown_heading_levels()</span></code> in <code class="docutils literal notranslate"><span class="pre">md_post_processing.py</span></code> lines 551-558</p></li>
+<li><p>Added regex to strip subsection numbers when promoting to H1</p></li>
+</ul>
+<p><strong>Files Modified:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">md_post_processing.py</span></code> lines 551-558</p></li>
+</ul>
+</section>
+<section id="malformed-figure-blocks-partially-fixed">
+<h3>3. Malformed Figure Blocks (PARTIALLY FIXED ⚠️)<a class="headerlink" href="#malformed-figure-blocks-partially-fixed" title="Link to this heading">#</a></h3>
+<p><strong>Cause:</strong> Multiple issues in <code class="docutils literal notranslate"><span class="pre">insert_figures.py</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Caption regex was too permissive - matched “איור 2.6)” in text, not just “איור 2.6:” captions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_cleanup_malformed_figures()</span></code> was corrupting valid figure blocks</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_find_nearby_image()</span></code> searches backward AND forward, matching wrong images when figures are close together</p></li>
+</ol>
+<p><strong>Fixes Applied:</strong></p>
+<ul class="simple">
+<li><p>Made colon REQUIRED in <code class="docutils literal notranslate"><span class="pre">_CAPTION_START_RE</span></code> regex (line 10)</p></li>
+<li><p>Added stop condition in <code class="docutils literal notranslate"><span class="pre">_collect_block()</span></code> when hitting another caption (lines 112-114)</p></li>
+<li><p>Disabled <code class="docutils literal notranslate"><span class="pre">_cleanup_malformed_figures()</span></code> call (line 288 commented out)</p></li>
+</ul>
+<p><strong>Files Modified:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">insert_figures.py</span></code> lines 10, 112-114, 288</p></li>
+</ul>
+<p><strong>STILL BROKEN:</strong>
+Figures are STILL malformed. Example from ch2_agriculture.md lines 185-215:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">```{figure} ../media/2_2.jpg    ← CORRECT</span>
+<span class="gu">---</span>
+height: 400px
+<span class="gu">name: fig 2-2</span>
+<span class="gu">---</span>
+Caption...
+</pre></div>
+</div>
+</section>
+</section>
+<section id="name-fig-2-3-missing-figure-line">
+<h2>name: fig 2-3    ← MISSING ```{figure} line!<a class="headerlink" href="#name-fig-2-3-missing-figure-line" title="Link to this heading">#</a></h2>
+<p>Caption…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><strong>Why:</strong> The <code class="docutils literal notranslate"><span class="pre">_find_nearby_image()</span></code> function (lines 193-205) searches up to 8 lines backward and forward. When figures are close together:</p>
+<ul class="simple">
+<li><p>Figure 2.2 finds image2.jpeg (correct)</p></li>
+<li><p>Figure 2.3 finds image2.jpeg BACKWARD (wrong! should find image3.jpeg forward)</p></li>
+<li><p>This causes incorrect patch ranges to be created</p></li>
+</ul>
+<p><strong>Suggested Fix Options:</strong></p>
+<ol class="arabic simple">
+<li><p>Rewrite <code class="docutils literal notranslate"><span class="pre">insert_figures.py</span></code> from scratch with simpler logic</p></li>
+<li><p>Check out earlier working commit and identify what changed</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">_find_nearby_image()</span></code> to only search FORWARD, not backward</p></li>
+</ol>
+<section id="sidebar-position-not-fixed">
+<h3>4. Sidebar Position (NOT FIXED ❌)<a class="headerlink" href="#sidebar-position-not-fixed" title="Link to this heading">#</a></h3>
+<p><strong>Issue:</strong> TOC sidebar appears on LEFT but should be on RIGHT for Hebrew RTL pages</p>
+<p><strong>Current CSS (_static/style.css lines ~30-40):</strong></p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">#</span><span class="nn">pst-secondary-sidebar</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">order</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c">/* LEFT */</span>
+<span class="p">.</span><span class="nc">bd-main</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">order</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">                </span><span class="c">/* MIDDLE */</span>
+<span class="p">#</span><span class="nn">pst-primary-sidebar</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">order</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">    </span><span class="c">/* RIGHT */</span>
+</pre></div>
+</div>
+<p><strong>Which sidebar is which:</strong></p>
+<ul class="simple">
+<li><p>Primary sidebar = Main book TOC (chapter list)</p></li>
+<li><p>Secondary sidebar = Page TOC (“On this page” / section headers)</p></li>
+</ul>
+<p><strong>Last working commit:</strong> 466ab72 “fixed the primary and secondary sidebars positions”</p>
+<p><strong>To Fix:</strong> Need to swap order values so TOC appears on right</p>
+</section>
+<section id="footnotes-not-rendering-not-fixed">
+<h3>5. Footnotes Not Rendering (NOT FIXED ❌)<a class="headerlink" href="#footnotes-not-rendering-not-fixed" title="Link to this heading">#</a></h3>
+<p><strong>Issue:</strong> Footnote references like <code class="docutils literal notranslate"><span class="pre">[^39]</span></code> show as literal text</p>
+<p><strong>Investigation:</strong></p>
+<ul class="simple">
+<li><p>Markdown syntax is correct</p></li>
+<li><p>Footnote definitions exist in files</p></li>
+<li><p>MyST should handle <code class="docutils literal notranslate"><span class="pre">[^39]</span></code> → clickable link automatically</p></li>
+<li><p>May be related to encoding or processing order</p></li>
+</ul>
+<p><strong>Needs Investigation:</strong></p>
+<ul class="simple">
+<li><p>Check if footnotes work in chapter 1 but not chapter 2 (user reported inconsistency)</p></li>
+<li><p>Check MyST extensions in _config.yml</p></li>
+<li><p>May be corrupted during one of the post-processing steps</p></li>
+</ul>
+</section>
+<section id="section-2-9-gray-box-not-investigated">
+<h3>6. Section 2.9 Gray Box (NOT INVESTIGATED ❌)<a class="headerlink" href="#section-2-9-gray-box-not-investigated" title="Link to this heading">#</a></h3>
+<p>Screenshot shows section 2.9 header appearing in a gray box. Likely related to blockquote styling or malformed markdown structure.</p>
+</section>
+</section>
+<section id="files-modified-summary">
+<h2>Files Modified (Summary)<a class="headerlink" href="#files-modified-summary" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong><a class="reference external" href="http://book-pipeline.py">book-pipeline.py</a></strong></p>
+<ul class="simple">
+<li><p>Line 21: Added import for <code class="docutils literal notranslate"><span class="pre">fix_en_quote_blocks_file</span></code></p></li>
+<li><p>Line 72-88: Reordered pipeline steps</p></li>
+<li><p>Line 120-123: Fixed Unicode error when printing TOC</p></li>
+</ul>
+</li>
+<li><p><strong>insert_figures.py</strong></p>
+<ul class="simple">
+<li><p>Line 10-13: Made colon required in caption regex + added comment</p></li>
+<li><p>Line 112-114: Added stop condition in <code class="docutils literal notranslate"><span class="pre">_collect_block()</span></code></p></li>
+<li><p>Line 288: Commented out <code class="docutils literal notranslate"><span class="pre">_cleanup_malformed_figures()</span></code> call</p></li>
+</ul>
+</li>
+<li><p><strong>md_post_processing.py</strong></p>
+<ul class="simple">
+<li><p>Lines 551-558: Strip subsection numbers when promoting to H1</p></li>
+</ul>
+</li>
+<li><p><strong>fix_en_quote_blocks.py</strong> (NEW FILE)</p>
+<ul class="simple">
+<li><p>Full file created to fix English quote div blocks wrapping titles</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="pipeline-order-current">
+<h2>Pipeline Order (Current)<a class="headerlink" href="#pipeline-order-current" title="Link to this heading">#</a></h2>
+<p>From <code class="docutils literal notranslate"><span class="pre">book-pipeline.py</span></code> lines 58-93:</p>
+<ol class="arabic simple">
+<li><p>Pandoc: DOCX → Markdown</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mark_english_blocks_file()</span></code> - Wrap English text in div blocks</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">normalize_pandoc_attrs()</span></code> - Remove Pandoc attributes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remove_unreferenced_footnotes_file()</span></code> - Clean unused footnotes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">convert_container_to_div_blocks_file()</span></code> - Convert old syntax</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">process_markdown_insert_figures()</span></code> - <strong>BROKEN - Creates malformed figures</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sanitize_media_references_file()</span></code> - Fix media paths</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">strip_anonymous_colon_fences_file()</span></code> - Remove empty containers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fix_en_quote_blocks_file()</span></code> - <strong>NEW - Fixes title wrapping</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">normalize_md_file_headings()</span></code> - Promote headings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">number_md_headings()</span></code> - Add chapter numbers</p></li>
+</ol>
+</section>
+<section id="next-steps-recommendations">
+<h2>Next Steps / Recommendations<a class="headerlink" href="#next-steps-recommendations" title="Link to this heading">#</a></h2>
+<section id="high-priority">
+<h3>High Priority<a class="headerlink" href="#high-priority" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Fix figures</strong> - Choose one:</p>
+<ul class="simple">
+<li><p>Option A: Rewrite <code class="docutils literal notranslate"><span class="pre">insert_figures.py</span></code> with simpler logic</p></li>
+<li><p>Option B: Checkout commit 466ab72 and compare</p></li>
+<li><p>Option C: Fix <code class="docutils literal notranslate"><span class="pre">_find_nearby_image()</span></code> to only search forward</p></li>
+</ul>
+</li>
+<li><p><strong>Fix sidebar</strong> - Swap CSS order values in <code class="docutils literal notranslate"><span class="pre">_static/style.css</span></code></p></li>
+</ol>
+</section>
+<section id="medium-priority">
+<h3>Medium Priority<a class="headerlink" href="#medium-priority" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="3">
+<li><p><strong>Fix footnotes</strong> - Investigate why <code class="docutils literal notranslate"><span class="pre">[^39]</span></code> isn’t being processed</p></li>
+<li><p><strong>Fix section 2.9 gray box</strong> - Check markdown structure</p></li>
+</ol>
+</section>
+</section>
+<section id="test-commands">
+<h2>Test Commands<a class="headerlink" href="#test-commands" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Full pipeline from DOCX</span>
+python<span class="w"> </span>book-pipeline.py
+
+<span class="c1"># Just rebuild book (doesn&#39;t regenerate markdown)</span>
+jupyter-book<span class="w"> </span>build<span class="w"> </span>.
+
+<span class="c1"># Check specific chapter</span>
+sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;185,215p&#39;</span><span class="w"> </span>book-source/md/ch2_agriculture.md
+
+<span class="c1"># Check HTML output</span>
+grep<span class="w"> </span>-A10<span class="w"> </span><span class="s2">&quot;fig 2-3&quot;</span><span class="w"> </span>_build/html/book-source/md/ch2_agriculture.html
+</pre></div>
+</div>
+</section>
+<section id="important-git-commits">
+<h2>Important Git Commits<a class="headerlink" href="#important-git-commits" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>466ab72</strong> - “fixed the primary and secondary sidebars positions” (last working sidebar?)</p></li>
+<li><p><strong>a1a458b</strong> - “Refine figure processing and captions” (may have broken figures)</p></li>
+<li><p><strong>c3c4dfe</strong> - “changed blockquote color”</p></li>
+<li><p><strong>6f8cabd</strong> - “better handling of file with spaces. added convert_container_to_div_blocks_file”</p></li>
+</ul>
+</section>
+<section id="known-working-features">
+<h2>Known Working Features<a class="headerlink" href="#known-working-features" title="Link to this heading">#</a></h2>
+<p>✅ All chapter titles now show in TOC
+✅ Build completes without errors
+✅ Header numbering correct (1, 2, 3 not 1.1, 2.1, 3.1)
+✅ English quote blocks don’t wrap titles
+✅ Images are copied to media folder</p>
+</section>
+<section id="known-broken-features">
+<h2>Known Broken Features<a class="headerlink" href="#known-broken-features" title="Link to this heading">#</a></h2>
+<p>❌ Figures 2-3+ missing <code class="docutils literal notranslate"><span class="pre">{figure}</span></code> opening lines
+❌ Sidebar TOC on wrong side (left vs right)
+❌ Footnotes showing as literal text
+❌ Some section headers in gray boxes</p>
+</section>
+<section id="suggested-approach-for-next-developer">
+<h2>Suggested Approach for Next Developer<a class="headerlink" href="#suggested-approach-for-next-developer" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Start with sidebar fix (quick CSS change)</p></li>
+<li><p>Then tackle figure insertion (biggest issue)</p></li>
+<li><p>Finally debug footnotes and section formatting</p></li>
+</ol>
+<p>Good luck! 🍀</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./pipeline"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#issues-reported-by-user">Issues Reported by User</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#root-causes-identified">Root Causes Identified</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-page-titles-fixed">1. Missing Page Titles (FIXED ✅)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#header-numbering-fixed">2. Header Numbering (FIXED ✅)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#malformed-figure-blocks-partially-fixed">3. Malformed Figure Blocks (PARTIALLY FIXED ⚠️)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#name-fig-2-3-missing-figure-line">name: fig 2-3    ← MISSING ```{figure} line!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sidebar-position-not-fixed">4. Sidebar Position (NOT FIXED ❌)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes-not-rendering-not-fixed">5. Footnotes Not Rendering (NOT FIXED ❌)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-9-gray-box-not-investigated">6. Section 2.9 Gray Box (NOT INVESTIGATED ❌)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#files-modified-summary">Files Modified (Summary)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-order-current">Pipeline Order (Current)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps-recommendations">Next Steps / Recommendations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-priority">High Priority</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medium-priority">Medium Priority</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-commands">Test Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-git-commits">Important Git Commits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#known-working-features">Known Working Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#known-broken-features">Known Broken Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-approach-for-next-developer">Suggested Approach for Next Developer</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
