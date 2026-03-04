@@ -1,0 +1,38 @@
+# Python Dependencies for Ecology Book Pipeline
+# ================================================
+#
+# This project converts DOCX files to a Jupyter Book using a multi-stage pipeline:
+# DOCX -> Pandoc -> Markdown -> Jupyter Book (Sphinx)
+#
+# Installation:
+#   pip install -r requirements.txt
+#
+# IMPORTANT: This project also requires Pandoc to be installed separately
+# See "System Dependencies" section below
+
+# Core document processing
+python-docx>=0.8.11        # Reading and modifying DOCX files
+lxml>=4.9.0                # XML processing for DOCX internals
+
+# Jupyter Book and Sphinx
+jupyter-book>=0.15.0       # Main book building framework (includes Sphinx, MyST-Parser, etc.)
+
+# Progress bars and user feedback
+tqdm>=4.65.0              # Progress bars for batch processing
+
+# ================================================
+# System Dependencies (must be installed separately)
+# ================================================
+#
+# 1. Pandoc (https://pandoc.org/)
+#    - Required for converting DOCX to Markdown
+#    - Installation:
+#      - Windows: Download installer from https://pandoc.org/installing.html
+#                 or use: choco install pandoc
+#      - macOS:   brew install pandoc
+#      - Linux:   sudo apt-get install pandoc
+#    - Verify installation: pandoc --version
+#    - Minimum version: 2.0 or higher recommended
+#
+# Note: The pipeline uses pandoc with custom markdown format:
+#       markdown-raw_html-raw_attribute-header_attributes-auto_identifiers-bracketed_spans-native_divs-native_spans

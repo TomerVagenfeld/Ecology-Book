@@ -1,0 +1,406 @@
+/* =============================================================================
+   Base: default RTL for Hebrew content with LTR override when needed
+============================================================================= */
+:root, body { direction: rtl; text-align: right; font-family: sans-serif; }
+/* style.css — minimal, consistent, RTL-first with clean quote styling */
+
+/* Base LTR layout override (English) */
+:root[dir="ltr"] body {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Make paragraphs and headings render nicely in RTL */
+:root:not([dir="ltr"]) h1,
+:root:not([dir="ltr"]) h2,
+:root:not([dir="ltr"]) h3,
+:root:not([dir="ltr"]) h4,
+:root:not([dir="ltr"]) h5,
+:root:not([dir="ltr"]) h6 {
+  unicode-bidi: plaintext;
+  text-align: right;
+}
+:root:not([dir="ltr"]) p,
+:root:not([dir="ltr"]) li {
+  unicode-bidi: plaintext;
+}
+
+/* Shared "quote panel" look used for normal blockquotes and English quotes */
+blockquote,
+.en-quote {
+  background: rgba(168, 207, 64, 0.13);
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  /* logical border for RTL/LTR */
+  border-inline-start: 4px solid #a8cf40;
+  margin: 1rem 0;
+  border-left: .25em solid #a8cf40;
+}
+
+/* English epigraphs/quotes: force LTR and left alignment, isolate bidi */
+.en-quote {
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: left;
+  display: block;
+}
+
+/* Hebrew blockquotes should align right by default */
+.bd-article blockquote {
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: plaintext;
+}
+
+/* Remove nested chrome when MyST wraps a Markdown blockquote */
+.en-quote > blockquote {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: isolate;
+}
+
+/* Links long URLs wrap better inside quotes */
+.en-quote a, blockquote a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Figures: allow captions to wrap RTL correctly on RTL pages */
+:root:not([dir="ltr"]) .figure,
+:root:not([dir="ltr"]) figure {
+  text-align: center;
+}
+:root:not([dir="ltr"]) .figure .caption,
+:root:not([dir="ltr"]) figure figcaption {
+  direction: rtl;
+  unicode-bidi: plaintext;
+}
+
+/* Suppress automatic figure numbering – captions already include the label */
+.figure .caption-number,
+figure .caption-number {
+  display: none;
+}
+
+/* Footnotes (keep compact but readable) */
+.footnote, .footnotes {
+  font-size: 0.95em;
+  line-height: 1.55;
+}
+
+/* Footnote back-links */
+.fn-backref {
+  font-size: 0.85em;
+  color: var(--pst-color-link, #007bff);
+  cursor: pointer;
+}
+
+/* =============================================================================
+   Footnote Tooltip (hover preview with selectable text)
+============================================================================= */
+.fn-tooltip {
+  position: absolute;
+  z-index: 1000;
+  max-width: 420px;
+  min-width: 180px;
+  padding: 0.75rem 1rem;
+  background: var(--pst-color-background, #fff);
+  border: 1px solid var(--pst-color-border, #ccc);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 0.9em;
+  line-height: 1.5;
+  pointer-events: auto;
+  user-select: text;
+  -webkit-user-select: text;
+}
+.fn-tooltip.fn-rtl { direction: rtl; text-align: right; }
+.fn-tooltip.fn-ltr { direction: ltr; text-align: left; }
+.fn-tooltip p { margin: 0.3em 0; }
+.fn-tooltip a { color: var(--pst-color-link, #007bff); }
+
+/* =============================================================================
+   Search Results Styling
+============================================================================= */
+#search-results {
+  margin: 20px auto;
+  max-width: 800px;
+  direction: rtl;
+  text-align: right;
+}
+#search-results .search-summary {
+  direction: rtl;
+  text-align: right;
+  font-style: italic;
+  margin-bottom: 1em;
+  color: #666;
+}
+#search-results ul.search {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#search-results ul.search li {
+  border-bottom: 1px solid #eee;
+  margin: 1em 0;
+  padding-bottom: 1em;
+}
+#search-results ul.search li a {
+  font-weight: bold;
+  color: var(--pst-color-link, #007bff);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5em;
+  direction: rtl;
+  text-align: right;
+  font-size: 1.05em;
+}
+#search-results ul.search li a:hover { text-decoration: underline; }
+#search-results ul.search li p.context {
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: plaintext;
+  line-height: 1.6;
+  color: #444;
+}
+#search-results ul.search li p.context .highlighted {
+  background-color: rgba(168, 207, 64, 0.35);
+  padding: 0.1em 0.2em;
+  border-radius: 2px;
+}
+
+/* Search input box RTL */
+input[name="q"], #searchbox input, .search-field input {
+  direction: rtl;
+  text-align: right;
+}
+
+@media (max-width: 768px) { #search-results { margin: 10px; } }
+
+/* =============================================================================
+   Desktop (≥992px): secondary (LEFT) • main (MIDDLE/RIGHT side visually) • primary (RIGHT)
+   Force LTR on the layout container so "order" maps to left→right, regardless of page RTL.
+============================================================================= */
+@media (min-width: 992px) {
+  .bd-container__inner {
+    display: flex;
+    gap: var(--pst-horizontal-spacing, 2rem);
+    flex-direction: row;   /* be explicit */
+    direction: ltr;        /* layout only: left→right */
+  }
+
+  /* Visual positions: 0=left, 1=middle, 2=right */
+  /* For Hebrew RTL: secondary (page TOC) on LEFT, main in MIDDLE, primary (book TOC) on RIGHT */
+  .bd-sidebar-secondary { order: 0; flex: 0 0 var(--bd-sidebar-secondary-width, 18rem); } /* LEFT  */
+  .bd-main               { order: 1; flex: 1 1 auto; }                                      /* MIDDLE */
+  .bd-sidebar-primary   { order: 2; flex: 0 0 var(--bd-sidebar-primary-width, 18rem); }    /* RIGHT */
+
+  /* Restore RTL text flow inside panes (since the container is LTR now) */
+  .bd-sidebar-secondary,
+  .bd-sidebar-primary,
+  .bd-main {
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* Transitions/collapse (unchanged) */
+  .bd-sidebar-primary,
+  .bd-sidebar-secondary {
+    transition: transform .2s ease, width .2s ease;
+    will-change: transform;
+  }
+  body.rtl-sidebar-collapsed .bd-sidebar-primary,
+  body.rtl-secondary-collapsed .bd-sidebar-secondary {
+    transform: translateX(100%);
+    width: 0 !important; flex-basis: 0 !important;
+    margin: 0 !important; padding: 0 !important; overflow: hidden !important;
+  }
+
+  #pst-primary-sidebar-modal,
+  #pst-primary-sidebar-modal::backdrop { display: none !important; }
+}
+/* Push the primary toggle to the outer edge */
+#pst-primary-sidebar-toggle {
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+/* =============================================================================
+   Mobile (<992px): For RTL, both sidebars slide in from the right
+============================================================================= */
+@media (max-width: 991.98px) {
+  #pst-primary-sidebar { display: none !important; }
+
+  /* Primary sidebar (book TOC) - slides from right */
+  dialog#pst-primary-sidebar-modal {
+    position: fixed; top: 0; left: auto; bottom: 0; right: 0;
+    margin: 0; padding: 0; width: min(84vw, 420px); max-width: 100%; height: 100%;
+    border: 0; background: var(--bs-body-bg, #fff);
+    transform: translateX(100%);
+    transition: transform .2s ease-out;
+  }
+  dialog#pst-primary-sidebar-modal[open] { transform: none; }
+  dialog#pst-primary-sidebar-modal::backdrop { background: rgba(0,0,0,.45); }
+
+  /* Secondary sidebar (page TOC) - also slides from right for RTL consistency */
+  dialog#pst-secondary-sidebar-modal {
+    position: fixed; top: 0; left: auto; bottom: 0; right: 0;
+    margin: 0; padding: 0; width: min(84vw, 420px); max-width: 100%; height: 100%;
+    border: 0; background: var(--bs-body-bg, #fff);
+    transform: translateX(100%);
+    transition: transform .2s ease-out;
+    direction: rtl;
+    text-align: right;
+  }
+  dialog#pst-secondary-sidebar-modal[open] { transform: none; }
+  dialog#pst-secondary-sidebar-modal::backdrop { background: rgba(0,0,0,.45); }
+}
+
+/* =============================================================================
+   Secondary sidebar (page ToC) alignment on desktop + RTL tweaks
+============================================================================= */
+.bd-sidebar-secondary {
+  direction: rtl;
+  text-align: right;
+}
+
+.bd-sidebar-secondary .bd-toc-nav,
+.bd-sidebar-secondary .bd-toc-nav .nav,
+.bd-sidebar-secondary .bd-toc-nav .nav-link {
+  direction: rtl;
+  text-align: right;
+}
+
+.bd-sidebar-secondary .page-toc {
+  justify-content: flex-end;
+}
+
+/* =============================================================================
+   Typography
+============================================================================= */
+/* Header groups: keep the START group on the right in RTL */
+.header-article-items { display: flex; }
+.header-article-items__start { order: 1; }  /* right side in RTL */
+.header-article-items__end   { order: 2; }  /* left side in RTL */
+
+.bd-article p { text-align: justify; } /* don’t force lists; handled below */
+
+/* =============================================================================
+   Footnotes (JS assigns .fn-rtl / .fn-ltr)
+============================================================================= */
+section.footnotes li.fn-rtl,
+aside.footnote.fn-rtl,
+div.footnote.fn-rtl {
+  direction: rtl;
+  text-align: right;
+}
+section.footnotes li.fn-ltr,
+aside.footnote.fn-ltr,
+div.footnote.fn-ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+/* =============================================================================
+   Mobile optimizations: Better touch targets, spacing, and readability
+============================================================================= */
+@media (max-width: 991.98px) {
+  /* Ensure readable font size on mobile */
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* Better spacing for mobile */
+  .bd-article p {
+    margin-bottom: 1.2em;
+  }
+
+  /* Touch-friendly links and buttons */
+  a, button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Better blockquote spacing on mobile */
+  blockquote, .en-quote {
+    padding: 0.8rem;
+    margin: 1.2rem 0;
+  }
+
+  /* Ensure images don't overflow on mobile */
+  img, figure {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Better header spacing on mobile */
+  h1 { font-size: 1.8rem; margin: 1.5rem 0 1rem; }
+  h2 { font-size: 1.5rem; margin: 1.3rem 0 0.8rem; }
+  h3 { font-size: 1.3rem; margin: 1.2rem 0 0.7rem; }
+  h4 { font-size: 1.1rem; margin: 1rem 0 0.6rem; }
+}
+
+/* =============================================================================
+   Lists: language-aware (attribute-first, class fallback)
+   JS sets dir="ltr" or dir="rtl" on each list (and sometimes on <li>).
+============================================================================= */
+
+/* --- Simple (Docutils) lists: attribute-first overrides --- */
+
+/* English simple lists: bullets on the LEFT */
+.bd-article ul.simple[dir="ltr"],
+.bd-article ol.simple[dir="ltr"] {
+  direction: ltr !important;
+  unicode-bidi: isolate;
+  text-align: left !important;
+
+  /* beat docutils padding defaults */
+  padding-inline-start: 1.25rem !important;  /* left in LTR */
+  padding-inline-end: 0 !important;
+  margin-inline-start: 1.25rem !important;
+  margin-inline-end: 0 !important;
+
+  /* physical fallbacks (older browsers) */
+  padding-left: 1.25rem !important;
+  padding-right: 0 !important;
+  margin-left: 1.25rem !important;
+  margin-right: 0 !important;
+
+  list-style-position: outside;
+}
+
+/* Make the items & common children LTR too */
+.bd-article ul.simple[dir="ltr"] > li,
+.bd-article ol.simple[dir="ltr"] > li,
+.bd-article ul.simple[dir="ltr"] > li > *,
+.bd-article ol.simple[dir="ltr"] > li > * {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+/* Hebrew simple lists: bullets on the RIGHT */
+.bd-article ul.simple[dir="rtl"],
+.bd-article ol.simple[dir="rtl"] {
+  direction: rtl !important;
+  unicode-bidi: isolate;
+  text-align: right !important;
+
+  padding-inline-start: 0 !important;
+  padding-inline-end: 1.25rem !important;
+  margin-inline-start: 0 !important;
+  margin-inline-end: 1.25rem !important;
+
+  padding-right: 1.25rem !important;
+  padding-left: 0 !important;
+  margin-right: 1.25rem !important;
+  margin-left: 0 !important;
+
+  list-style-position: outside;
+}

@@ -1,0 +1,4 @@
+book-source/media/
+
+# MyST build outputs
+_build

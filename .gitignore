@@ -1,0 +1,39 @@
+# Build outputs
+pipeline/_build/
+pipeline/book-source/media/
+
+# Large binary source files (not tracked in git)
+figs/
+pipeline/book-source/raw/
+pipeline/book-source/docx/
+igal_original_docx/
+
+# Progress docs (binary)
+progress_documentation*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Test/debug output
+pipeline/test_output/
+pipeline/screenshots/
+pipeline/debug_*.md
+TODO.txt
+
+# Claude local config
+.claude/
+pipeline/.claude/
