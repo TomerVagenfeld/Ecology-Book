@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="he" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>חקלאות וסביבה &#8212; My sample book</title>
+    <title>חקלאות וסביבה &#8212; אקולוגיה</title>
   
   
   
@@ -35,23 +35,24 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=3dfcc3b8" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=3d3f4749" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/documentation_options.js?v=f9e65679"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleHintShow = 'לחץ להצגה';</script>
+    <script>let toggleHintHide = 'לחץ להסתרה';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="../_static/translations.js?v=714bf7a6"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -59,10 +60,17 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'pipeline/debug_ch2';</script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <script src="../_static/custom_scroll.js?v=678a69f3"></script>
+    <script src="../_static/en-quote.js?v=d5f813da"></script>
+    <script src="../_static/footnote-dir.js?v=322e6877"></script>
+    <script src="../_static/footnote-tooltip.js?v=35880b41"></script>
+    <script src="../_static/list-dir.js?v=a6fa1b8f"></script>
+    <script src="../_static/rtl-sidebar.js?v=3282486f"></script>
+    <script src="../_static/search-hebrew.js?v=b975a066"></script>
+    <link rel="index" title="אינדקס" href="../genindex.html" />
+    <link rel="search" title="חיפוש" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="he"/>
   </head>
   
   
@@ -154,8 +162,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="אקולוגיה - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="אקולוגיה - Home"/>`);</script>
   
   
 </a></div>
@@ -163,9 +171,9 @@
 
  <script>
  document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="חיפוש" aria-label="חיפוש" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
+    <span class="search-button__default-text">חיפוש</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
    </button>
  `);
@@ -176,26 +184,26 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    אקולוגיה
+                    משבר הסביבה והאקלים - הזוית המדעית
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch1_introduction.html">1. 1. מבוא - עקרונות, היסטוריה והגורמים למשבר הסביבה והאקלים</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch2_agriculture.html">2. 2. חקלאות וסביבה</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch3_energy.html">3. 3. משק האנרגיה</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch4_industry.html">4. 4. תעשייה וחומרי גלם</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch5_biogeochemical_cycles.html">5. 5. מחזורים ביוגאוכימיים</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch6_global_warming.html">6. 6. התחממות גלובלית ושיבוש האקלים</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch7_biosphere.html">7. 7. פגיעה בביוספרה</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch8_open_spaces_soils.html">8. 8. פגיעה בשטחים פתוחים וקרקעות</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch9_water.html">9. 9. פגיעה במקורות ובאיכות מים מתוקים</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch10_marine.html">10. 10. פגיעה בסביבה הימית</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch11_atm.html">11. 11. פגיעה באטמוספרה וזיהום אוויר</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch12_urban.html">12. 12. הסביבה העירונית</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch13_summary.html">13. 13. סיכום - הבעיות הניצבות לפתחנו ודרכי התמודדות</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch14_IL.html">14. 14. סיכום מצב הסביבה בישראל</a></li>
-<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch15_appendices.html">15. 15. נספחים</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch1_introduction.html">1. מבוא - עקרונות, היסטוריה והגורמים למשבר הסביבה והאקלים</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch2_agriculture.html">2. חקלאות וסביבה</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch3_energy.html">3. משק האנרגיה</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch4_industry.html">4. תעשייה וחומרי גלם</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch5_biogeochemical_cycles.html">5. מחזורים ביוגאוכימיים</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch6_global_warming.html">6. התחממות גלובלית ושיבוש האקלים</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch7_biosphere.html">7. פגיעה בביוספרה</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch8_open_spaces_soils.html">8. פגיעה בשטחים פתוחים וקרקעות</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch9_water.html">9. פגיעה במקורות ובאיכות מים מתוקים</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch10_marine.html">10. פגיעה בסביבה הימית</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch11_atm.html">11. פגיעה באטמוספרה וזיהום אוויר</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch12_urban.html">12. הסביבה העירונית</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch13_summary.html">13. סיכום - הבעיות הניצבות לפתחנו ודרכי התמודדות</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch14_IL.html">14. סיכום מצב הסביבה בישראל</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book-source/md/ch15_appendices.html">15. נספחים</a></li>
 </ul>
 
     </div>
@@ -237,53 +245,6 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpipeline/debug_ch2.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -363,7 +324,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="חיפוש" aria-label="חיפוש" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -416,16 +377,16 @@ name: fig 2-11</a></li>
                 <article class="bd-article">
                   
   <blockquote>
-<div><p>“אז בבית הספר</p>
+<div><p>”אז בבית הספר</p>
 <p>על הקיר תמונה</p>
 <p>והאיכר חורש בה</p>
 <p>את האדמה</p>
 <p>וברקע, הברושים</p>
 <p>שמי שרב חיוורים</p>
 <p>האיכר יצמיח לנו לחם</p>
-<p>שנהיה גדולים.” – עלי מוהר</p>
+<p>שנהיה גדולים.“ – עלי מוהר</p>
 </div></blockquote>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<section id="id1">
 <h1>חקלאות וסביבה<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>החקלאות היא פעילות אנושית שמטרתה לספק מזון באיכות ובכמות מספקת לבני
 האדם. הפרק הנוכחי דן בהשפעות החקלאות על הסביבה ובהשפעות הסביבה על
@@ -446,8 +407,8 @@ name: fig 2-11</a></li>
 למאפייני השטח והאקלים, תוך שימוש בדשן שמקורו בהפרשות בעלי חיים ושאריות
 צמחים ושימוש מועט במדבירים (resource based/traditional agriculture).
 שיטות העיבוד של חקלאות מסורתית נמצאו עד לאחרונה בנסיגה ופינו את מקומן
-לחקלאות “תעשייתית.” לאחרונה, יש מגמה של חזרה אל שיטות אלה באזורים
-שונים, אם כי עדין בקנה מידה קטן. (2) חקלאות “תעשייתית” (או
+לחקלאות ”תעשייתית.“ לאחרונה, יש מגמה של חזרה אל שיטות אלה באזורים
+שונים, אם כי עדין בקנה מידה קטן. (2) חקלאות ”תעשייתית“ (או
 קונבנציונלית/ demand based) היא שיטת העיבוד הנפוצה ביותר כיום. החקלאות
 התעשייתית מתבססת על מיכון רב, גידולים חד-זנים על פני שטחים גדולים
 (mono-culture) תוך שימוש נרחב במדבירים ובדשנים כימיים, כולל הדברה בקרקע
@@ -469,9 +430,9 @@ name: fig 2-11</a></li>
 </section>
 <section id="id3">
 <h2>היקף הפעילות החקלאית<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>כשליש מהשטח הכולל של היבשות (כ-50 מיליון קמ”ר מתוך שטח כולל של כ-150
-מיליון קמ”ר) מעובד או ומנוצל לצרכים חקלאיים.[^6] כ-15 מיליון קמ”ר
-נוספים משטח היבשות מכוסים בקרח ועוד כ-29 מיליון קמ”ר הם שטחים שאינם
+<p>כשליש מהשטח הכולל של היבשות (כ-50 מיליון קמ“ר מתוך שטח כולל של כ-150
+מיליון קמ“ר) מעובד או ומנוצל לצרכים חקלאיים.[^6] כ-15 מיליון קמ“ר
+נוספים משטח היבשות מכוסים בקרח ועוד כ-29 מיליון קמ“ר הם שטחים שאינם
 ראויים לחקלאות (מדבריות, משטחי סלע וקרקעות מלוחות). כלומר, הפעילות
 החקלאית מנצלת קרוב למחצית מהשטח הפורה של היבשות (איור 2.1). חשוב להדגיש
 שמבין ענפי החקלאות השונים, גידול בעלי חיים משתמש בחלק הארי של השטחים
@@ -481,7 +442,7 @@ name: fig 2-11</a></li>
 ו-63% מצריכת החלבונים של האנושות.</p>
 <p>קיים מנעד רחב מבחינת אחוז הקרקע המנוצל לחקלאות בארצות שונות וכתוצאה מכך
 קיים פער גדול בין מדינות שונות ביחס של שטח חקלאי או שטח מעובד לאדם, מה
-שיוצר בעיות גיאופוליטיות חריפות. למשל, בסין יש כ-0.9 דונם (900 מ”ר) של
+שיוצר בעיות גיאופוליטיות חריפות. למשל, בסין יש כ-0.9 דונם (900 מ“ר) של
 אדמה מעובדת לאדם (4.5 דונם כולל שטחי מרעה), בעוד שבאפריקה יש כ-2.5 דונם
 לאדם (10.3 דונם כולל מרעה) ובברזיל יש כ-4 דונם לאדם (13.6 דונם כולל
 מרעה).[^8] עובדה זאת מסבירה, יחד עם גורמים נוספים (גיאופוליטיים
@@ -551,7 +512,7 @@ name: fig 2-11</a></li>
 לכתשעה מיליארד טון (איור 2.2).[^26] ראוי לשים לב לעלייה בייצור שמן אשר
 חלק ניכר ממנו הוא שמן דקלים המיועד לייצור אנרגיה (ביו-דלקים, ראו פרק 3).
 היצור החקלאי נמצא בהתאמה עם הגידול במספר האנשים בעולם ועם העלייה ברמת
-חייהם, עלייה המשתקפת ברמת התזונה של בני האדם. סוכנויות האו”ם וגופים
+חייהם, עלייה המשתקפת ברמת התזונה של בני האדם. סוכנויות האו“ם וגופים
 אחרים עוקבים מקרוב אחר מצב התזונה של אנשים ברחבי העולם והדיווחים
 מתעדכנים מידי שנה (איורים 2.3, 2.4). לפני שנדון באיורים 2.3 ו-2.4 ראוי
 לציין שבספרו של לסטר בראון (Brown) מהארגון Earth Policiy Institute משנת
@@ -564,7 +525,7 @@ name: fig 2-11</a></li>
 הסובלים מתת-תזונה בעולם, למרות שב-2020 היו פחות אנשים רעבים בהשוואה
 ל-2005. איור 2.4 מציג את אחוז האנשים הרעבים ומצביע על דפוס דומה עם הבדל
 אחד. העלייה באחוז האנשים הרעבים מתונה יותר, כיוון שבשנים הללו מספר
-האנשים הכולל בעולם עלה בכ-80 מיליון אנשים מידי שנה. מצד שני, דו”ח של
+האנשים הכולל בעולם עלה בכ-80 מיליון אנשים מידי שנה. מצד שני, דו“ח של
 הסוכנות למעקב אחרי רעב (GNAFC)[^28] משנת 2025 מראה שמאז 2020 (השנה
 האחרונה המופיעה באיור 2.3) מספר האנשים הסובלים מתת תזונה המשיך
 לטפס.[^29] האנליזה של דוח ה-GNAFC שונה מהאנליזה של FAO המופיעה באיורים
@@ -582,9 +543,9 @@ name: fig 2-11</a></li>
 זה הוביל לחוסר שקט חברתי ופוליטי במספר רב של מוקדים בעשורים
 האחרונים.[^32] למרות כל זאת, לפחות מבחינת מצב התזונה של ילדים בעולם נראה
 שבעשורים האחרונים חל שיפור המתבטא בירידה במידת העיכוב בגדילה (stunting -
-איור 2.6). מצד שני, בדו”ח אחר של ה-FAO משנת 2021, מוצגת תמונה קצת יותר
+איור 2.6). מצד שני, בדו“ח אחר של ה-FAO משנת 2021, מוצגת תמונה קצת יותר
 עגומה משום שהוא אינו מתמקד בשיפור בין שנת 2000 ו-2020, אלא מתמקד בפער
-הקיים עדיין בהשוואה ליעדי האו”ם לשנת 2030.[^33]</p>
+הקיים עדיין בהשוואה ליעדי האו“ם לשנת 2030.[^33]</p>
 <figure class="align-default" id="fig-2-2">
 <a class="reference internal image-reference" href="../_images/2_2.jpg"><img alt="../_images/2_2.jpg" src="../_images/2_2.jpg" style="height: 400px;" />
 </a>
@@ -633,7 +594,7 @@ name: fig 2-6
 ברחבי העולם הקרקעות סובלות כיום מנזקים שונים שנגרמו מפעילות חקלאית
 אנושית שנעשתה בצורה לא נכונה. הנזקים השכיחים הם ארוזיה (סחיפת
 קרקעות)[^39] הגורם להסרת החלק העליון של הקרקע, ירידה בתכולת חומר אורגני
-הנחוץ לשימור מבנה הקרקע, לתאחיזת מים ולקיבוע פד”ח אטמוספרי, המלחה,
+הנחוץ לשימור מבנה הקרקע, לתאחיזת מים ולקיבוע פד“ח אטמוספרי, המלחה,
 מדבור (שם כולל לירידה בפוריות הקרקע באזורי ספר-מדבר עקב ארוזיה וירידה
 בתכולת חומר אורגני), זיהום על ידי חומרי הדברה, מזהמים אורגניים,
 אנטיביוטיקה,[^40] הורמונים, דלק, ועוד; ודחיסה, בעיקר עקב שימוש בציוד
@@ -652,7 +613,7 @@ name: fig 2-6
 פוגעים במרקם המיקרוביאלי בקרקע ואף יכולים לעודד התפתחות אוכלוסיות
 מיקרו-אורגניזמים שיגרמו נזקים לקרקע ולצומח. גם בדיון על קרקעות, כמו
 בנושאים אחרים, חשוב לבחון את ההשפעה של שיטות העיבוד החקלאי על תכונות
-ותפקוד הקרקע[^55] ואת התאמתן ליעדי פיתוח בר קיימא של האו”ם.[^56] בפרק 8
+ותפקוד הקרקע[^55] ואת התאמתן ליעדי פיתוח בר קיימא של האו“ם.[^56] בפרק 8
 נרחיב על תהליכי יצירת קרקעות, על תכונות הקרקע ועל הנזקים הנגרמים לקרקע
 עקב פעילות בני אדם.</p>
 </section>
@@ -704,7 +665,7 @@ DDT).[^59] ההתמודדות עם מזיקים מתבססת גם על דרכי 
 המדבירים העיקריים הם החקלאים של אמריקה ואסיה (איור 2.7), בעוד שבאירופה
 ישנה מגמה להפחית את השימוש במדבירים.[^72]</p>
 <p>על מנת לצמצם את הנזקים של חומרי ההדברה ואת העמידות הגוברת של מזיקים, יש
-ניסיון להצעיד את החקלאות המודרנית בכיוון של “הדברה משולבת” (IPM –
+ניסיון להצעיד את החקלאות המודרנית בכיוון של ”הדברה משולבת“ (IPM –
 Integrated Pest Management).[^73] הדברה משולבת נסמכת על היכרות טובה עם
 מחזור החיים של המזיק, שימוש מושכל במדבירים ושילוב של שיטות עיבוד כמו
 מחזור זרעים, שימוש בגידולי כיסוי, עירוב גידולים (ראו בהמשך דיון על
@@ -714,8 +675,8 @@ Integrated Pest Management).[^73] הדברה משולבת נסמכת על היכ
 לטובת שיפור ההתמודדות עם המזיקים וכן להגדלת עמידות הגידול לעקות (stress)
 מסוגים שונים ולהגדלת התנובה. השימוש בהנדסה גנטית בחקלאות עורר ועודנו
 מעורר ויכוחים רבים הן בקהילה המדעית והן בציבור הרחב, שלא זה המקום
-לפרטם.[^75] בשנים האחרונות המאמץ של הנדסה גנטית עובר בהדרגה מ”שתילת
-גנים” ל”עריכת” גנים, משום ש”עריכת” גנים דומה יותר לתהליכי ברירה
+לפרטם.[^75] בשנים האחרונות המאמץ של הנדסה גנטית עובר בהדרגה מ“שתילת
+גנים“ ל“עריכת“ גנים, משום ש“עריכת“ גנים דומה יותר לתהליכי ברירה
 טבעית ואינה משאירה עקבות של DNA זר.[^76] לאחרונה עלתה הצעה לשלב עריכת
 גנים עם כלים נוספים תוך שימוש ב-AI.[^77] דוגמא מעניינת לשיטה מושכלת של
 התמודדות עם מזיקים המשלבת IPM והנדסה גנטית היא פיזור פרומונים
@@ -728,15 +689,15 @@ Integrated Pest Management).[^73] הדברה משולבת נסמכת על היכ
 <a class="reference internal image-reference" href="../_images/2_7.jpg"><img alt="../_images/2_7.jpg" src="../_images/2_7.jpg" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">איור 2.7: שימוש במדבירים (ק”ג של מדביר ליחידת שטח – 10 דונם) בין השנים 2000 ו-2019 באזורים שונים בעולם. מקור – FAO (2021) (FIG 16), CC BY-NC-SA 3.0 IGO; Reprinted with permission.</span><a class="headerlink" href="#fig-2-7" title="Link to this image">#</a></p>
+<p><span class="caption-text">איור 2.7: שימוש במדבירים (ק“ג של מדביר ליחידת שטח – 10 דונם) בין השנים 2000 ו-2019 באזורים שונים בעולם. מקור – FAO (2021) (FIG 16), CC BY-NC-SA 3.0 IGO; Reprinted with permission.</span><a class="headerlink" href="#fig-2-7" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id7">
 <h2>חומרי דשן<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>כל סוגי העיבוד שהוזכרו בתחילת הפרק נמצאים בשימוש בהווה, אולם כאמור מרבית
-הייצור החקלאי כיום נעשה בשיטת העיבוד ה”תעשייתית”. התרומה של החקלאות
-“התעשייתית” לשיפור מצב התזונה של האנושות במחצית השנייה של המאה העשרים
+הייצור החקלאי כיום נעשה בשיטת העיבוד ה“תעשייתית“. התרומה של החקלאות
+”התעשייתית“ לשיפור מצב התזונה של האנושות במחצית השנייה של המאה העשרים
 (המהפכה הירוקה) איננה מוטלת בספק.[^80] המהפכה הירוקה אפשרה למספר מדינות
 (מקסיקו, הודו, פקיסטן, ועוד) להגדיל בצורה ניכרת את יבול הדגנים על ידי
 שימוש בזנים חדשים, הדברת מזיקים, דישון (חומרי הזנה) מוגבר והכנסת
@@ -755,10 +716,10 @@ Integrated Pest Management).[^73] הדברה משולבת נסמכת על היכ
 לאחרונה הוצע לטפח אזורים של אחו-לח (wetland) במורד הזרימה מאזורים
 חקלאיים, על מנת שהצומח באחו-לח יקלוט ויקבע את עודפי הנוטריינטים ובראשם
 חנקן וימנע מקרים של אאוטריפיקציה.[^85]</p>
-<p>המעבר מחקלאות “תעשייתית” לסוגי חקלאות אחרים, בעיקר חקלאות מקיימת
+<p>המעבר מחקלאות ”תעשייתית“ לסוגי חקלאות אחרים, בעיקר חקלאות מקיימת
 (sustainable/regenerative agriculture, אגרו-אקולוגיה)[^86] ולחקלאות
 אורגנית[^87] הוא נתיב נוסף להפחתת השימוש בדשנים וכן במדבירים. המעבר
-מחקלאות “תעשייתית” לחקלאות מקיימת איננו פשוט והוא חייב להיעשות ללא
+מחקלאות ”תעשייתית“ לחקלאות מקיימת איננו פשוט והוא חייב להיעשות ללא
 פגיעה בתנובה הכוללת וברווח התפעולי של החקלאים.[^88] מה שמסייע למעבר
 מבחינה כלכלית היא העובדה שבחקלאות תעשייתית יש השקעה כספית ניכרת במדבירים
 (שצריך לסנתז) ובדשנים. למשל, נדרשת השקעה כספית ואנרגטית ניכרת בתהליך
@@ -769,7 +730,7 @@ Haber-Bosch ליצירת דשנים של חנקן (ראו פרק 4) ובכריי
 לראות כי בשנים האחרונות אכן ישנה האטה בשימוש בדשנים בעולם (יש נתונים רק
 לגבי שלושת העיקריים – חנקן, זרחן ואשלגן - איור 2.8). אחת הסיבות
 האפשריות להתייצבות זאת היא שחלקה של החקלאות המקיימת והאורגנית נמצא בעליה
-וכן שבחקלאות מקיימת ובחקלאות “תעשייתית” נעשה שימוש הולך וגובר בחקלאות
+וכן שבחקלאות מקיימת ובחקלאות ”תעשייתית“ נעשה שימוש הולך וגובר בחקלאות
 מדייקת (ראו למעלה).</p>
 <figure class="align-default" id="fig-2-8">
 <a class="reference internal image-reference" href="../_images/2_8.jpg"><img alt="../_images/2_8.jpg" src="../_images/2_8.jpg" style="height: 400px;" />
@@ -783,13 +744,13 @@ Haber-Bosch ליצירת דשנים של חנקן (ראו פרק 4) ובכריי
 <h2>חקלאות מקיימת<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>חקלאות מקיימת היא אחת הדרכים המבטיחות ביותר להתמודדות עם ארבעה מהאתגרים
 הגדולים הניצבים בפני האנושות, שרבים חושבים שקיימת סתירה בין המאמצים
-להשיגם:[^90] (1) הפחתת הפליטות של גזי חממה (או אף סילוק פד”ח
+להשיגם:[^90] (1) הפחתת הפליטות של גזי חממה (או אף סילוק פד“ח
 מהאטמוספרה), (2) הספקת די מזון ל-8-10 מיליארד בני אדם, (3) עצירת הגידול
-בניצול מים שפירים (כיום מנצלים כ-4,500 ק”מ מעוקב מידי שנה – ראו פרק
+בניצול מים שפירים (כיום מנצלים כ-4,500 ק“מ מעוקב מידי שנה – ראו פרק
 9), (4) הגדלת המגוון הביולוגי[^91] ומניעת הכחדתם של אבות מיני התרבות
 (מיני בר הקרובים גנטית למינים מתורבתים).[^92] החקלאות המקיימת מתבססת על
 יישום עקרונות השאולים מתחומי האקולוגיה והפדולוגיה (חקר קרקעות) הכוללים
-שבעה מרכיבים עיקריים:[^93] (1) משטר “אי פליחה” - הימנעות מחריש
+שבעה מרכיבים עיקריים:[^93] (1) משטר ”אי פליחה“ - הימנעות מחריש
 (no-till) וכשחורשים, חורשים לעיתים רחוקות ככל הניתן ודואגים שהפילוח יהיה
 רדוד על מנת להקטין את סחיפת הקרקע[^94] ואת חמצון החומר האורגני בקרקע.
 כמו כן, החריש נעשה בהתחשב בקווי הגובה ובכיוון הסחף. (2) שימוש בגידולי
@@ -836,10 +797,10 @@ Organization of the United Nations) לקידום הנושא של חקלאות פ
 לחלוטין ממדבירים ומכילות שאריות של מדבירים כימיים, אם כי על פי רוב
 בריכוזים נמוכים משמעותית מקרקע בשדות קונבנציונליים,[^108] וכן שקיימת
 השפעה הדדית על ריכוזי מדבירים בין החלקות האורגניות
-והקונבנציונליות.[^109] השוואות דומות עדין לא פורסמו לגבי “משק המודל”
+והקונבנציונליות.[^109] השוואות דומות עדין לא פורסמו לגבי ”משק המודל“
 של משרד החקלאות הישראלי (שמקדם חקלאות מקיימת, לא אורגנית).[^110] באופן
 כללי, יש כיום מגמה עולמית של גידול בחלקה היחסי של החקלאות האורגנית אם
-כי, בין המדינות המהוות את אסם התבואה העולמי (ארה”ב, הולנד, אוקראינה,
+כי, בין המדינות המהוות את אסם התבואה העולמי (ארה“ב, הולנד, אוקראינה,
 ברזיל, אוסטרליה), רק באוסטרליה החקלאות האורגנית מהווה חלק משמעותי
 (כ-10%) מכלל העיבוד החקלאי (איור 2.9).</p>
 <figure class="align-default" id="fig-2-9">
@@ -856,22 +817,22 @@ Organization of the United Nations) לקידום הנושא של חקלאות פ
 פעילות חקלאית כגון גידול בעלי חיים[^111] ושדות אורז[^112] היא מקור
 הפליטה המשמעותי ביותר של שניים מגזי החממה העיקריים: מתאן (CH~4~) וחמצן
 דו חנקני (nitrous oxide – N~2~O).[^113] ב-2019 נפלטו לאטמוספרה מפעילות
-חקלאית כמויות מתאן השוות ערך לכ-3.5 גיגה-טון של פד”ח (פחמן דו חמצני,
+חקלאית כמויות מתאן השוות ערך לכ-3.5 גיגה-טון של פד“ח (פחמן דו חמצני,
 CO~2~). באותה שנה, כלל פליטות המתאן עקב פעילות בני אדם היו שוות לכ-8.3
-גיגה-טון של פד”ח. כלומר, הפעילות החקלאית היתה אחראית לכ-40% מכלל פליטות
+גיגה-טון של פד“ח. כלומר, הפעילות החקלאית היתה אחראית לכ-40% מכלל פליטות
 המתאן האנושיות.[^114] גם פליטות חמצן דו חנקני משדות חקלאיים מהווה בעיה
 מטרידה שעד לשנים האחרונות נדמה היה שאין דרך טובה להתמודד איתה. לאחרונה
 הוגדר סוג חדש של בקטריה הנמצאת בקרקע (<em>Cloacibacterium sp</em>. CB-01)
 המסוגלת לחזר חמצן דו חנקני לחנקן מולקולרי (N~2~).[^115] אם אכן ניתן יהיה
 לממש את הפוטנציאל של הבקטריה הזאת בקנה מידה גדול על ידי פיזור תרביות של
 הבקטריה בשדות חקלאיים, זאת תהיה תרומה משמעותית בהפחתת הפליטות של גזי
-חממה, משום שחמצן דו חנקני הוא גז חממה היעיל מפד”ח פי 200 עד 300. בדומה,
+חממה, משום שחמצן דו חנקני הוא גז חממה היעיל מפד“ח פי 200 עד 300. בדומה,
 לאחרונה דווח על פיתוח זן חדש של אורז שגידולו משחרר 70% פחות מתאן
 לאטמוספרה.[^116] ועל דרך להפחית פליטות מתאן שמקורן בגידול חזירים.[^117]
 עדין נותר לראות עד כמה ניתן יהיה ליישם בהיקף רחב את החידושים הללו.</p>
 <p>מעבר לפליטות מתאן וחמצן דו חנקני, הפעילות החקלאית משחררת לאטמוספרה גם
-גזי חממה נוספים, בראש ובראשונה פד”ח. מתוך כ-52 גיגה-טון של פד”ח ושווה
-ערך לפד”ח שפעילות האדם פלטה לאטמוספרה ב-2018, כ-26% נפלטו מפעילות
+גזי חממה נוספים, בראש ובראשונה פד“ח. מתוך כ-52 גיגה-טון של פד“ח ושווה
+ערך לפד“ח שפעילות האדם פלטה לאטמוספרה ב-2018, כ-26% נפלטו מפעילות
 חקלאית, כאשר כ-31% מתוכם נבעו מגידול בעלי חיים (כולל דגה), כ-27% מייצור
 חקלאי (שימוש בכלי עבודה, שריפות מבוקרות וכולי), כ-24% משימושי קרקע,
 ו-18% מהובלה ושינוע של מזון.[^118] אולם ראוי לציין שבשני העשורים
@@ -884,13 +845,13 @@ CO~2~). באותה שנה, כלל פליטות המתאן עקב פעילות ב
 (organic fertilizers)[^120] ובמדבירים ביולוגיים,[^121] יתכן שחקלאות
 מקיימת תוכל לתרום גם לנושא מאזן גזי החממה בכדור הארץ.[^122] חישוב פשוט
 מראה שאם נעלה בזכות עיבוד נכון של הקרקע את כמות החומר האורגני בחלק
-העליון של פרופיל הקרקע (top soil – 20 הס”מ העליונים, בערך), מערך של
+העליון של פרופיל הקרקע (top soil – 20 הס“מ העליונים, בערך), מערך של
 כ-4.5% בממוצע[^123] לערך של 5% בממוצע עולמי, נסלק מהאטמוספרה כ-25 GT של
 פחמן,[^124] השווים לפליטה הכוללת של פחמן לאטמוספרה במשך כשנתיים בקצב
 הפליטות העכשווי.[^125] יוזמה ברוח זאת הוצעה ב-2019 על ידי משרד החקלאות
 הצרפתי.[^126] מצד שני, יש מחקרים המביעים סקפטיות לגבי יכולתה של החקלאות
 המקיימת להיות שחקן מרכזי במאזן הפחמן העולמי ולהשפיע משמעותית על פליטת או
-קליטת פד”ח מן האטמוספרה.[^127] הביקורת מופנית גם לשינויים בדפוסי רעיה
+קליטת פד“ח מן האטמוספרה.[^127] הביקורת מופנית גם לשינויים בדפוסי רעיה
 המוצגים על ידי אלן סבורי (Savory), ושיוזכרו גם בפרק 8.[^128]</p>
 <p>מעבר לוויכוח הניטש לגבי המעבר מחקלאות תעשייתית לחקלאות מקיימת, חשוב
 לציין שישנם מחקרים רבים המדגימים כיצד מעבר לדיאטה טבעונית-בעיקרה מקטינה
@@ -913,16 +874,16 @@ CO~2~). באותה שנה, כלל פליטות המתאן עקב פעילות ב
 וסוב-טרופיים).[^134] אולם יש גם אזורים, בעיקר בצפון אמריקה, צפון אירופה
 וסיביר שבהם הפגיעה תהיה פחותה, ויתכן שבחלק מהאזורים הללו התפוקה החקלאית
 תעלה. משתנה חשוב ביותר המשפיע על מידת הנזק הצפוי לחקלאות הוא באיזו מידה
-עליית ריכוז פד”ח באטמוספרה תגדיל את קצב הגידול של צמחי המאכל (CO~2~
+עליית ריכוז פד“ח באטמוספרה תגדיל את קצב הגידול של צמחי המאכל (CO~2~
 fertilization).[^135] בשלושים השנים האחרונות נעשו מחקרים רבים שבחנו את
 הנושא החשוב הזה באמצעות מחקרי שדה (FACE),[^136] מחקרי מעבדה וסימולציות
 מחשב. מחקרים אלה הגיעו למסקנה שצמחי 3C (בעיקר חיטה, אורז ועוד מספר
-גידולי מפתח)[^137] יגדילו את תנובתם בעקבות העלייה בריכוזי פד”ח, אולם
+גידולי מפתח)[^137] יגדילו את תנובתם בעקבות העלייה בריכוזי פד“ח, אולם
 חלק ניכר מהעלייה הזאת יתבטל בגלל שילוב של עליית הטמפרטורה ועקות
 מים.[^138] צמחי 4C (רוב המחקר התמקד בתירס ודורה - sorghum) לא יגדילו את
-תנובתם או אף יפגעו מהשילוב של עלייה בריכוזי פד”ח, טמפרטורה ובמידה פחותה
+תנובתם או אף יפגעו מהשילוב של עלייה בריכוזי פד“ח, טמפרטורה ובמידה פחותה
 עקב מחסור במים.[^139] כמו כן, ישנם מחקרים המראים שערכם התזונתי של חלק
-מצמחי המאכל ייפגע בגלל עליית ריכוזי הפד”ח, אם כי ניתן להפחית את הפגיעה
+מצמחי המאכל ייפגע בגלל עליית ריכוזי הפד“ח, אם כי ניתן להפחית את הפגיעה
 הזאת בעזרת בחירה מושכלת של זנים.[^140]</p>
 <p>מחקר שפורסם ב-2008 טען שהתחממות גלובלית תפגע במידה כזאת או אחרת בתנובה
 החקלאית העולמית בעיקר בארצות המתפתחות, הן מסיבות כלכליות וחברתיות והן
@@ -936,7 +897,7 @@ fertilization).[^135] בשלושים השנים האחרונות נעשו מחק
 (carbonyl sulfide - OCS).[^144] חשוב לדעת שיש דיווחים מרחבי העולם
 המעידים שכבר כיום ההתחממות הגלובלית משפיעה על יבולים. למשל, בישראל חלה
 בשנים האחרונות ירידה של יותר מ-30% ביבול של חלק מעצי הפרי עקב מחסור
-ב”מנות קור” - ימים קרירים הנחוצים להבשלת הפירות.[^145] כמו כן, לאחרונה
+ב“מנות קור“ - ימים קרירים הנחוצים להבשלת הפירות.[^145] כמו כן, לאחרונה
 התפרסמו מודלים המנבאים שבמקביל לשינוי בתנובה, התחממות גלובלית תאיץ את
 התפשטותם של מזיקים לאזורים ממוזגים.[^146]</p>
 <figure class="align-default" id="fig-2-10">
@@ -1899,7 +1860,7 @@ name: fig 2-11</a></li>
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By יגאל אראל
 </p>
 
   </div>
@@ -1922,6 +1883,9 @@ By The Jupyter Book Community
   
   <div class="footer-item">
     
+<div class="extra_footer">
+  יגאל אראל 2025
+</div>
   </div>
   
 </div>
