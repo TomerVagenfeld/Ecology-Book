@@ -70,7 +70,7 @@ name: fig 4-1
 איור 4.1: פליטות פד"ח של ענפי תעשיה עיקריים.
 ```
 
-```{figure} ../media/4_2.emf
+```{figure} ../media/4_2.jpg
 ---
 height: 400px
 name: fig 4-2
@@ -191,23 +191,33 @@ ironmaking ו-(2) steelmaking. השלב הראשון מתבצע רק כאשר מ
 
 **4. חמצון חלקי של פחם ויצירת פחמן חד חמצני (CO) וחום** (תהליך המשחרר אנרגיה; ∆G שלילי):
 
-$$2C(s) + O_2(g) \leftrightarrow 2CO(g) + \text{heat}$$
+$$
+2C(s) + O_2(g) \leftrightarrow 2CO(g) + \text{heat}
+$$
 
 **5. חיזור של ברזל תלת-ערכי הנמצא בהמטיט על ידי פחמן חד חמצני ויצירת נתך ברזל מתכתי ושחרור פד\"ח** (תהליך הדורש השקעת אנרגיה; ∆G חיובי):
 
-$$Fe_2O_3(s) + 3CO(g) \leftrightarrow 2Fe(l) + 3CO_2(g)$$
+$$
+Fe_2O_3(s) + 3CO(g) \leftrightarrow 2Fe(l) + 3CO_2(g)
+$$
 
 **6. חיזור של ברזל תלת-ערכי הנמצא בהמטיט על ידי פחם מעובד ויצירת נתך ברזל מתכתי ושחרור פד\"ח** (תהליך הדורש השקעת אנרגיה):
 
-$$2Fe_2O_3(s) + 3C(s) \leftrightarrow 4Fe(l) + 3CO_2(g)$$
+$$
+2Fe_2O_3(s) + 3C(s) \leftrightarrow 4Fe(l) + 3CO_2(g)
+$$
 
 **7. פרוק אבן גיר ויצירת תחמוצת סידן ושחרור פד\"ח** (תהליך הדורש השקעת אנרגיה):
 
-$$CaCO_3(s) + \text{heat} \leftrightarrow CaO(s) + CO_2(g)$$
+$$
+CaCO_3(s) + \text{heat} \leftrightarrow CaO(s) + CO_2(g)
+$$
 
 **8. תגובה של תחמוצת סידן עם תחמוצת צורן שהגיעה עם מינרלי הברזל ליצירת סיג (slag)** ועל ידי כך סילוק הצורן מהמערכת, בזכות העובדה שהסיג פחות צפוף מברזל מותך וצף מעליו, וכך ניתן להפריד ביניהם (תהליך הדורש השקעת אנרגיה):
 
-$$CaO(s) + SiO_2(s) \leftrightarrow CaSiO_3(l)$$
+$$
+CaO(s) + SiO_2(s) \leftrightarrow CaSiO_3(l)
+$$
 
 בשלב השני של ייצור הפלדה (steelmaking), עודפי הפחמן הנמצאים בברזל המותך
 מסולקים (בתור פד\"ח) ויחד אתם מסולקים מהברזל עודפי גופרית וזרחן (שמגיבים
@@ -259,7 +269,9 @@ $$CaO(s) + SiO_2(s) \leftrightarrow CaSiO_3(l)$$
 במימן,[^47] המופק מאלקטרוליזה של מים באמצעות חשמל המיוצר מאנרגיה מתחדשת,
 במקום פחמן כחומר המחזר את תחמוצות הברזל.
 
-$$Fe_{2}O_{3}(s) + 3H_{2}(g) \leftrightarrow 2Fe(l) + 3H_{2}O(g)$$
+$$
+Fe_{2}O_{3}(s) + 3H_{2}(g) \leftrightarrow 2Fe(l) + 3H_{2}O(g)
+$$
 
 בשנים האחרונות מושקע מאמץ לייצר פלדה \"ירוקה\" במגוון שיטות ועל ידי כך
 להפחית פליטות פד\"ח.[^48] אכן, בשבע מתוך עשר המדינות העיקריות שמייצרות
@@ -327,7 +339,9 @@ $$Fe_{2}O_{3}(s) + 3H_{2}(g) \leftrightarrow 2Fe(l) + 3H_{2}O(g)$$
 המעניינים ביותר הוא שימוש בבטון גרוס על מנת לקלוט פד\"ח מן האטמוספרה
 (הגבה של תחמוצת סידן שנמצאת בבטון בריכוז גבוה):
 
-$$Ca(OH)_{2}$ + $CO_{2}$ \leftrightarrow $CaCO_{3}$ + $H_{2}O$$
+$$
+Ca(OH)_{2} + CO_{2} \leftrightarrow CaCO_{3} + H_{2}O
+$$
 
 היום מושקעים מאמצים רבים על מנת לייעל את קליטת הפד\"ח, לשפר את תכונות
 הקרבונט ($CaCO_{3}$) שמיוצר בתהליך ולמצוא לו שימושים. לאחרונה פורסם מאמר
@@ -1090,7 +1104,7 @@ N-ethyl-o-Toluesulfonamide),[^249] וכן שפלסטיק המוגדר כמתכל
 [^254]:(environmental externalities) של ייצור פלסטיק מדלקים פוסיליים
 לעומת יצור פלסטיק מפלסטיק משומש.
 
-```{figure} ../media/4_16.emf
+```{figure} ../media/4_16.jpg
 ---
 height: 400px
 name: fig 4-16
@@ -1120,7 +1134,7 @@ name: fig 4-17
 איור 4.17: ייצור והצטברות פלסטיק מאז 1950, כולל תחזית עד 2050. מקור - United Nations Environment Programme (2021) From Pollution to Solution: A global assessment of marine litter and plastic pollution. Nairobi. © 2021 United Nations Environment Programme, Reprinted with permission.
 ```
 
-```{figure} ../media/4_18.emf
+```{figure} ../media/4_18.jpg
 ---
 height: 400px
 name: fig 4-18
