@@ -59,6 +59,8 @@
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"displayMath": [["$$", "$$"]], "inlineMath": [["$", "$"]]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'pipeline/book-source/md/ch12_urban';</script>
     <script src="../../../_static/custom_scroll.js?v=678a69f3"></script>
     <script src="../../../_static/en-quote.js?v=d5f813da"></script>
@@ -406,7 +408,7 @@ document.write(`
   <div class="en-quote docutils">
 <p>”Cities, like dreams, are made of desires and fears, even if the thread<br>of their discourse is secret, their rules are absurd, their perspectives<br>deceitful, and everything conceals something else.“<br>Italo Calvino, Invisible Cities</p>
 </div>
-<section id="id1">
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>12. הסביבה העירונית<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>המרחב העירוני<a class="footnote-reference brackets" href="#id238" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> הינו אחת הסביבות על פני כדור הארץ שעברו את השינויים
 הקיצוניים ביותר עקב נוכחות ופעילות בני אדם, ובמקביל הוא משפיע בצורה
@@ -613,8 +615,8 @@ pollution).<a class="footnote-reference brackets" href="#id284" id="id52" role="
 <p>במהלך השנים נעשו מאמצים רבים לתעד ולהעריך את מידת זיהום האוויר של
 מגה-ערים. למשל, ב-2008 התפרסם מאמר שדירג את המגה-ערים על פי כמות פליטת
 גזים וחלקיקים לנפש, בעיקר על סמך מדד זהום אוויר כללי (MPI –
-multi-pollutant index) הלוקח בחשבון גופרית דו חמצנית ($SO_{2}$), תחמוצת
-חנקן ($NO_{2}$) וכלל החלקיקים המרחפים (TSP – total suspended particles),
+multi-pollutant index) הלוקח בחשבון גופרית דו חמצנית (<span class="math notranslate nohighlight">\(SO_{2}\)</span>), תחמוצת
+חנקן (<span class="math notranslate nohighlight">\(NO_{2}\)</span>) וכלל החלקיקים המרחפים (TSP – total suspended particles),
 ובמקביל התבצעה הערכה של שטחן ושל צפיפותן. מדידה זו אפשרה גם לדרג את
 זיהום האוויר לפי מספר נתון של תושבים (למשל זיהום למיליון תושבים) או
 ליחידת שטח, תהליך הנקרא נרמול של הזיהום לפי מספר תושבים או לפי שטח
@@ -670,11 +672,11 @@ SOx, VOC) והתפלגות החלקיקים המרחפים.<a class="footnote-re
 במרחק ממרכז העיר, במורד הרוח<a class="footnote-reference brackets" href="#id313" id="id84" role="doc-noteref"><span class="fn-bracket">[</span>76<span class="fn-bracket">]</span></a> וכן ניטור של הולכי רגל.<a class="footnote-reference brackets" href="#id314" id="id85" role="doc-noteref"><span class="fn-bracket">[</span>77<span class="fn-bracket">]</span></a> בערים בהן
 נעשו מאמצים כאלה, יש דיווחים על הצלחות בהפחתת זיהום אוויר כמו למשל בסין,
 וכפי שציינו בפרק 11 גם בלונדון. אולם, לעיתים התמונה מורכבת יותר. מסתבר
-שהורדת הפליטות של גופרית דו חמצנית ($SO_{2}$) ללא הפחתה במקביל בפליטות פיח
+שהורדת הפליטות של גופרית דו חמצנית (<span class="math notranslate nohighlight">\(SO_{2}\)</span>) ללא הפחתה במקביל בפליטות פיח
 (BC) איננה מספיקה כדי להוריד את שכיחותם ועוצמתם של אירועי ערפיח הגורמים
 לנזק בריאותי ואף עלול לגרום להתחממות מקומית.<a class="footnote-reference brackets" href="#id315" id="id86" role="doc-noteref"><span class="fn-bracket">[</span>78<span class="fn-bracket">]</span></a> דוגמא בולטת למורכבות
 של זיהום האוויר העירוני והגורמים לו מוצגת באיור 12.1. באיור רואים את
-ממוצע הריכוזים של חלקיקים מרחפים (PM~2.5~, $PM_{10}$) ושל אוזון בסין במשך
+ממוצע הריכוזים של חלקיקים מרחפים (PM~2.5~, <span class="math notranslate nohighlight">\(PM_{10}\)</span>) ושל אוזון בסין במשך
 ארבעה חודשים בשנת 2014. שימו לב לכך שהאזור המזוהם ביותר באיור 12.1 הוא
 צפון מזרח סין – אזור בייג’ינג בה חיים כ-20 מיליון אנשים, ואילו בקנטון
 (Guangzhou) העיר הגדולה ביותר בעולם עם כ-68 מיליון תושבים רמות זיהום
