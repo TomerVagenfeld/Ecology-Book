@@ -126,7 +126,7 @@ name: fig 11-1
 טבלה 11.1: הנחיות של ארגון הבריאות העולמי (WHO) לגבי סטנדרטים סופיים (12/2022) וסטנדרטי ביניים של מזהמי הקריטריון (למעט עופרת). שימו לב שיש ערכים אחרים לזמני חשיפה שונים (שנתי מול 8/24-שעות). מקור – https://www.who.int/news-room/fact-sheets/detail/ambient-(outdoor)-air-quality-and-health
 ```
 
-```{figure} ../media/11_2.emf
+```{figure} ../media/11_2.jpg
 ---
 height: 400px
 name: fig 11-2
@@ -995,7 +995,9 @@ u_{vis}
 ightarrow Cl + ClO_{2}
 $Cl_{2}O_{2}$ + h\nu_{vis} → Cl + $ClO_{2}$
 
-$$ClO_{2}$ + M \rightarrow Cl + $O_{2}$ + M$$
+$$
+ClO_{2} + M \rightarrow Cl + O_{2} + M
+$$
 
 2 \[Cl + $O_{3}$ → ClO + $O_{2}$\]
 

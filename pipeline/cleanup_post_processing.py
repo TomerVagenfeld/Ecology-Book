@@ -163,13 +163,8 @@ def convert_tilde_subscripts(text: str) -> str:
             new_line
         )
 
-        # Fix double-dollar from nested conversions: $$...$ → $...$
-        new_line = re.sub(r'\$\$([^$]+)\$\$', r'$\1$', new_line)
-        # Fix adjacent dollars: $X$$Y$ → merge them
-        # Pattern: $A$$B$ → $AB$
+        # Fix adjacent dollars from nested conversions: $X$$Y$ → $XY$ (merge)
         new_line = re.sub(r'\$([^$]+)\$\$([^$]+)\$', r'$\1\2$', new_line)
-        # Clean any remaining double $
-        new_line = re.sub(r'(?<!\$)\$\$(?!\$)', '', new_line)
 
         out.append(new_line)
 
@@ -211,8 +206,10 @@ def convert_standalone_formulas_to_latex(text: str) -> str:
                 latex = re.sub(r'\^([^~^]+?)\^', r'^{\1}', latex)
                 latex = latex.replace('↔', r'\leftrightarrow')
                 latex = latex.replace('→', r'\rightarrow')
-                # Wrap in display math
-                out.append(f'$${latex}$$')
+                # Wrap in display math (delimiters must be on own lines for MyST)
+                out.append('$$')
+                out.append(latex)
+                out.append('$$')
                 continue
 
         out.append(line)
@@ -420,7 +417,9 @@ def convert_inline_to_display_math(text: str) -> str:
         # Pattern 1: Entire line is a single $formula$
         m = re.match(r'^\$([^$]+)\$$', stripped)
         if m:
-            out.append(f'$${m.group(1)}$$')
+            out.append('$$')
+            out.append(m.group(1))
+            out.append('$$')
             continue
 
         # Pattern 2: Fragmented formulas like "$A$ + $B$ ↔ $C$"
@@ -443,12 +442,79 @@ def convert_inline_to_display_math(text: str) -> str:
                     merged = merged.replace('↔', r'\leftrightarrow')
                     merged = merged.replace('→', r'\rightarrow')
                     merged = merged.replace('←', r'\leftarrow')
-                    out.append(f'$${merged}$$')
+                    out.append('$$')
+                    out.append(merged)
+                    out.append('$$')
                     continue
 
         out.append(line)
 
     return '\n'.join(out)
+
+
+# ── 6. Fix display math delimiters ────────────────────────────────────────
+
+def fix_display_math_delimiters(text: str) -> str:
+    """
+    MyST dollarmath requires $$ on their own lines for display math.
+    Fix cases where $$content$$ is on a single line → split to 3 lines.
+    Also fix broken mixed formulas like $$A$ + $B$$ → proper display math.
+    """
+    lines = text.split('\n')
+    out = []
+    in_code = False
+    in_figure = False
+
+    for line in lines:
+        stripped = line.strip()
+
+        if re.match(r'^\s*```', line):
+            if '```{figure}' in stripped:
+                in_figure = True
+            elif in_figure and stripped == '```':
+                in_figure = False
+            else:
+                in_code = not in_code
+            out.append(line)
+            continue
+
+        if in_code or in_figure:
+            out.append(line)
+            continue
+
+        # Match $$content$$ on single line (content between $$ markers)
+        m = re.match(r'^(\s*)\$\$(.+)\$\$\s*$', line)
+        if m:
+            indent = m.group(1)
+            content = m.group(2).strip()
+            # Clean internal $ signs (broken formulas like $$A$ + $B$$)
+            content = re.sub(r'\$\s*\$', ' ', content)
+            content = content.strip('$').strip()
+            out.append(f'{indent}$$')
+            out.append(f'{indent}{content}')
+            out.append(f'{indent}$$')
+            continue
+
+        out.append(line)
+
+    return '\n'.join(out)
+
+
+# ── 7. Fix EMF image references ──────────────────────────────────────────
+
+def fix_emf_references(text: str, media_dir: Path) -> str:
+    """Replace .emf figure references with .jpg or .png alternatives."""
+    def replace_emf(m):
+        emf_path = m.group(1)
+        base = emf_path.rsplit('.', 1)[0]
+        # Check for jpg/png alternatives
+        for ext in ('.jpg', '.png', '.jpeg'):
+            alt_path = media_dir / (Path(base).name + ext)
+            if alt_path.exists():
+                return f'```{{figure}} {base}{ext}'
+        return m.group(0)  # keep original if no alternative
+
+    return re.sub(r'```\{figure\}\s*(.*?\.emf)', replace_emf, text)
 
 
 # ── Main ──────────────────────────────────────────────────────────────────
@@ -458,12 +524,18 @@ def cleanup_chapter(md_path: Path) -> bool:
     text = md_path.read_text(encoding='utf-8')
     original = text
 
+    # Determine media directory for EMF lookup
+    media_dir = md_path.parent.parent / 'media'
+
     # Apply passes in order
     text = remove_duplicate_figures(text)
+    text = remove_orphaned_figure_text(text)
     text = clean_broken_image_refs(text)
     text = convert_tilde_subscripts(text)
     text = convert_standalone_formulas_to_latex(text)
     text = convert_inline_to_display_math(text)
+    text = fix_display_math_delimiters(text)
+    text = fix_emf_references(text, media_dir)
 
     if text != original:
         md_path.write_text(text, encoding='utf-8')

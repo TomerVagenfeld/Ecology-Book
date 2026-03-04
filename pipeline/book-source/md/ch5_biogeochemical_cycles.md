@@ -217,7 +217,7 @@ name: fig 5-1
 פוטוסינתזה למשך זמן ממושך. בנישה זו נכללת גם החקלאות המקיימת שמנסה
 להגדיל את אחוז הפחמן המקובע בקרקע לאורך זמן (ראו פרק 2).
 
-```{figure} ../media/5_2.emf
+```{figure} ../media/5_2.png
 ---
 height: 400px
 name: fig 5-2
@@ -1007,7 +1007,7 @@ name: fig 5-10
     carbonic acid: $CO_{2}$ + $H_{2}O$ ↔ $H_{2}CO_{3}$; The carbonic acid then
     dissociates in two steps releasing 2 protons ($H^{+}$) and forming
     carbonate: $H_{2}CO_{3}$ ↔ $H^{+}$ + $HCO_{3}^{-}$; $HCO_{3}^{-}$ ↔ $H^{+}$ +
-$$CO_{3}^{2-}$$
+$CO_{3}^{2-}$
 
 [^26]: Bufe A. et al. (2024) CO2 drawdown from weathering is maximized
     at moderate erosion rates. *Science* **383**, 1075-1080.
