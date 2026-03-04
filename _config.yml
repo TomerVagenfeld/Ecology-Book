@@ -23,6 +23,8 @@ parse:
     - colon_fence
     - substitution
     - linkify
+    - dollarmath
+    - amsmath
 
 sphinx:
   config:
