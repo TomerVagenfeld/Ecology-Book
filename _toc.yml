@@ -6,10 +6,18 @@ root: intro
 options:
   numbered: true
 chapters:
-- file: ch1
-- file: ch2
-- file: ch3
-- file: ch4
-- file: ch5
-- file: ch6
-- file: ch7_py_headers
+- file: pipeline/book-source/md/ch1_introduction
+- file: pipeline/book-source/md/ch2_agriculture
+- file: pipeline/book-source/md/ch3_energy
+- file: pipeline/book-source/md/ch4_industry
+- file: pipeline/book-source/md/ch5_biogeochemical_cycles
+- file: pipeline/book-source/md/ch6_global_warming
+- file: pipeline/book-source/md/ch7_biosphere
+- file: pipeline/book-source/md/ch8_open_spaces_soils
+- file: pipeline/book-source/md/ch9_water
+- file: pipeline/book-source/md/ch10_marine
+- file: pipeline/book-source/md/ch11_atm
+- file: pipeline/book-source/md/ch12_urban
+- file: pipeline/book-source/md/ch13_summary
+- file: pipeline/book-source/md/ch14_IL
+- file: pipeline/book-source/md/ch15_appendices
