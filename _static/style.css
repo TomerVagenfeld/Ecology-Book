@@ -906,3 +906,43 @@ div.footnote.fn-ltr {
 
   list-style-position: outside;
 }
+
+/* =============================================================================
+   Intro page: transparent backgrounds so CSS cover shapes show through.
+   Uses :has() to scope ONLY to pages containing .intro-cover (the intro page).
+============================================================================= */
+body:has(.intro-cover) {
+  background: transparent;
+}
+
+body:has(.intro-cover) .bd-main,
+body:has(.intro-cover) .bd-content,
+body:has(.intro-cover) .bd-article-container,
+body:has(.intro-cover) .bd-article {
+  background: transparent;
+}
+
+body:has(.intro-cover) .bd-header-article {
+  background: transparent;
+}
+
+body:has(.intro-cover) .bd-sidebar-primary,
+body:has(.intro-cover) .bd-sidebar-secondary {
+  background: transparent;
+}
+
+body:has(.intro-cover) .bd-footer-content,
+body:has(.intro-cover) .bd-footer {
+  background: transparent;
+}
+
+body:has(.intro-cover) .bd-container,
+body:has(.intro-cover) .bd-container__inner {
+  background: transparent;
+}
+
+/* Dark mode: restore dark background so page isn't blinding white */
+html[data-theme="dark"] body:has(.intro-cover),
+html[data-mode="dark"] body:has(.intro-cover) {
+  background: var(--pst-color-background);
+}
