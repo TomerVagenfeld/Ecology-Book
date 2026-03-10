@@ -123,76 +123,6 @@ figure .caption-number {
 .fn-tooltip p { margin: 0.3em 0; }
 .fn-tooltip a { color: var(--pst-color-link, #007bff); }
 
-/* Mobile footnote bottom sheet */
-.fn-sheet-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 9998;
-  background: rgba(0, 0, 0, 0);
-  transition: background 0.2s ease;
-}
-.fn-sheet-backdrop--visible {
-  background: rgba(0, 0, 0, 0.4);
-}
-.fn-sheet {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  background: var(--pst-color-background, #fff);
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
-  max-height: 45vh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  transform: translateY(100%);
-  transition: transform 0.25s ease-out;
-  padding: 1rem 1.2rem;
-  padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0));
-  font-size: 0.92rem;
-  line-height: 1.6;
-  user-select: text;
-  -webkit-user-select: text;
-}
-.fn-sheet--visible {
-  transform: translateY(0);
-}
-.fn-sheet.fn-rtl { direction: rtl; text-align: right; }
-.fn-sheet.fn-ltr { direction: ltr; text-align: left; }
-.fn-sheet p { margin: 0.3em 0; }
-.fn-sheet a { color: var(--pst-color-link, #007bff); }
-.fn-sheet-close {
-  position: absolute;
-  top: 0.6rem;
-  left: 0.8rem;
-  border: none;
-  background: #f0f0f0;
-  border-radius: 50%;
-  width: 1.8rem;
-  height: 1.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.85rem;
-  color: #666;
-  cursor: pointer;
-  z-index: 1;
-}
-.fn-sheet-content {
-  /* Small drag indicator at top center */
-}
-.fn-sheet::before {
-  content: "";
-  display: block;
-  width: 36px;
-  height: 4px;
-  background: #ccc;
-  border-radius: 2px;
-  margin: 0 auto 0.8rem;
-}
-
 /* =============================================================================
    Search Results Styling
 ============================================================================= */
@@ -245,295 +175,13 @@ figure .caption-number {
   border-radius: 2px;
 }
 
-/* In-page highlighted search terms (on target pages after clicking a result) */
-span.highlighted {
-  background-color: rgba(168, 207, 64, 0.30);
-  padding: 0.1em 0.15em;
-  border-radius: 2px;
-  scroll-margin-top: 80px;
-}
-span.highlighted.hl-active {
-  background-color: rgba(255, 165, 0, 0.5);
-  outline: 2px solid rgba(255, 140, 0, 0.7);
-  border-radius: 3px;
-}
-
-/* Floating match navigation bar */
-.hl-nav-bar {
-  position: fixed;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--pst-color-background, #fff);
-  border: 1px solid var(--pst-color-border, #ccc);
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  direction: ltr;
-  /* Force GPU layer so mobile browsers render it immediately */
-  -webkit-transform: translateX(-50%) translateZ(0);
-  will-change: transform;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-.hl-nav-bar .hl-counter {
-  font-weight: 600;
-  min-width: 4em;
-  text-align: center;
-  color: #555;
-}
-.hl-nav-bar .hl-btn {
-  border: none;
-  background: #f0f0f0;
-  border-radius: 6px;
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 0.85rem;
-  color: #444;
-  transition: background 0.15s;
-}
-.hl-nav-bar .hl-btn:hover {
-  background: #e0e0e0;
-}
-.hl-nav-bar .hl-close {
-  margin-inline-start: 0.3rem;
-  font-size: 0.9rem;
-}
-
-/* =============================================================================
-   Search Overlay / Modal  (Ctrl+K)
-   Theme defaults use .search-button__wrapper.show — we override with !important.
-============================================================================= */
-
-/* Dark blurred backdrop */
-.search-button__wrapper.show .search-button__overlay {
-  background: rgba(0, 0, 0, 0.5) !important;
-  opacity: 1 !important;
-  backdrop-filter: blur(4px) !important;
-  -webkit-backdrop-filter: blur(4px) !important;
-}
-
-/* Floating search card */
-.search-button__wrapper.show .search-button__search-container {
-  top: 20% !important;
-  transform: translateX(-50%) !important;   /* only horizontal center, no vertical */
-  max-width: 560px !important;
-  background: var(--pst-color-background, #fff) !important;
-  border: 1px solid var(--pst-color-border, #ddd) !important;
-  border-radius: 14px !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3) !important;
-  padding: 0.4rem !important;
-  overflow: hidden !important;
-}
-
-/* The form row */
-.search-button__wrapper.show form.bd-search {
-  direction: rtl !important;
-  padding: 0.65rem 1rem !important;
-  gap: 0.7rem !important;
-  align-items: center !important;
-}
-
-/* The input field */
-#search-input {
-  direction: rtl !important;
-  text-align: right !important;
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-  font-size: 1.2rem !important;
-  background: transparent !important;
-  padding: 0.4rem 0.3rem !important;
-}
-#search-input::placeholder {
-  color: #aaa !important;
-  font-size: 1.05rem !important;
-}
-#search-input:focus {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-/* Search icon — right side in RTL */
-.search-button__wrapper.show .fa-magnifying-glass {
-  color: #999 !important;
-  font-size: 1.15rem !important;
-}
-
-/* Hide Ctrl+K badge everywhere — replaced by "/" via JS */
-.search-button__kbd-shortcut {
-  display: none !important;
-}
-
-/* Header search button text */
-.search-button__default-text { direction: rtl; }
-
-/* General search input RTL */
+/* Search input box RTL */
 input[name="q"], #searchbox input, .search-field input {
   direction: rtl;
   text-align: right;
 }
 
-@media (max-width: 768px) {
-  #search-results { margin: 10px; }
-  .search-button__wrapper.show .search-button__search-container {
-    /* Override theme: left:50% + right:1rem + translate(-50%,-50%) */
-    left: 5vw !important;
-    right: 5vw !important;
-    width: auto !important;
-    max-width: none !important;
-    transform: none !important;
-    top: 15% !important;
-    border-radius: 12px !important;
-    margin: 0 !important;
-    padding: 0.2rem !important;
-  }
-  /* Compact search input on mobile */
-  .search-button__wrapper.show form.bd-search {
-    padding: 0.4rem 0.7rem !important;
-    gap: 0.5rem !important;
-  }
-  .search-button__wrapper.show #search-input {
-    font-size: 1rem !important;
-    padding: 0.25rem 0.2rem !important;
-  }
-
-  /* Highlight navigation bar — full-width toolbar at bottom on mobile */
-  .hl-nav-bar {
-    left: 0 !important;
-    right: 0 !important;
-    -webkit-transform: translateZ(0) !important;
-    transform: translateZ(0) !important;
-    bottom: 0 !important;
-    border-radius: 0 !important;
-    justify-content: center;
-    padding: 0.6rem 1rem !important;
-    padding-bottom: calc(0.6rem + env(safe-area-inset-bottom, 0)) !important;
-    gap: 0.75rem !important;
-    border-top: 1px solid var(--pst-color-border, #ccc);
-    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.12) !important;
-    will-change: transform !important;
-    -webkit-backface-visibility: hidden !important;
-    backface-visibility: hidden !important;
-  }
-  .hl-nav-bar .hl-btn {
-    width: 2.5rem !important;
-    height: 2.5rem !important;
-    font-size: 1rem !important;
-  }
-}
-
-/* =============================================================================
-   Search Results Page  (search.html)
-============================================================================= */
-
-/* Hide sidebars on search page — let content go full width */
-body.search-page .bd-sidebar-secondary,
-body.search-page .bd-sidebar-primary {
-  display: none !important;
-}
-body.search-page .bd-main {
-  flex: 1 1 100% !important;
-  max-width: 100% !important;
-}
-
-/* Search form on the results page (NOT inside the overlay) */
-.bd-main form.bd-search {
-  direction: rtl;
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  background: var(--pst-color-background, #fff);
-  border: 1px solid var(--pst-color-border, #ddd);
-  border-radius: 14px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  max-width: 600px;
-  margin: 1.5rem auto 1.5rem;
-}
-.bd-main form.bd-search .fa-magnifying-glass {
-  color: #999;
-  font-size: 1.15rem;
-}
-.bd-main form.bd-search #search-input {
-  flex: 1;
-  border: none;
-  box-shadow: none;
-  outline: none;
-  font-size: 1.15rem;
-  background: transparent;
-  padding: 0.3rem 0.2rem;
-  direction: rtl;
-  text-align: right;
-}
-
-/* Results container */
-#search-results {
-  direction: rtl;
-  text-align: right;
-  padding: 0 1rem;
-}
-
-/* "Search finished" / summary line */
-#search-results h2 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--pst-color-text-base, #333);
-  border-bottom: 1px solid var(--pst-color-border, #eee);
-  padding-bottom: 0.5rem;
-  margin-bottom: 0.75rem;
-}
-#search-results p.search-summary {
-  font-size: 0.9rem;
-  color: #777;
-  margin-bottom: 1rem;
-}
-
-/* Individual results */
-#search-results ul.search {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-#search-results ul.search li {
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.5rem;
-  background: var(--pst-color-background, #fff);
-  border: 1px solid var(--pst-color-border, #eee);
-  border-radius: 10px;
-  transition: box-shadow 0.15s, border-color 0.15s;
-}
-#search-results ul.search li:hover {
-  border-color: var(--pst-color-primary, #4a86c8);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-}
-#search-results ul.search li a {
-  font-weight: 600;
-  font-size: 1.05rem;
-  text-decoration: none;
-  color: var(--pst-color-primary, #4a86c8);
-  display: block;
-  margin-bottom: 0.3rem;
-}
-#search-results ul.search li a:hover {
-  text-decoration: underline;
-}
-/* Context snippet below the link */
-#search-results ul.search li .context {
-  font-size: 0.9rem;
-  color: #666;
-  line-height: 1.5;
-}
+@media (max-width: 768px) { #search-results { margin: 10px; } }
 
 /* =============================================================================
    Desktop (≥992px): secondary (LEFT) • main (MIDDLE/RIGHT side visually) • primary (RIGHT)
@@ -658,147 +306,45 @@ div.footnote.fn-ltr {
   text-align: left;
 }
 
-/* Click-to-zoom cursor for all figure images */
-.bd-article figure img,
-.bd-article .figure img {
-  cursor: zoom-in;
-}
-
-/* ---- Fullscreen image zoom overlay ---- */
-.img-zoom-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: rgba(0, 0, 0, 0.92);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  cursor: zoom-out;
-  animation: zoomFadeIn 0.2s ease;
-}
-.img-zoom-overlay img {
-  max-width: 100%;
-  max-height: 100%;
-  height: auto !important;
-  width: auto !important;
-  object-fit: contain;
-  border-radius: 4px;
-}
-@keyframes zoomFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
 /* =============================================================================
-   Mobile optimizations: Compact, readable, touch-friendly
+   Mobile optimizations: Better touch targets, spacing, and readability
 ============================================================================= */
 @media (max-width: 991.98px) {
+  /* Ensure readable font size on mobile */
   body {
     font-size: 16px;
-    line-height: 1.55;
+    line-height: 1.6;
   }
 
+  /* Better spacing for mobile */
   .bd-article p {
-    margin-bottom: 1em;
+    margin-bottom: 1.2em;
   }
 
-  /* Touch targets: only for standalone buttons, NOT for all links */
-  .bd-article button,
-  .navbar-nav .nav-link,
-  .btn {
+  /* Touch-friendly links and buttons */
+  a, button {
     min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
 
+  /* Better blockquote spacing on mobile */
   blockquote, .en-quote {
-    padding: 0.6rem 0.8rem;
-    margin: 0.8rem 0;
+    padding: 0.8rem;
+    margin: 1.2rem 0;
   }
 
+  /* Ensure images don't overflow on mobile */
   img, figure {
     max-width: 100%;
-    height: auto !important;   /* override height:400px from figure blocks */
-  }
-  /* Override Sphinx-generated inline style="height:400px" on figure images */
-  .bd-article figure img,
-  .bd-article .figure img {
-    height: auto !important;
-    width: 100% !important;
-    object-fit: contain;
-    cursor: zoom-in;
+    height: auto;
   }
 
-  /* ---- Fullscreen image zoom overlay (tap to expand) ---- */
-  .img-zoom-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.92);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    cursor: zoom-out;
-    animation: fadeIn 0.2s ease;
-  }
-  .img-zoom-overlay img {
-    max-width: 100%;
-    max-height: 100%;
-    height: auto !important;
-    width: auto !important;
-    object-fit: contain;
-    border-radius: 4px;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-
-  h1 { font-size: 1.6rem; margin: 1.2rem 0 0.6rem; }
-  h2 { font-size: 1.35rem; margin: 1rem 0 0.5rem; }
-  h3 { font-size: 1.2rem; margin: 0.9rem 0 0.4rem; }
-  h4 { font-size: 1.05rem; margin: 0.8rem 0 0.3rem; }
-
-  /* ---- Compact inline Table-of-Contents (intro page) ---- */
-  .toctree-wrapper ul {
-    padding-inline-start: 0 !important;
-    margin: 0 !important;
-    list-style: none !important;
-  }
-  .toctree-wrapper li.toctree-l1 {
-    padding: 0.4rem 0.6rem;
-    margin-bottom: 0;
-    border-bottom: 1px solid var(--pst-color-border, #eee);
-  }
-  .toctree-wrapper li.toctree-l1 a {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    display: block;
-    text-decoration: none;
-    color: var(--pst-color-primary, #4a86c8);
-  }
-
-  /* ---- Compact slide-in sidebar (book TOC) ---- */
-  dialog#pst-primary-sidebar-modal .bd-toc-item .toctree-l1 {
-    margin: 0;
-  }
-  dialog#pst-primary-sidebar-modal .bd-toc-item .toctree-l1 > a {
-    font-size: 0.9rem;
-    padding: 0.35rem 0.8rem;
-    line-height: 1.35;
-  }
-  dialog#pst-primary-sidebar-modal .bd-toc-item .toctree-l2 > a {
-    font-size: 0.85rem;
-    padding: 0.25rem 0.8rem 0.25rem 1.6rem;
-    line-height: 1.3;
-  }
-
-  /* ---- Compact page-level TOC (secondary sidebar) ---- */
-  dialog#pst-secondary-sidebar-modal .nav-link {
-    font-size: 0.85rem;
-    padding: 0.25rem 0.6rem;
-    line-height: 1.35;
-  }
+  /* Better header spacing on mobile */
+  h1 { font-size: 1.8rem; margin: 1.5rem 0 1rem; }
+  h2 { font-size: 1.5rem; margin: 1.3rem 0 0.8rem; }
+  h3 { font-size: 1.3rem; margin: 1.2rem 0 0.7rem; }
+  h4 { font-size: 1.1rem; margin: 1rem 0 0.6rem; }
 }
 
 /* =============================================================================
