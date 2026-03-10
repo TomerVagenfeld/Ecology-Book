@@ -123,6 +123,76 @@ figure .caption-number {
 .fn-tooltip p { margin: 0.3em 0; }
 .fn-tooltip a { color: var(--pst-color-link, #007bff); }
 
+/* Mobile footnote bottom sheet */
+.fn-sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.2s ease;
+}
+.fn-sheet-backdrop--visible {
+  background: rgba(0, 0, 0, 0.4);
+}
+.fn-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: var(--pst-color-background, #fff);
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+  max-height: 45vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transform: translateY(100%);
+  transition: transform 0.25s ease-out;
+  padding: 1rem 1.2rem;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0));
+  font-size: 0.92rem;
+  line-height: 1.6;
+  user-select: text;
+  -webkit-user-select: text;
+}
+.fn-sheet--visible {
+  transform: translateY(0);
+}
+.fn-sheet.fn-rtl { direction: rtl; text-align: right; }
+.fn-sheet.fn-ltr { direction: ltr; text-align: left; }
+.fn-sheet p { margin: 0.3em 0; }
+.fn-sheet a { color: var(--pst-color-link, #007bff); }
+.fn-sheet-close {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.8rem;
+  border: none;
+  background: #f0f0f0;
+  border-radius: 50%;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: #666;
+  cursor: pointer;
+  z-index: 1;
+}
+.fn-sheet-content {
+  /* Small drag indicator at top center */
+}
+.fn-sheet::before {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 4px;
+  background: #ccc;
+  border-radius: 2px;
+  margin: 0 auto 0.8rem;
+}
+
 /* =============================================================================
    Search Results Styling
 ============================================================================= */
