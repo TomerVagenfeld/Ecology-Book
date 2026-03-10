@@ -1,26 +1,21 @@
 // image-zoom.js
-// On mobile: tap a figure image to view it fullscreen; tap again or swipe to close.
+// Click a figure image to view it fullscreen; click again or press Escape to close.
 (function () {
   "use strict";
 
-  // Only activate on narrow screens (mobile / small tablets)
-  function isMobile() {
-    return window.innerWidth < 992;
-  }
-
   function openZoom(img) {
-
     var overlay = document.createElement("div");
     overlay.className = "img-zoom-overlay";
 
     var clone = document.createElement("img");
-    clone.src = img.src;
+    clone.src = img.currentSrc || img.src;
     clone.alt = img.alt || "";
     overlay.appendChild(clone);
 
-    // Close on tap
+    // Close on click
     overlay.addEventListener("click", function () {
       overlay.remove();
+      document.removeEventListener("keydown", onKey);
     });
 
     // Close on Escape
@@ -38,10 +33,20 @@
   function init() {
     // Attach to all figure images in the article
     document.querySelectorAll(".bd-article figure img, .bd-article .figure img").forEach(function (img) {
-      img.addEventListener("click", function (e) {
+      // Sphinx wraps figure images in <a class="image-reference"> links.
+      // We must intercept clicks on the <a> (or the <img> if unwrapped)
+      // to prevent the browser from navigating to the raw image file.
+      var anchor = img.closest("a");
+      var clickTarget = anchor || img;
+
+      clickTarget.addEventListener("click", function (e) {
         e.preventDefault();
+        e.stopPropagation();
         openZoom(img);
       });
+
+      // Visual affordance
+      clickTarget.style.cursor = "zoom-in";
     });
   }
 
