@@ -2,6 +2,75 @@
    Base: default RTL for Hebrew content with LTR override when needed
 ============================================================================= */
 :root, body { direction: rtl; text-align: right; font-family: sans-serif; }
+
+/* =============================================================================
+   Intro / landing page — subtle CSS cover background (no images)
+   Recreates the geometric turquoise shapes from the original book cover.
+   Three layers: gray rotated rect, main teal polygon, light teal triangle.
+============================================================================= */
+.intro-cover {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Layer 1: Gray rotated rectangle (behind everything) */
+.intro-cover::before {
+  content: "";
+  position: absolute;
+  top: -5%;
+  left: 15%;
+  width: 85%;
+  height: 110%;
+  background: #b8c0c4;
+  clip-path: polygon(18% 0%, 100% 8%, 82% 100%, 0% 92%);
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Layer 2: Main teal polygon + light teal triangle (stacked via gradient trick) */
+.intro-cover::after {
+  content: "";
+  position: absolute;
+  top: -5%;
+  left: 0;
+  right: 0;
+  height: 110%;
+  pointer-events: none;
+  z-index: 0;
+  /* Two shapes via stacked clip-paths aren't possible, so we use a single
+     combined approach: the main teal shape as background with clip-path */
+  background: #6bafb2;
+  clip-path: polygon(
+    /* Main teal polygon (large central shape) */
+    28% 0%, 95% 0%, 100% 5%, 100% 88%, 72% 97%, 8% 97%, 5% 92%, 5% 8%
+  );
+  opacity: 0.06;
+}
+
+/* Layer 3: Light teal triangle (top-right corner, separate element via box-shadow trick)
+   We use a child wrapper to get a third pseudo-element */
+.intro-cover > .intro-cover-inner {
+  position: relative;
+  z-index: 1;
+}
+.intro-cover > .intro-cover-inner::before {
+  content: "";
+  position: absolute;
+  top: -2rem;
+  right: 0;
+  width: 55%;
+  height: 35%;
+  background: #9dd4d6;
+  clip-path: polygon(35% 0%, 100% 0%, 100% 100%);
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+.intro-cover > .intro-cover-inner > * {
+  position: relative;
+  z-index: 1;
+}
 /* style.css — minimal, consistent, RTL-first with clean quote styling */
 
 /* Base LTR layout override (English) */
