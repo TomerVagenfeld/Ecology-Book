@@ -522,7 +522,7 @@ name: fig 13-3
 height: 400px
 name: fig 13-4
 ---
-איור 13.4: קצב צבירת עושר כפונקציה של המעמד הסוציו-אקונומי. מקור – Global Sustainable Development Report 2023: Global Sustainable Development Report 2023: Times of crisis, times of change. © 2024 all rights reserved. Reprinted with permission.
+איור 13.4: קצב צבירת עושר כפונקציה של המעמד הסוציו-אקונומי. מקור – Global Sustainable Development Report 2023:.
 ```
 
 ```{figure} ../media/13_5.png
@@ -640,7 +640,7 @@ name: fig 13-6
 height: 400px
 name: fig 13-7
 ---
-איור 13.7: התקדמות לקראת יעדי SDG, הערכה לגבי שנת 2030 ושנת 2050 תחת שני תרחישים (high ambition, middle-of-the-road). מקור – Global Sustainable Development Report 2023: Global Sustainable Development Report 2023: Times of crisis, times of change. ©  2024 all rights reserved. Reprinted with permission.
+איור 13.7: התקדמות לקראת יעדי SDG, הערכה לגבי שנת 2030 ושנת 2050 תחת שני תרחישים (high ambition, middle-of-the-road). מקור – Global Sustainable Development Report 2023:.
 ```
 
 ## צדק סביבתי

@@ -947,7 +947,7 @@ internet).[^190] בנוסף, מקורות האנרגיה נעשים מבוזרי
 height: 400px
 name: fig 3-7
 ---
-איור 3.7: השילוב המוצע בין מקורות האנרגיה העתידים לשלוט בשוק האנרגיה לבין אמצעי האגירה ודרישות צרכני האנרגיה. מקור – Davis S. J. et al., (2018) Science 360, eaas9793. Reprinted with permission from AAAS. Davis S. J. et al., (2018) *Science* **360**, eaas9793. Reprinted with permission from AAAS.
+איור 3.7: השילוב המוצע בין מקורות האנרגיה העתידים לשלוט בשוק האנרגיה לבין אמצעי האגירה ודרישות צרכני האנרגיה. מקור – Davis S. J. et al., (2018) Science 360, eaas9793. Reprinted with permission.
 ```
 
 ## סיכום
@@ -1454,16 +1454,7 @@ name: fig 3-7
 
 [^66]: <https://web.stanford.edu/group/efmh/jacobson/WWSBook/WWSBook.html>
 
-[^67]: ![ \\mathrm{LCOE} = \\frac{\\text{sum of costs over
-    lifetime}}{\\text{sum of electrical energy produced over lifetime}}
-    = \\frac{\\sum\_{t=1}\^{n} \\frac{ I_t + M_t +
-    F_t}{\\left({1+r}\\right)\^t} }{\\sum\_{t=1}\^{n}
-    \\frac{E_t}{\\left({1+r}\\right)\^{t}} }
-    ](media/image6.png) Where, *$I_{t}$* = investment
-    expenditures in the year t; *$M_{t}$* = operations and maintenance
-    expenditures in the year t; *$F_{t}$* = fuel expenditures in the year
-    t; *$E_{t}$* = electrical energy generated in the year t; *r* =
-    discount rate; *n* = expected lifetime of system or power station.
+[^67]: $\mathrm{LCOE} = \frac{\text{sum of costs over lifetime}}{\text{sum of electrical energy produced over lifetime}} = \frac{\sum_{t=1}^{n} \frac{I_t + M_t + F_t}{(1+r)^t}}{\sum_{t=1}^{n} \frac{E_t}{(1+r)^t}}$ Where, $I_{t}$ = investment expenditures in the year t; $M_{t}$ = operations and maintenance expenditures in the year t; $F_{t}$ = fuel expenditures in the year t; $E_{t}$ = electrical energy generated in the year t; $r$ = discount rate; $n$ = expected lifetime of system or power station.
 
 [^68]: <https://www.energy.gov/eere/energy-resilience>
 

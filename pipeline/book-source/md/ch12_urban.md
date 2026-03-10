@@ -311,7 +311,7 @@ SOx, VOC) והתפלגות החלקיקים המרחפים.[^70] במסגרת ה
 height: 400px
 name: fig 12-1
 ---
-איור 12.1: זיהום אוויר חלקיקי (PM2.5, PM10) ואוזון בסין Eastern China - top row, and the Beijing to Shanghai corridor - bottom row. מקור – Eastern China - top row, and the Beijing to Shanghai corridor - bottom row. מקור --
+איור 12.1: זיהום אוויר חלקיקי (PM2.5, PM10) ואוזון בסין Eastern China - top row, and the Beijing to Shanghai corridor - bottom row. מקור –.
 ```
 
 Commons Attribution License. Reprinted with permission. See also the

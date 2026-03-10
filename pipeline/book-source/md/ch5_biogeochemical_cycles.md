@@ -225,7 +225,6 @@ name: fig 5-2
 איור 5.2: מחזור הפחמן הגלובלי.  איור זה מדגיש את ההפרעה האנתרופוגנית שמתוארת על ידי חיצים. השטפים וגודלי המאגרים הטבעיים רשומים בקטן. היחידות של המאגרים הן גיגה-טון פחמן, והיחידות של השטפים הן גיגה-טון פחמן לשנה. מקור - :
 ```
 
-<https://essd.copernicus.org/preprints/essd-2024-519/>, © Author(s)
 2020. This work is distributed under the Creative Commons Attribution
 4.0 License. Reprinted with permission.
 
@@ -348,7 +347,6 @@ name: fig 5-5
 איור 5.5: שטפים של קיבוע חנקן אטמוספירי והפיכתו לחנקן ראקטיבי. מקור - Fowler D., et al. (2013) The global nitrogen cycle in the twenty-first century. © 2013 The Author(s) Published by the Royal Society. All rights reserved. Reprinted with permission. BNF – Biological N Fixation). Tg = 1012 g = 106 ton = mega-ton = 0.001 giga-ton)
 ```
 
-Fowler D., et al. (2013) The global nitrogen cycle in the twenty-first
 century. © 2013 The Author(s) Published by the Royal Society. All rights
 reserved. Reprinted with permission.
 
@@ -1007,7 +1005,9 @@ name: fig 5-10
     carbonic acid: $CO_{2}$ + $H_{2}O$ ↔ $H_{2}CO_{3}$; The carbonic acid then
     dissociates in two steps releasing 2 protons ($H^{+}$) and forming
     carbonate: $H_{2}CO_{3}$ ↔ $H^{+}$ + $HCO_{3}^{-}$; $HCO_{3}^{-}$ ↔ $H^{+}$ +
-$CO_{3}^{2-}$
+$$
+CO_{3}^{2-}
+$$
 
 [^26]: Bufe A. et al. (2024) CO2 drawdown from weathering is maximized
     at moderate erosion rates. *Science* **383**, 1075-1080.

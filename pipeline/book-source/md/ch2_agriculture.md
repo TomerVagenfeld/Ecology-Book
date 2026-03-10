@@ -189,7 +189,7 @@ name: fig 2-1
 height: 400px
 name: fig 2-2
 ---
-איור 2.2: תנובת חקלאות (צמחים ומוצריהם) בין השנים 2000 ו-2019. מקור – FAO (2021) (FIG 20) ; CC BY-NC-SA 3.0 IGO; Reprinted with permission. FAO (2021) (FIG 20)[^34] ; CC BY-NC-SA 3.0 IGO; Reprinted with permission.
+איור 2.2: תנובת חקלאות (צמחים ומוצריהם) בין השנים 2000 ו-2019. מקור – FAO (2021) (FIG 20) ; CC BY-NC-SA 3.0 IGO; Reprinted with permission.
 ```
 
 ```{figure} ../media/2_3.jpg
@@ -197,7 +197,7 @@ name: fig 2-2
 height: 400px
 name: fig 2-3
 ---
-איור 2.3: מספר האנשים הסובלים מתת-תזונה באזורים שונים בעולם בין 2000 ל-2020. מקור – FAO (2021) (FIG 48), CC BY-NC-SA 3.0 IGO; Reprinted with permission. FAO (2021) (FIG 48), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
+איור 2.3: מספר האנשים הסובלים מתת-תזונה באזורים שונים בעולם בין 2000 ל-2020. מקור – FAO (2021) (FIG 48), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
 ```
 
 ```{figure} ../media/2_4.jpg
@@ -213,7 +213,7 @@ name: fig 2-4
 height: 400px
 name: fig 2-5
 ---
-איור 2.5: מחיר המזון בין שנת 2000 ושנת 2022 (לגבי חישוב אינדקס עלות המזון (הצמוד למדד) – ראו את הדוח של FAO המצוטט בתחתית האיור). מקור – FAO (2021) (FIG 42), CC BY-NC-SA 3.0 IGO; Reprinted with permission. FAO (2021) (FIG 42), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
+איור 2.5: מחיר המזון בין שנת 2000 ושנת 2022 (לגבי חישוב אינדקס עלות המזון (הצמוד למדד) – ראו את הדוח של FAO המצוטט בתחתית האיור). מקור – FAO (2021) (FIG 42), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
 ```
 
 ```{figure} ../media/2_6.jpg
@@ -221,7 +221,7 @@ name: fig 2-5
 height: 400px
 name: fig 2-6
 ---
-איור 2.6: אחוז הילדים מתחת לגיל חמש הסובלים מעיכוב בגדילה, השוואה בין שנת 2000 ושנת 2019. מקור – FAO (2021) (FIG 55), CC BY-NC-SA 3.0 IGO; Reprinted with permission. FAO (2021) (FIG 55), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
+איור 2.6: אחוז הילדים מתחת לגיל חמש הסובלים מעיכוב בגדילה, השוואה בין שנת 2000 ושנת 2019. מקור – FAO (2021) (FIG 55), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
 ```
 
 ## השפעת החקלאות על קרקעות
@@ -343,7 +343,7 @@ Integrated Pest Management).[^73] הדברה משולבת נסמכת על היכ
 height: 400px
 name: fig 2-7
 ---
-איור 2.7: שימוש במדבירים (ק"ג של מדביר ליחידת שטח – 10 דונם) בין השנים 2000 ו-2019 באזורים שונים בעולם. מקור - FAO (2021) (FIG 16), CC BY-NC-SA 3.0 IGO; Reprinted with permission. FAO (2021) (FIG 16), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
+איור 2.7: שימוש במדבירים (ק"ג של מדביר ליחידת שטח – 10 דונם) בין השנים 2000 ו-2019 באזורים שונים בעולם. מקור - FAO (2021) (FIG 16), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
 ```
 
 ## חומרי דשן
@@ -392,7 +392,7 @@ Haber-Bosch ליצירת דשנים של חנקן (ראו פרק 4) ובכריי
 height: 400px
 name: fig 2-8
 ---
-איור 2.8: דישון שדות עם חנקן, זרחן ואשלגן בין השנים 2000 ו-2019. מקור – FAO (2021) (FIG 17), CC BY-NC-SA 3.0 IGO; Reprinted with permission. FAO (2021) (FIG 17), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
+איור 2.8: דישון שדות עם חנקן, זרחן ואשלגן בין השנים 2000 ו-2019. מקור – FAO (2021) (FIG 17), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
 ```
 
 ## חקלאות מקיימת
@@ -577,7 +577,7 @@ name: fig 2-10
 height: 400px
 name: fig 2-11
 ---
-איור 2.11: מקור חלבון (צמחי/בעלי חיים) באזורים שונים בעולם. מקור – FAO (2021) (FIG 53), CC BY-NC-SA 3.0 IGO; Reprinted with permission. FAO (2021) (FIG 53), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
+איור 2.11: מקור חלבון (צמחי/בעלי חיים) באזורים שונים בעולם. מקור – FAO (2021) (FIG 53), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
 ```
 
 ## סיכום

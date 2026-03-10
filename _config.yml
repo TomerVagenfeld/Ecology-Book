@@ -32,8 +32,8 @@ sphinx:
     numfig: false
     mathjax3_config:
       tex:
-        displayMath: [["$$", "$$"]]
-        inlineMath: [["$", "$"]]
+        displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        inlineMath: [["$", "$"], ["\\(", "\\)"]]
     exclude_patterns:
       - "_build/**"
       - "_build/*"

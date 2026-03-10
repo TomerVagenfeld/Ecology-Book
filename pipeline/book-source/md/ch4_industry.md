@@ -134,7 +134,7 @@ Domestic Product)[^20] צפוי לגדול פי ארבע בין 2011 ו-2060 כ�
 height: 400px
 name: fig 4-3
 ---
-איור 4.3: תחזית הדו”ח של ה-OECD לגבי השינוי בצריכת חומרי גלם בהשוואה בין 2011 ו-2060 תוך ניסיון לעמוד ביעדי אקלים - SDS.  מקור – OECD (2018) www.oecd.org/environment/waste/highlights-global-material-resources-outlook-to-2060.pdf ; Reprinted with permission. OECD (2018) [www.oecd.org/environment/waste/highlights-global-material-resources-outlook-to-2060.pdf](http://www.oecd.org/environment/waste/highlights-global-material-resources-outlook-to-2060.pdf) ; Reprinted with permission.
+איור 4.3: תחזית הדו”ח של ה-OECD לגבי השינוי בצריכת חומרי גלם בהשוואה בין 2011 ו-2060 תוך ניסיון לעמוד ביעדי אקלים - SDS.  מקור – OECD (2018) www.oecd.org/environment/waste/highlights-global-material-resources-outlook-to-2060.pdf ; Reprinted with permission.
 ```
 
 ```{figure} ../media/4_4.jpg
@@ -1112,26 +1112,12 @@ name: fig 4-16
 איור 4.16: ייצור פלסטיק וסוגיו החל מ-1980 ועד 2050. RTS = Reference Technology Scenario (business as usual - a modelled projection of what might take place in the chemical sector between now and 2050) vs. CTS = Clean Technology Scenario. (LDPE = low-density polyethylene; HDPE = high- density polyethylene; PP = polypropylene; PS = polystyrene; PVC = polyvinyl chloride; PET = polyethylene terephthalate). מקור - IEA (2018) The Future of Petrochemicals, IEA, Paris https://www.iea.org/reports/the-future-of-petrochemicals ;         CC BY 4.0; Reprinted with permission.
 ```
 
-RTS = Reference Technology Scenario (business as usual - a modelled
-projection of what might take place in the chemical sector between now
-and 2050) vs. CTS = Clean Technology Scenario. (LDPE = low-density
-polyethylene; HDPE = high- density polyethylene; PP = polypropylene; PS
-= polystyrene; PVC = polyvinyl chloride; PET = polyethylene
-terephthalate).
-
-מקור -
-
-IEA (2018) The Future of Petrochemicals, IEA, Paris
-<https://www.iea.org/reports/the-future-of-petrochemicals> ; CC BY 4.0;
-Reprinted with permission.
-
-
 ```{figure} ../media/4_17.jpg
 ---
 height: 400px
 name: fig 4-17
 ---
-איור 4.17: ייצור והצטברות פלסטיק מאז 1950, כולל תחזית עד 2050. מקור - United Nations Environment Programme (2021) From Pollution to Solution: A global assessment of marine litter and plastic pollution. Nairobi. © 2021 United Nations Environment Programme, Reprinted with permission.
+איור 4.17: ייצור והצטברות פלסטיק מאז 1950, כולל תחזית עד 2050. מקור - United Nations Environment Programme (2021) From Pollution to Solution: A global assessment of marine litter and plastic pollution. Nairobi. © 2021.
 ```
 
 ```{figure} ../media/4_18.jpg
@@ -1287,15 +1273,6 @@ name: fig 4-21
 ---
 איור 4.21: אבני דרך בהיסטוריה של המודעות לנזק של מספר POP כולל PFAS. רשימת מאמרי המפתח שהצביעו על הבעיה הסביבתית (מצוינת ב-!). שימו לב ל-DDT שהוזכר בפרק המבוא, ול-CFC שהוזכרו למעלה, ויופיעו שוב בפרק 11.  מקור – Scheringer, M. et al. (2022) Stories of global chemical pollution: Will we ever understand environmental persistence? Environmental Science & Technology. https://doi.org/10.1021/acs.est.2c06611 Reprinted with permission from {Scheringer et al. (2022). https://doi.org/10.1021/acs.est.2c06611}. Copyright {2023} American Chemical Society.
 ```
-
-Scheringer, M. et al. (2022) Stories of global chemical pollution: Will
-we ever understand environmental persistence? Environmental Science &
-Technology. <https://doi.org/10.1021/acs.est.2c06611>
-
-Reprinted with permission from {Scheringer et al. (2022).
-<https://doi.org/10.1021/acs.est.2c06611>}. Copyright {2023} American
-Chemical Society.
-
 
 ## תעשיית הטקסטיל -- האופנה והבגדים
 

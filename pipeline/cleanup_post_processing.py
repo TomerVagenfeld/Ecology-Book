@@ -272,6 +272,38 @@ def remove_orphaned_figure_text(text: str) -> str:
                     j += 1
                     continue
 
+                # English citation/reference text that duplicates caption content
+                # e.g., "Scheringer, M. et al. (2022) Stories of..."
+                # or "Dutton A. et al. (2015). https://..."
+                if re.match(r'^[A-Z][a-z]+ [A-Z].*(?:et al\.|https?://|\(\d{4}\))', line):
+                    orphan_lines.append(j)
+                    j += 1
+                    continue
+
+                # Blockquoted sub-figure labels like "> ב."
+                if re.match(r'^>\s*[אבגדהוזחט]\.$', line):
+                    orphan_lines.append(j)
+                    j += 1
+                    continue
+
+                # Standalone "מקור" (source) lines
+                if re.match(r'^מקור\s*[-–:—]?\s*$', line):
+                    orphan_lines.append(j)
+                    j += 1
+                    continue
+
+                # Citation lines like "IPCC (2019)," or "IEA (2018) The Future..."
+                if re.match(r'^(?:IPCC|IEA|FAO|UNEP|WHO|WMO|NOAA)\s*\(\d{4}\)', line):
+                    orphan_lines.append(j)
+                    j += 1
+                    continue
+
+                # Copyright/permission lines
+                if re.match(r'^Copyright\s*\{?\d{4}\}?', line) or line.startswith('CC BY'):
+                    orphan_lines.append(j)
+                    j += 1
+                    continue
+
                 # If it's a real content line (heading, figure, Hebrew paragraph, etc.), stop
                 break
 
@@ -292,6 +324,165 @@ def remove_orphaned_figure_text(text: str) -> str:
         i += 1
 
     return '\n'.join(out)
+
+
+# ── 2b. Remove standalone orphaned source blocks ─────────────────────────
+
+def remove_standalone_source_blocks(text: str) -> str:
+    """
+    Remove standalone 'מקור' (source) attribution blocks that appear outside
+    figure blocks. These are Pandoc artifacts where source text got separated
+    from the figure caption.
+    """
+    lines = text.split('\n')
+    out = []
+    in_figure = False
+    i = 0
+
+    while i < len(lines):
+        line = lines[i]
+        stripped = line.strip()
+
+        # Track figure blocks
+        if '```{figure}' in stripped:
+            in_figure = True
+        elif in_figure and stripped == '```':
+            in_figure = False
+
+        if in_figure:
+            out.append(line)
+            i += 1
+            continue
+
+        # Detect standalone "מקור" block: "מקור:" or "מקור -" or "מקור --"
+        # followed by URL/citation and/or "Reprinted with permission"
+        if re.match(r'^מקור\s*[-–:—]*\s*$', stripped):
+            # Scan ahead to find the extent of this source block
+            block_lines = [i]
+            j = i + 1
+            while j < len(lines):
+                s = lines[j].strip()
+                if not s:
+                    block_lines.append(j)
+                    j += 1
+                    continue
+                if (re.match(r'^<https?://', s) or
+                    re.match(r'^https?://', s) or
+                    s.startswith('Reprinted with permission') or
+                    re.match(r'^(?:IPCC|IEA|FAO|UNEP|WHO|WMO|NOAA)\s*\(\d{4}\)', s) or
+                    s.startswith(';') or
+                    s.startswith('CC BY')):
+                    block_lines.append(j)
+                    j += 1
+                    continue
+                break
+
+            # Only remove if we found at least one citation/URL line (not just "מקור:")
+            if len(block_lines) > 1:
+                i = j
+                # Ensure we don't leave extra blank lines
+                if out and out[-1].strip() == '' and j < len(lines) and lines[j].strip() == '':
+                    i = j + 1
+                continue
+
+        out.append(line)
+        i += 1
+
+    return '\n'.join(out)
+
+
+# ── 2c. Deduplicate caption attributions ─────────────────────────────────
+
+def deduplicate_captions(text: str) -> str:
+    """
+    Fix captions where source/attribution text appears twice in the same line.
+    Example: "...FAO (2021) (FIG 20); CC BY...; Reprinted with permission. FAO (2021) (FIG 20)[^34]; CC BY...; Reprinted with permission."
+    → Keep only the first occurrence (or the one with footnote ref).
+    """
+    lines = text.split('\n')
+    out = []
+
+    for line in lines:
+        stripped = line.strip()
+
+        # Only process caption lines inside figure blocks
+        # Caption lines start with "איור X.Y:" or "טבלה X.Y:"
+        if re.match(r'^(?:איור|טבלה)\s+\d+\.\d+', stripped):
+            # Check for "Reprinted with permission" appearing twice
+            rp_count = stripped.count('Reprinted with permission')
+            if rp_count >= 2:
+                # Find the pattern that's duplicated
+                # Strategy: find "Reprinted with permission." and split there
+                # Keep from start to first "Reprinted with permission." inclusive
+                parts = stripped.split('Reprinted with permission')
+                if len(parts) >= 3:
+                    # Keep first part + "Reprinted with permission" + period
+                    # The second occurrence and beyond are duplicates
+                    first_part = parts[0] + 'Reprinted with permission.'
+                    # Clean up trailing/leading artifacts
+                    first_part = re.sub(r'\.\s*$', '.', first_part.strip())
+                    out.append(first_part)
+                    continue
+
+            # Also check for other duplication patterns: same citation appearing twice
+            # Find if a substantial segment (>40 chars) appears twice
+            if len(stripped) > 100:
+                # Try to find repeated segments
+                half_len = len(stripped) // 2
+                for seg_len in range(min(60, half_len), 30, -1):
+                    for start in range(0, half_len):
+                        segment = stripped[start:start + seg_len]
+                        second_pos = stripped.find(segment, start + seg_len)
+                        if second_pos != -1:
+                            # Found a duplicate segment - remove from second occurrence
+                            cleaned = stripped[:second_pos].rstrip()
+                            # Make sure it ends properly
+                            if not cleaned.endswith('.'):
+                                cleaned += '.'
+                            out.append(cleaned)
+                            break
+                    else:
+                        continue
+                    break
+                else:
+                    out.append(line)
+                continue
+
+        out.append(line)
+
+    return '\n'.join(out)
+
+
+# ── 2d. Clean Pandoc image artifacts in footnotes ────────────────────────
+
+def clean_pandoc_image_artifacts(text: str) -> str:
+    """
+    Fix Pandoc artifacts where LaTeX formulas are embedded as image alt text
+    with broken paths like ![FORMULA](media/imageN.png).
+    Convert these to proper inline or display math.
+    """
+    # Pattern: ![LATEX_FORMULA](media/imageN.ext)
+    # where the alt text contains LaTeX-like commands
+    def replace_artifact(m):
+        alt_text = m.group(1)
+        # Check if the alt text looks like a LaTeX formula
+        if any(cmd in alt_text for cmd in ['\\frac', '\\mathrm', '\\text{', '\\sum', '\\int']):
+            # Clean up the LaTeX: remove double backslashes, fix escaped chars
+            formula = alt_text.strip()
+            formula = formula.replace('\\\\', '\\')
+            formula = formula.replace('\\_{', '_{')
+            formula = formula.replace('\\^{', '^{')
+            formula = formula.replace('\\_', '_')
+            formula = formula.replace('\\^', '^')
+            return f'${formula}$'
+        return ''  # remove non-formula image artifacts
+
+    text = re.sub(
+        r'!\[\s*((?:[^]]*\\(?:frac|mathrm|text|sum|int)[^]]*)?)\]\(media/image\d+\.\w+\)',
+        replace_artifact,
+        text
+    )
+    return text
 
 
 # ── 3. Remove duplicate figure blocks ────────────────────────────────────
@@ -530,7 +721,10 @@ def cleanup_chapter(md_path: Path) -> bool:
     # Apply passes in order
     text = remove_duplicate_figures(text)
     text = remove_orphaned_figure_text(text)
+    text = remove_standalone_source_blocks(text)
+    text = deduplicate_captions(text)
     text = clean_broken_image_refs(text)
+    text = clean_pandoc_image_artifacts(text)
     text = convert_tilde_subscripts(text)
     text = convert_standalone_formulas_to_latex(text)
     text = convert_inline_to_display_math(text)
