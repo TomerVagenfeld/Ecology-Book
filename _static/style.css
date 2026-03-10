@@ -544,44 +544,80 @@ div.footnote.fn-ltr {
 }
 
 /* =============================================================================
-   Mobile optimizations: Better touch targets, spacing, and readability
+   Mobile optimizations: Compact, readable, touch-friendly
 ============================================================================= */
 @media (max-width: 991.98px) {
-  /* Ensure readable font size on mobile */
   body {
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.55;
   }
 
-  /* Better spacing for mobile */
   .bd-article p {
-    margin-bottom: 1.2em;
+    margin-bottom: 1em;
   }
 
-  /* Touch-friendly links and buttons */
-  a, button {
+  /* Touch targets: only for standalone buttons, NOT for all links */
+  .bd-article button,
+  .navbar-nav .nav-link,
+  .btn {
     min-height: 44px;
-    display: inline-flex;
-    align-items: center;
   }
 
-  /* Better blockquote spacing on mobile */
   blockquote, .en-quote {
-    padding: 0.8rem;
-    margin: 1.2rem 0;
+    padding: 0.6rem 0.8rem;
+    margin: 0.8rem 0;
   }
 
-  /* Ensure images don't overflow on mobile */
   img, figure {
     max-width: 100%;
     height: auto;
   }
 
-  /* Better header spacing on mobile */
-  h1 { font-size: 1.8rem; margin: 1.5rem 0 1rem; }
-  h2 { font-size: 1.5rem; margin: 1.3rem 0 0.8rem; }
-  h3 { font-size: 1.3rem; margin: 1.2rem 0 0.7rem; }
-  h4 { font-size: 1.1rem; margin: 1rem 0 0.6rem; }
+  h1 { font-size: 1.6rem; margin: 1.2rem 0 0.6rem; }
+  h2 { font-size: 1.35rem; margin: 1rem 0 0.5rem; }
+  h3 { font-size: 1.2rem; margin: 0.9rem 0 0.4rem; }
+  h4 { font-size: 1.05rem; margin: 0.8rem 0 0.3rem; }
+
+  /* ---- Compact inline Table-of-Contents (intro page) ---- */
+  .toctree-wrapper ul {
+    padding-inline-start: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+  }
+  .toctree-wrapper li.toctree-l1 {
+    padding: 0.4rem 0.6rem;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--pst-color-border, #eee);
+  }
+  .toctree-wrapper li.toctree-l1 a {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    display: block;
+    text-decoration: none;
+    color: var(--pst-color-primary, #4a86c8);
+  }
+
+  /* ---- Compact slide-in sidebar (book TOC) ---- */
+  dialog#pst-primary-sidebar-modal .bd-toc-item .toctree-l1 {
+    margin: 0;
+  }
+  dialog#pst-primary-sidebar-modal .bd-toc-item .toctree-l1 > a {
+    font-size: 0.9rem;
+    padding: 0.35rem 0.8rem;
+    line-height: 1.35;
+  }
+  dialog#pst-primary-sidebar-modal .bd-toc-item .toctree-l2 > a {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.8rem 0.25rem 1.6rem;
+    line-height: 1.3;
+  }
+
+  /* ---- Compact page-level TOC (secondary sidebar) ---- */
+  dialog#pst-secondary-sidebar-modal .nav-link {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.6rem;
+    line-height: 1.35;
+  }
 }
 
 /* =============================================================================
