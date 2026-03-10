@@ -312,14 +312,25 @@ input[name="q"], #searchbox input, .search-field input {
 @media (max-width: 768px) {
   #search-results { margin: 10px; }
   .search-button__wrapper.show .search-button__search-container {
-    left: 3vw !important;
-    right: 3vw !important;
-    transform: none !important;
+    /* Override theme: left:50% + right:1rem + translate(-50%,-50%) */
+    left: 5vw !important;
+    right: 5vw !important;
     width: auto !important;
     max-width: none !important;
-    top: 12% !important;
+    transform: none !important;
+    top: 15% !important;
     border-radius: 12px !important;
     margin: 0 !important;
+    padding: 0.2rem !important;
+  }
+  /* Compact search input on mobile */
+  .search-button__wrapper.show form.bd-search {
+    padding: 0.4rem 0.7rem !important;
+    gap: 0.5rem !important;
+  }
+  .search-button__wrapper.show #search-input {
+    font-size: 1rem !important;
+    padding: 0.25rem 0.2rem !important;
   }
 
   /* Highlight navigation bar — full-width on mobile */
