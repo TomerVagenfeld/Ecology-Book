@@ -222,11 +222,8 @@ name: fig 5-1
 height: 400px
 name: fig 5-2
 ---
-איור 5.2: מחזור הפחמן הגלובלי.  איור זה מדגיש את ההפרעה האנתרופוגנית שמתוארת על ידי חיצים. השטפים וגודלי המאגרים הטבעיים רשומים בקטן. היחידות של המאגרים הן גיגה-טון פחמן, והיחידות של השטפים הן גיגה-טון פחמן לשנה. מקור - :
+איור 5.2: מחזור הפחמן הגלובלי.  איור זה מדגיש את ההפרעה האנתרופוגנית שמתוארת על ידי חיצים. השטפים וגודלי המאגרים הטבעיים רשומים בקטן. היחידות של המאגרים הן גיגה-טון פחמן, והיחידות של השטפים הן גיגה-טון פחמן לשנה. מקור - 2020. This work is distributed under the Creative Commons Attribution 4.0 License. Reprinted with permission.
 ```
-
-2020. This work is distributed under the Creative Commons Attribution
-4.0 License. Reprinted with permission.
 
 ```{figure} media/5_3.jpg
 ---
@@ -347,13 +344,6 @@ name: fig 5-5
 איור 5.5: שטפים של קיבוע חנקן אטמוספירי והפיכתו לחנקן ראקטיבי. מקור - Fowler D., et al. (2013) The global nitrogen cycle in the twenty-first century. © 2013 The Author(s) Published by the Royal Society. All rights reserved. Reprinted with permission. BNF – Biological N Fixation). Tg = 1012 g = 106 ton = mega-ton = 0.001 giga-ton)
 ```
 
-century. © 2013 The Author(s) Published by the Royal Society. All rights
-reserved. Reprinted with permission.
-
-BNF -- Biological N Fixation). Tg = $10^{12}$ g = $10^{6}$ ton = mega-ton =
-0.001 giga-ton)
-
-
 ```{figure} media/5_6.jpg
 ---
 height: 400px
@@ -372,7 +362,7 @@ name: fig 5-6
 eutrophication),[^51] (2) יצירת גז חממה יעיל שגם משתתף בהרס האוזון
 הסטרטוספרי (nitrous oxide -- $N_{2}O$ -- ראו פרקים 6 ו-11), (3) זיהום
 מקורות מים על ידי ניטרט -- $NO_{3}^{-}$; (4) זיהום אוויר (,NO, $NO_{2}$, HONO
-N$O_{3}$-- ראו פרק 11). המאמרים הללו מנבאים שההשפעות של ייצור תרכובות
+$NO_{3}$-- ראו פרק 11). המאמרים הללו מנבאים שההשפעות של ייצור תרכובות
 חנקן פעילות ימשיכו ללוות אותנו בעשורים ואולי גם במאות השנים הבאות אם לא
 נשכיל למתן את השימוש בדשן עתיר-חנקן ולמצוא דרכים למחזר את החנקן המשמש
 כדשן.[^52]
@@ -456,7 +446,7 @@ orthophosphate: $H_{2}PO_{4}^{-}$ and $HPO_{4}^{2-}$)). אולם, ב-2015 דוו
 ממקורות מתחדשים, ביניהם שאריות של גידולים, תוך שימוש בטכניקות של חקלאות
 מקיימת; הפקת זרחן מעצמות של בעלי חיים שנשחטו[^72] וכן מיצוי זרחן
 משפכים,[^73] בין היתר באמצעות השקעה של המינרל סטורביט
-(N$H_{4}$MgP$O_{4}$·6$H_{2}O$ - Struvite).[^74] במקביל, נעשה מאמץ רב לשיפור
+($NH_{4}MgPO_{4}$·6$H_{2}O$ - Struvite).[^74] במקביל, נעשה מאמץ רב לשיפור
 הניצולת של זרחן המוסף כדשן לשדות.[^75] זאת על מנת להפחית את דליפתו
 למערכות טבעיות, כדי לדחות את הקץ מבחינת המחסור בזרחן, ומתוך הבנה שבגלל
 מסיסותו הנמוכה, זרחן שהוסף בעודף בעבר ימשיך להיות מטרד סביבתי גם שנים
@@ -1004,10 +994,7 @@ name: fig 5-10
     water followed by the rection of dissolved $CO_{2}$ with water to form
     carbonic acid: $CO_{2}$ + $H_{2}O$ ↔ $H_{2}CO_{3}$; The carbonic acid then
     dissociates in two steps releasing 2 protons ($H^{+}$) and forming
-    carbonate: $H_{2}CO_{3}$ ↔ $H^{+}$ + $HCO_{3}^{-}$; $HCO_{3}^{-}$ ↔ $H^{+}$ +
-$$
-CO_{3}^{2-}
-$$
+    carbonate: $H_{2}CO_{3}$ ↔ $H^{+}$ + $HCO_{3}^{-}$; $HCO_{3}^{-}$ ↔ $H^{+}$ + $CO_{3}^{2-}$
 
 [^26]: Bufe A. et al. (2024) CO2 drawdown from weathering is maximized
     at moderate erosion rates. *Science* **383**, 1075-1080.
@@ -1098,7 +1085,7 @@ $$
 
 [^46]: "Nitrification is actually the net result of two distinct
     processes: the oxidation of ammonia ($NH_{3}$) or ammonium ($NH_{4}^{+}$)
-    to nitrite (N$O_{2}$^−^) by ammonia-oxidizing bacteria (e.g.,
+    to nitrite ($NO_{2}$^−^) by ammonia-oxidizing bacteria (e.g.,
     Nitrosomonas) and the oxidation of nitrite ($NO_{2}^{--}$) to nitrate
     ($NO_{3}^{--}$) by the nitrite-oxidizing bacteria (e.g., Nitrobacter).
     Nitrification is extremely energetically poor leading to very slow

@@ -50,6 +50,8 @@ sphinx:
     - "en-quote.js"
     - "footnote-tooltip.js"
     - "search-hebrew.js"
+    - "search-scroll.js"
+    - "image-zoom.js"
 
 html:
   use_issues_button: false

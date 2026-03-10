@@ -353,7 +353,7 @@ $$
 תחליפים למלט קונבנציונלי שייצורם אינו פולט פד\"ח. אכן, במאמר[^64]
 שהתפרסם ב-2025 והיכה גלים[^65] הוצע להוסיף לבטון בזמן הייצור חומרים
 המגיבים עם פד\"ח אטמוספרי וסופחים אותו. מאמר נוסף הציג חומר מבוסס
-אתרנגיט (ettringite - $Ca_6Al_2(SO_4)_3(OH)_{12} \cdot 26H_2O$) שיכול להוות
+אתרנגיט (ettringite - $Ca_{6}Al_{2}(SO_{4})_{3}(OH)_{12} \cdot 26H_{2}O$) שיכול להוות
 ציפוי לקירות וגגות מבנים ולהפחית משמעותית את כמות הקרינה שהם בולעים
 ולהגדיל את כמות הקרינה שהם פולטים וכך לקרר המידה ניכרת את המבנים.[^66]
 
@@ -819,7 +819,7 @@ name: fig 4-11
 תרכובות רעילות לבני אדם ולאורגניזמים אחרים.[^160]
 
 ישנן הערכות ששחיקת צמיגים תורמת 5-10% מכלל החלקיקים המרחפים
-(PM~2.5~)[^161] באוויר בסביבה העירונית,[^162] ומהווה מקור עיקרי
+($PM_{2.5}$)[^161] באוויר בסביבה העירונית,[^162] ומהווה מקור עיקרי
 לננו-חלקיקים (קטנים מ-1 מיקרומטר)[^163] אטמוספריים באזורים הררים כמו
 האלפים.[^164] ישנן גם הערכות ששחיקה של צמיגים תורמת כמעט 80% מחלקיקי
 המיקרו-פלסטיק (קטנים מ-5 מ\"מ) הנשטפים לאוקיינוסים.[^165] יתרה מזאת, ככל
@@ -885,6 +885,14 @@ name: fig 4-15
 
 
 טבלה 4.1 מתארת את תהליך הבר-בוש.
+
+```{figure} media/4_1_TABLE.png
+---
+height: 400px
+name: table 4-1
+---
+טבלה 4.1: תהליך הבר-בוש לייצור אמוניה.
+```
 
 ### פלסטיק בסביבה
 
@@ -1617,7 +1625,7 @@ name: fig 4-22
 
 [^45]: Acidification (the Bronsted-Lowry definition) -- the process of
     lowering the pH of the matter, i.e., increasing the concentration of
-    dissolved protons (H+, where pH = -log\[H$^{+}$\], where \[H$^{+}$\] =
+    dissolved protons (H+, where pH = -log\[$H^{+}$\], where \[$H^{+}$\] =
     concentration of dissolved proton). Sometimes, the notion of
     concentrations should be replaced with activities, which are
     proportional to concentrations but take into consideration also the
@@ -1669,7 +1677,7 @@ name: fig 4-22
     (2024), Sandy fingerprints trace supply sources, Eos, 105,
     <https://doi.org/10.1029/2024EO240004>
 
-[^58]: $CaCO_{3}(s)$ + clay + heat → clinker {Si$O_{2}$(\~21%),
+[^58]: $CaCO_{3}(s)$ + clay + heat → clinker {$SiO_{2}$(\~21%),
     $Fe_{2}O_{3}$(\~3%), $Al_{2}O_{3}$(\~7%), MgO(\~2%), CaO(\~63%)} + $CO_{2}$
 
 [^59]: <https://www.weforum.org/stories/2024/09/cement-production-sustainable-concrete-co2-emissions/>

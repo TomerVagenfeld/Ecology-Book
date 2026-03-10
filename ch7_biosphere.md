@@ -583,7 +583,7 @@ name: fig 7-4
 [^1]: Photosynthesis -- the fundamental biochemical process where
     organisms, primarily plants, algae, and some bacteria, harness the
     energy from sunlight to synthesize glucose (a sugar) from carbon
-    dioxide (C$O_{2}$​) and water ($H_{2}$​O). This conversion transforms light
+    dioxide ($CO_{2}$​) and water ($H_{2}$​O). This conversion transforms light
     energy into a usable form of potential chemical energy stored within
     the bonds of glucose. Photosynthesis takes place in two distinct
     stages. <https://www.ncbi.nlm.nih.gov/books/NBK9861/>
@@ -616,8 +616,6 @@ name: fig 7-4
     להם חשיבות לקיומו ורווחתו של האדם, והם כוללים: שירותי אספקה למזון,
     מים וחומרי בנייה, שירותי תרבות למטרות נופש תיירות ומורשת, שירותי
     ויסות ובקרה הכוללים האבקה, בקרת אקלים ומניעת שיטפונות וסחיפת קרקע.
-    --
-
     <https://www.gov.il/he/departments/general/ecosystem_services>
 
 [^8]: "The variety of life at every hierarchical level and spatial scale

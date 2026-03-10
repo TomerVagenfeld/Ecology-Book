@@ -691,7 +691,152 @@ def fix_display_math_delimiters(text: str) -> str:
     return '\n'.join(out)
 
 
-# ── 7. Fix EMF image references ──────────────────────────────────────────
+# ── 7. Fix split formulas (Pandoc artifact) ──────────────────────────────
+
+def fix_split_formulas(text: str) -> str:
+    """
+    Fix split formulas where Pandoc places element prefix outside $...$:
+      S$O_{2}$ → $SO_{2}$
+      CaS$O_{3}$ → $CaSO_{3}$
+      U$V_{A}$ → $UV_{A}$
+      N$O_{X}$ → $NO_{X}$
+    Also fix trailing element after $: $H_{2}$O → $H_{2}O$
+
+    CAUTION: Skip footnote URL lines containing $ in URLs.
+    """
+    lines = text.split('\n')
+    out = []
+    in_code = False
+    in_figure = False
+
+    for line in lines:
+        # Track code/figure blocks
+        if re.match(r'^\s*```', line):
+            if '```{figure}' in line:
+                in_figure = True
+            elif in_figure and line.strip() == '```':
+                in_figure = False
+            else:
+                in_code = not in_code
+            out.append(line)
+            continue
+
+        if in_code or in_figure:
+            out.append(line)
+            continue
+
+        # Skip footnote URL lines (they may contain $ in URLs)
+        if re.match(r'^\[\^\d+\]:\s*<https?://', line):
+            out.append(line)
+            continue
+
+        # Skip heading lines
+        if re.match(r'^\s*#', line):
+            out.append(line)
+            continue
+
+        # Fix 1: Element prefix before $...$
+        # Match: element letters immediately before $ that starts a formula
+        # containing subscript/superscript notation (_ or ^)
+        # E.g.: S$O_{2}$ → $SO_{2}$, CaS$O_{3}$ → $CaSO_{3}$
+        line = re.sub(
+            r'([A-Z][a-z]?(?:[A-Z][a-z]?)*)\$([^$]*[_^][^$]*)\$',
+            r'$\1\2$',
+            line
+        )
+
+        # Fix 2: Element suffix after $...$
+        # Match: $...$ immediately followed by element letters (no space)
+        # where $..$ contains subscript/superscript and next char is non-letter/non-$
+        # E.g.: $H_{2}$O → $H_{2}O$
+        line = re.sub(
+            r'\$([^$]*[_^][^$]*)\$([A-Z][a-z]?)(?=[^a-zA-Z_$]|$)',
+            r'$\1\2$',
+            line
+        )
+
+        # Fix 3: Merge adjacent $...$$...$ into single $...$
+        line = re.sub(r'\$([^$]+)\$\$([^$]+)\$', r'$\1\2$', line)
+
+        out.append(line)
+
+    return '\n'.join(out)
+
+
+# ── 8. Fix bare LaTeX in text ────────────────────────────────────────────
+
+def fix_bare_latex_in_text(text: str) -> str:
+    """
+    Fix LaTeX formulas that appear as raw text outside $...$ delimiters.
+
+    Handles:
+    - h\\nu_{vis}, h\\nu_{UVB} → $h\\nu_{vis}$, $h\\nu_{UVB}$
+    - UV_{B}, UV_{A}, UV_{C} → $UV_{B}$, etc.
+    - ightarrow → \\rightarrow (broken \\rightarrow where \\r was consumed)
+    - Standalone word_{subscript} patterns outside math
+    """
+    lines = text.split('\n')
+    out = []
+    in_code = False
+    in_figure = False
+    in_display_math = False
+
+    for line in lines:
+        stripped = line.strip()
+
+        # Track code/figure blocks
+        if re.match(r'^\s*```', line):
+            if '```{figure}' in line:
+                in_figure = True
+            elif in_figure and stripped == '```':
+                in_figure = False
+            else:
+                in_code = not in_code
+            out.append(line)
+            continue
+
+        # Track display math blocks ($$)
+        if stripped == '$$':
+            in_display_math = not in_display_math
+            out.append(line)
+            continue
+
+        if in_code or in_figure or in_display_math:
+            out.append(line)
+            continue
+
+        # Skip footnote URL lines
+        if re.match(r'^\[\^\d+\]:\s*<https?://', line):
+            out.append(line)
+            continue
+
+        # Fix broken \rightarrow (backslash-r consumed → "ightarrow")
+        # Only match standalone "ightarrow" NOT preceded by a letter or backslash
+        # (avoids corrupting existing \rightarrow or \leftrightarrow)
+        line = re.sub(r'(?<![a-zA-Z\\])ightarrow', r'\\rightarrow', line)
+
+        # Fix h\nu_{...} outside math delimiters
+        # Pattern: h\nu_{vis}, h\nu_{UVB}, etc.
+        line = re.sub(
+            r'(?<!\$)h\\nu_\{([^}]+)\}',
+            r'$h\\nu_{\1}$',
+            line
+        )
+
+        # Fix UV_{X} outside math delimiters (where X is A, B, C, etc.)
+        # Only match when NOT already inside $...$
+        line = re.sub(
+            r'(?<!\$)UV_\{([^}]+)\}',
+            r'$UV_{\1}$',
+            line
+        )
+
+        out.append(line)
+
+    return '\n'.join(out)
+
+
+# ── 9. Fix EMF image references ──────────────────────────────────────────
 
 def fix_emf_references(text: str, media_dir: Path) -> str:
     """Replace .emf figure references with .jpg or .png alternatives."""
@@ -727,6 +872,8 @@ def cleanup_chapter(md_path: Path) -> bool:
     text = clean_pandoc_image_artifacts(text)
     text = convert_tilde_subscripts(text)
     text = convert_standalone_formulas_to_latex(text)
+    text = fix_split_formulas(text)
+    text = fix_bare_latex_in_text(text)
     text = convert_inline_to_display_math(text)
     text = fix_display_math_delimiters(text)
     text = fix_emf_references(text, media_dir)
