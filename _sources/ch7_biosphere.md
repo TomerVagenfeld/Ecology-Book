@@ -583,7 +583,7 @@ name: fig 7-4
 [^1]: Photosynthesis -- the fundamental biochemical process where
     organisms, primarily plants, algae, and some bacteria, harness the
     energy from sunlight to synthesize glucose (a sugar) from carbon
-    dioxide (C$O_{2}$​) and water ($H_{2}$​O). This conversion transforms light
+    dioxide ($CO_{2}$​) and water ($H_{2}$​O). This conversion transforms light
     energy into a usable form of potential chemical energy stored within
     the bonds of glucose. Photosynthesis takes place in two distinct
     stages. <https://www.ncbi.nlm.nih.gov/books/NBK9861/>

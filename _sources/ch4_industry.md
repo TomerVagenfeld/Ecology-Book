@@ -1617,7 +1617,7 @@ name: fig 4-22
 
 [^45]: Acidification (the Bronsted-Lowry definition) -- the process of
     lowering the pH of the matter, i.e., increasing the concentration of
-    dissolved protons (H+, where pH = -log\[H$^{+}$\], where \[H$^{+}$\] =
+    dissolved protons (H+, where pH = -log\[$H^{+}$\], where \[$H^{+}$\] =
     concentration of dissolved proton). Sometimes, the notion of
     concentrations should be replaced with activities, which are
     proportional to concentrations but take into consideration also the
@@ -1669,7 +1669,7 @@ name: fig 4-22
     (2024), Sandy fingerprints trace supply sources, Eos, 105,
     <https://doi.org/10.1029/2024EO240004>
 
-[^58]: $CaCO_{3}(s)$ + clay + heat → clinker {Si$O_{2}$(\~21%),
+[^58]: $CaCO_{3}(s)$ + clay + heat → clinker {$SiO_{2}$(\~21%),
     $Fe_{2}O_{3}$(\~3%), $Al_{2}O_{3}$(\~7%), MgO(\~2%), CaO(\~63%)} + $CO_{2}$
 
 [^59]: <https://www.weforum.org/stories/2024/09/cement-production-sustainable-concrete-co2-emissions/>
