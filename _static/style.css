@@ -658,6 +658,12 @@ div.footnote.fn-ltr {
   text-align: left;
 }
 
+/* Click-to-zoom cursor for all figure images */
+.bd-article figure img,
+.bd-article .figure img {
+  cursor: zoom-in;
+}
+
 /* =============================================================================
    Mobile optimizations: Compact, readable, touch-friendly
 ============================================================================= */

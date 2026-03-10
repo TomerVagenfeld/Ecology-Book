@@ -9,7 +9,6 @@
   }
 
   function openZoom(img) {
-    if (!isMobile()) return;
 
     var overlay = document.createElement("div");
     overlay.className = "img-zoom-overlay";

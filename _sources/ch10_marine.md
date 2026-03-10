@@ -768,18 +768,6 @@ name: fig 10-6
 איור 10.6: תיאור סכמתי של הסירקולציה הגלובלית באוקיינוס – המסוע האוקיאני. במהלך השנים התקיימו ויכוחים רבים לגבי עצם קיומו של המסוע, אולם כיום, המסוע המוצג כאן מקובל על מרבית החוקרים של זרמי האוקיינוסים. שימו לב למפתח הצבעים בתחתית האיור. מקור – Talley, L.D. (2013) Closure of the global overturning circulation through the Indian, Pacific, and Southern Oceans: Schematics and transports. Oceanography 26, 80–97. http://dx.doi.org/10.5670/oceanog.2013.07. Creative Commons Attribution 4.0 International License. Reprinted with permission.
 ```
 
-Talley, L.D. (2013) Closure of the global overturning circulation
-through the Indian, Pacific, and Southern Oceans: Schematics and
-transports. *Oceanography* **26**, 80--97.
-<http://dx.doi.org/10.5670/oceanog.2013.07>. Creative Commons
-Attribution 4.0 International License. Reprinted with permission.
-
-
-Purple = upper ocean and thermocline. Red = denser thermocline and
-intermediate water. Orange = Indian deep Water and Pacific deep Water.
-Green = North Atlantic deep Water. Blue = Antarctic bottom Water. Gray =
-Bering Strait components and Mediterranean and Red Sea inflows.
-
 ```{figure} media/10_7.png
 ---
 height: 400px
@@ -1429,8 +1417,7 @@ name: fig 10-11
     ומחזורים ביוגאוכימיים (5). בהקשר הימי מקובל להשתמש ביחס רדפילד --
 
     Extended Redfield ratio -
-    ($C_{124}$N_{16}$P_{1}S$~1.3~K~1.7~Mg~0.56~Ca~0.5~)$Sr_{1000}$~5.0~Fe~7.5~Zn~0.80~Cu~0.38~Co~0.19~Cd~0.21~Mo
-    ~0.03~). "This elemental stoichiometry varies between species and,
+    $(C_{124}N_{16}P_1S_{1.3}K_{1.7}Mg_{0.56}Ca_{0.5})Sr_{1000}Fe_{5.0}Zn_{7.5}Cu_{0.80}Co_{0.38}Cd_{0.19}Mo_{0.03})$. "This elemental stoichiometry varies between species and,
     potentially, in response to changes in the chemistry of seawater, it
     provides a basis for examining how phytoplankton influence the
     relative distributions of the ensemble of major and trace elements
