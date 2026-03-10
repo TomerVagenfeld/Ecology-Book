@@ -64,6 +64,15 @@
     });
 
     document.body.appendChild(bar);
+
+    // Force repaint so mobile browsers show the fixed bar immediately
+    // (without waiting for user scroll to trigger a layout)
+    requestAnimationFrame(function () {
+      bar.style.opacity = "0.99";
+      requestAnimationFrame(function () {
+        bar.style.opacity = "1";
+      });
+    });
   }
 
   function init() {

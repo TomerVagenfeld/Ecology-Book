@@ -205,6 +205,11 @@ span.highlighted.hl-active {
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
   direction: ltr;
+  /* Force GPU layer so mobile browsers render it immediately */
+  -webkit-transform: translateX(-50%) translateZ(0);
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .hl-nav-bar .hl-counter {
   font-weight: 600;
@@ -333,18 +338,23 @@ input[name="q"], #searchbox input, .search-field input {
     padding: 0.25rem 0.2rem !important;
   }
 
-  /* Highlight navigation bar — full-width on mobile */
+  /* Highlight navigation bar — full-width toolbar at bottom on mobile */
   .hl-nav-bar {
     left: 0 !important;
     right: 0 !important;
-    transform: none !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
     bottom: 0 !important;
     border-radius: 0 !important;
     justify-content: center;
     padding: 0.6rem 1rem !important;
+    padding-bottom: calc(0.6rem + env(safe-area-inset-bottom, 0)) !important;
     gap: 0.75rem !important;
     border-top: 1px solid var(--pst-color-border, #ccc);
     box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.12) !important;
+    will-change: transform !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
   }
   .hl-nav-bar .hl-btn {
     width: 2.5rem !important;
