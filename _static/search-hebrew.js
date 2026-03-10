@@ -95,13 +95,23 @@
     observer.observe(resultsContainer, { childList: true, subtree: true });
   }
 
+  function hebrewizePlaceholder() {
+    var input = document.getElementById("search-input");
+    if (input) {
+      input.placeholder = "\u05D7\u05D9\u05E4\u05D5\u05E9 \u05D1\u05E1\u05E4\u05E8\u2026";  // "חיפוש בספר…"
+      input.setAttribute("aria-label", "\u05D7\u05D9\u05E4\u05D5\u05E9 \u05D1\u05E1\u05E4\u05E8");
+    }
+  }
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
       patchSearch();
       enhanceSearchResults();
+      hebrewizePlaceholder();
     });
   } else {
     patchSearch();
     enhanceSearchResults();
+    hebrewizePlaceholder();
   }
 })();

@@ -175,13 +175,145 @@ figure .caption-number {
   border-radius: 2px;
 }
 
-/* Search input box RTL */
+/* In-page highlighted search terms (on target pages after clicking a result) */
+span.highlighted {
+  background-color: rgba(168, 207, 64, 0.30);
+  padding: 0.1em 0.15em;
+  border-radius: 2px;
+  scroll-margin-top: 80px;
+}
+span.highlighted.hl-active {
+  background-color: rgba(255, 165, 0, 0.5);
+  outline: 2px solid rgba(255, 140, 0, 0.7);
+  border-radius: 3px;
+}
+
+/* Floating match navigation bar */
+.hl-nav-bar {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--pst-color-background, #fff);
+  border: 1px solid var(--pst-color-border, #ccc);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  direction: ltr;
+}
+.hl-nav-bar .hl-counter {
+  font-weight: 600;
+  min-width: 4em;
+  text-align: center;
+  color: #555;
+}
+.hl-nav-bar .hl-btn {
+  border: none;
+  background: #f0f0f0;
+  border-radius: 6px;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #444;
+  transition: background 0.15s;
+}
+.hl-nav-bar .hl-btn:hover {
+  background: #e0e0e0;
+}
+.hl-nav-bar .hl-close {
+  margin-inline-start: 0.3rem;
+  font-size: 0.9rem;
+}
+
+/* =============================================================================
+   Search Overlay / Modal  (Ctrl+K)
+============================================================================= */
+
+/* Dark translucent backdrop */
+.search-button__overlay {
+  background: rgba(0, 0, 0, 0.55) !important;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+/* The floating search container */
+.search-button__wrapper.show .search-button__search-container {
+  background: var(--pst-color-background, #fff);
+  border: 1px solid var(--pst-color-border, #ddd);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  max-width: 560px;
+  margin: 12vh auto 0;
+  padding: 0.5rem;
+  overflow: hidden;
+}
+
+/* The form inside */
+.search-button__search-container .bd-search {
+  direction: rtl;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  gap: 0.6rem;
+}
+
+/* The input field itself */
+.search-button__search-container #search-input {
+  direction: rtl;
+  text-align: right;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  font-size: 1.15rem;
+  background: transparent;
+  padding: 0.4rem 0.2rem;
+}
+.search-button__search-container #search-input::placeholder {
+  color: #999;
+  font-size: 1.05rem;
+}
+.search-button__search-container #search-input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Search icon */
+.search-button__search-container .fa-magnifying-glass {
+  color: #999;
+  font-size: 1.1rem;
+  order: 1;  /* move icon to the right in RTL */
+}
+
+/* Kbd shortcut hint */
+.search-button__search-container .search-button__kbd-shortcut {
+  display: none;  /* hide inside the open modal — it's redundant */
+}
+
+/* Search button in the header — nicer look */
+.search-button__default-text { direction: rtl; }
+
+/* General input RTL */
 input[name="q"], #searchbox input, .search-field input {
   direction: rtl;
   text-align: right;
 }
 
-@media (max-width: 768px) { #search-results { margin: 10px; } }
+@media (max-width: 768px) {
+  #search-results { margin: 10px; }
+  .search-button__wrapper.show .search-button__search-container {
+    max-width: 94vw;
+    margin-top: 8vh;
+    border-radius: 10px;
+  }
+}
 
 /* =============================================================================
    Desktop (≥992px): secondary (LEFT) • main (MIDDLE/RIGHT side visually) • primary (RIGHT)
