@@ -76,6 +76,52 @@
     return /[\u0590-\u05FF]/.test(text);
   }
 
+  function isMobile() {
+    return window.innerWidth < 992;
+  }
+
+  function showMobileSheet(content, isRTL) {
+    removeTooltip();
+
+    // Backdrop
+    var backdrop = document.createElement("div");
+    backdrop.className = "fn-sheet-backdrop";
+    backdrop.addEventListener("click", removeTooltip);
+
+    // Sheet
+    var sheet = document.createElement("div");
+    sheet.className = "fn-sheet" + (isRTL ? " fn-rtl" : " fn-ltr");
+    sheet.innerHTML =
+      '<button class="fn-sheet-close" aria-label="Close">\u2715</button>' +
+      '<div class="fn-sheet-content">' + content + '</div>';
+
+    sheet.querySelector(".fn-sheet-close").addEventListener("click", removeTooltip);
+
+    // Prevent tap on sheet from closing
+    sheet.addEventListener("click", function (e) { e.stopPropagation(); });
+
+    document.body.appendChild(backdrop);
+    document.body.appendChild(sheet);
+
+    activeTooltip = sheet;
+    activeTooltip._backdrop = backdrop;
+
+    // Animate in
+    requestAnimationFrame(function () {
+      backdrop.classList.add("fn-sheet-backdrop--visible");
+      sheet.classList.add("fn-sheet--visible");
+    });
+  }
+
+  // Override removeTooltip to also handle sheet backdrop
+  var _originalRemove = removeTooltip;
+  removeTooltip = function () {
+    if (activeTooltip && activeTooltip._backdrop) {
+      activeTooltip._backdrop.remove();
+    }
+    _originalRemove();
+  };
+
   function initFootnoteTooltips() {
     // Find all footnote references
     const refs = document.querySelectorAll(
@@ -83,7 +129,9 @@
     );
 
     refs.forEach(function (ref) {
+      // Desktop: hover tooltip
       ref.addEventListener("mouseenter", function () {
+        if (isMobile()) return;
         cancelHide();
 
         const href = ref.getAttribute("href");
@@ -94,17 +142,17 @@
         const rtl = isHebrew(content);
         activeTooltip = createTooltip(content, rtl);
 
-        // Let browser render, then position
         requestAnimationFrame(function () {
           positionTooltip(activeTooltip, ref);
         });
 
-        // Keep tooltip alive when hovering over it
         activeTooltip.addEventListener("mouseenter", cancelHide);
         activeTooltip.addEventListener("mouseleave", scheduleHide);
       });
 
-      ref.addEventListener("mouseleave", scheduleHide);
+      ref.addEventListener("mouseleave", function () {
+        if (!isMobile()) scheduleHide();
+      });
     });
   }
 
@@ -153,7 +201,7 @@
   }
 
   function addSmoothScrollToRefs() {
-    // Make footnote reference clicks smooth-scroll
+    // Make footnote reference clicks smooth-scroll (desktop) or show sheet (mobile)
     const refs = document.querySelectorAll(
       "a.footnote-reference, sup a[href^='#fn'], a[role='doc-noteref']"
     );
@@ -162,15 +210,24 @@
       ref.addEventListener("click", function (e) {
         const href = ref.getAttribute("href");
         if (!href || !href.startsWith("#")) return;
-        const target = document.getElementById(href.slice(1));
-        if (!target) return;
 
         e.preventDefault();
-        removeTooltip();
-        target.scrollIntoView({ behavior: "smooth", block: "center" });
-        // Brief highlight
-        target.style.backgroundColor = "rgba(168, 207, 64, 0.3)";
-        setTimeout(function () { target.style.backgroundColor = ""; }, 2000);
+
+        if (isMobile()) {
+          // Mobile: show bottom sheet with footnote content
+          const content = getFootnoteContent(href);
+          if (!content) return;
+          const rtl = isHebrew(content);
+          showMobileSheet(content, rtl);
+        } else {
+          // Desktop: smooth scroll to footnote
+          removeTooltip();
+          const target = document.getElementById(href.slice(1));
+          if (!target) return;
+          target.scrollIntoView({ behavior: "smooth", block: "center" });
+          target.style.backgroundColor = "rgba(168, 207, 64, 0.3)";
+          setTimeout(function () { target.style.backgroundColor = ""; }, 2000);
+        }
       });
     });
   }
