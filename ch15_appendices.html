@@ -1,0 +1,916 @@
+
+<!DOCTYPE html>
+
+
+<html lang="he" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>15. נספחים &#8212; אקולוגיה</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css?v=3d3f4749" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=f9e65679"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'לחץ להצגה';</script>
+    <script>let toggleHintHide = 'לחץ להסתרה';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="_static/translations.js?v=714bf7a6"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"displayMath": [["$$", "$$"], ["\\[", "\\]"]], "inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch15_appendices';</script>
+    <script src="_static/custom_scroll.js?v=678a69f3"></script>
+    <script src="_static/en-quote.js?v=d5f813da"></script>
+    <script src="_static/footnote-dir.js?v=322e6877"></script>
+    <script src="_static/footnote-tooltip.js?v=35880b41"></script>
+    <script src="_static/list-dir.js?v=a6fa1b8f"></script>
+    <script src="_static/rtl-sidebar.js?v=3282486f"></script>
+    <script src="_static/search-hebrew.js?v=b975a066"></script>
+    <link rel="index" title="אינדקס" href="genindex.html" />
+    <link rel="search" title="חיפוש" href="search.html" />
+    <link rel="prev" title="14. סיכום מצב הסביבה בישראל" href="ch14_IL.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="he"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="אקולוגיה - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="אקולוגיה - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="חיפוש" aria-label="חיפוש" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">חיפוש</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    משבר הסביבה והאקלים - הזוית המדעית
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch1_introduction.html">1. מבוא - עקרונות, היסטוריה והגורמים למשבר הסביבה והאקלים</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch2_agriculture.html">2. חקלאות וסביבה</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3_energy.html">3. משק האנרגיה</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4_industry.html">4. תעשייה וחומרי גלם</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5_biogeochemical_cycles.html">5. מחזורים ביוגאוכימיים</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch6_global_warming.html">6. התחממות גלובלית ושיבוש האקלים</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch7_biosphere.html">7. פגיעה בביוספרה</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch8_open_spaces_soils.html">8. פגיעה בשטחים פתוחים וקרקעות</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch9_water.html">9. פגיעה במקורות ובאיכות מים מתוקים</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch10_marine.html">10. פגיעה בסביבה הימית</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11_atm.html">11. פגיעה באטמוספרה וזיהום אוויר</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch12_urban.html">12. הסביבה העירונית</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch13_summary.html">13. סיכום - הבעיות הניצבות לפתחנו ודרכי התמודדות</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch14_IL.html">14. סיכום מצב הסביבה בישראל</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. נספחים</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch15_appendices.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="חיפוש" aria-label="חיפוש" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>15. נספחים</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">אמנות בין לאומיות בנושאי סביבה</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">דמויות מעוררות השראה במחקר ובתנועה הסביבתית</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">מדענים שקידמו את הבסיס המדעי-ממשקי של חקר, הגנת ושמירת הטבע</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">מנהיגים ופעילים חברתיים שהגבירו את המודעות לבעיות הסביבה</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">דמויות מרכזיות בקידום המודעות והמחקר הסביבתי בישראל</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>15. נספחים<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2>אמנות בין לאומיות בנושאי סביבה<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Ramsar</strong> convention - The Convention on Wetlands is the
+intergovernmental treaty that provides the framework for the
+conservation and wise use of wetlands and their resources. The
+Convention was adopted in the Iranian city of Ramsar in 1971 and came
+into force in 1975. Since then, almost 90% of UN member states, from
+all the world’s geographic regions, have acceded to become
+”Contracting Parties“. <a class="reference external" href="https://www.ramsar.org/">https://www.ramsar.org/</a></p></li>
+<li><p><strong>Barcelona</strong> convention for the Protection of the Mediterranean Sea
+Against Pollution, 1976 -
+<a class="reference external" href="https://www.unep.org/unepmap/who-we-are/barcelona-convention-and-protocols">https://www.unep.org/unepmap/who-we-are/barcelona-convention-and-protocols</a></p></li>
+<li><p>The <strong>Montreal</strong> Protocol on substances that deplete the ozone layer,
+1987 -
+<a class="reference external" href="https://www.unep.org/ozonaction/who-we-are/about-montreal-protocol">https://www.unep.org/ozonaction/who-we-are/about-montreal-protocol</a> &amp;
+The Kigali Amendment to the Montreal Protocol -
+<a class="reference external" href="https://treaties.un.org/Pages/ViewDetails.aspx?src=IND&amp;amp;mtdsg_no=XXVII-2-f&amp;amp;chapter=27&amp;amp;clang=_en">https://treaties.un.org/Pages/ViewDetails.aspx?src=IND&amp;mtdsg_no=XXVII-2-f&amp;chapter=27&amp;clang=_en</a></p></li>
+<li><p>The <strong>Basel</strong> Convention on the control of transboundary movements of
+hazardous wastes and their disposal, 1989 - <a class="reference external" href="https://www.basel.int/">https://www.basel.int/</a></p></li>
+<li><p><strong>UNFCCO</strong> (The United Nations Framework Convention on Climate
+Change), The <strong>Rio</strong> Conventions (The Interconnected Challenges of
+Climate Change, Desertification and Biodiversity Loss), 1992 -
+<a class="reference external" href="https://unfccc.int/process-and-meetings/the-rio-conventions">https://unfccc.int/process-and-meetings/the-rio-conventions</a></p></li>
+<li><p>The <strong>Code of Conduct</strong> for Responsible <strong>Fisheries</strong>, 1995 -
+<a class="reference external" href="https://www.fao.org/responsible-fishing/resources/detail/en/c/1316854/">https://www.fao.org/responsible-fishing/resources/detail/en/c/1316854/</a></p></li>
+<li><p><strong>UNFCCO</strong>, The <strong>Kyoto</strong> Protocol, 1997 -
+<a class="reference external" href="https://unfccc.int/kyoto_protocol">https://unfccc.int/kyoto_protocol</a></p></li>
+<li><p>The <strong>Stockholm</strong> Convention, protecting human health and the
+environment from persistent organic pollutants (<strong>POP</strong>), 2004 - to
+present - <a class="reference external" href="https://chm.pops.int/Home/tabid/2121/Default.aspx">https://chm.pops.int/Home/tabid/2121/Default.aspx</a></p></li>
+<li><p><strong>AICHI</strong> - U.N.«s <strong>biodiversity</strong> conference, Aichi Japan, 2010 -
+<a class="reference external" href="https://www.informea.org/en/goals/aichi-targets">https://www.informea.org/en/goals/aichi-targets</a></p></li>
+<li><p><strong>UNFCCO</strong>, The <strong>Paris</strong> Agreement, 2015 –
+<a class="reference external" href="https://unfccc.int/process-and-meetings/the-paris-agreement">https://unfccc.int/process-and-meetings/the-paris-agreement</a></p></li>
+<li><p><strong>UNEP</strong> (United Nations Environment Programme), UNEP&#64;50 <strong>Nairobi</strong>
+(Strengthening UNEP for the implementation of the environmental
+dimension of the 2030 Agenda for <strong>Sustainable Development</strong>), 2022 -
+<a class="reference external" href="https://www.unep.org/events/unep-event/unep-50">https://www.unep.org/events/unep-event/unep-50</a></p></li>
+<li><p><strong>COP15</strong> —U.N.«s <strong>biodiversity</strong> conference, <strong>Montreal</strong>, 2022 -
+<a class="reference external" href="https://www.unep.org/un-biodiversity-conference-cop-15">https://www.unep.org/un-biodiversity-conference-cop-15</a></p></li>
+<li><p>The UN Convention on the <strong>Law of the Sea</strong>, 2023
+<a class="reference external" href="https://www.un.org/bbnj/sites/www.un.org.bbnj/files/draft_agreement_advanced_unedited_for_posting_v1.pdf">https://www.un.org/bbnj/sites/www.un.org.bbnj/files/draft_agreement_advanced_unedited_for_posting_v1.pdf</a></p></li>
+<li><p><strong>UNFCCO</strong>, <strong>Dubai</strong>, COP28 2023 - <a class="reference external" href="https://unfccc.int/">https://unfccc.int/</a></p></li>
+<li><p><strong>UN Convention to Combat Desertification</strong> (UNCCD), 2024: The primary
+international agreement addressing land degradation, desertification,
+and drought -
+<a class="reference external" href="https://www.unccd.int/sites/default/files/2024-12/P235777-01_SPI_SLUS_WEB.pdf">https://www.unccd.int/sites/default/files/2024-12/P235777-01_SPI_SLUS_WEB.pdf</a></p></li>
+<li><p><strong>Plastics Treaty Negotiations,</strong> Intergovernmental Negotiating
+Committee – INC, 2025: Developing an international legally binding
+instrument to end plastic pollution, including in the marine
+environment, covering the full lifecycle of plastics -
+<a class="reference external" href="https://packagingeurope.com/news/next-global-plastics-treaty-meeting-will-be-held-in-geneva-unep-confirms/12552.article">https://packagingeurope.com/news/next-global-plastics-treaty-meeting-will-be-held-in-geneva-unep-confirms/12552.article</a></p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>דמויות מעוררות השראה במחקר ובתנועה הסביבתית<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+</section>
+<section id="id4">
+<h2>מדענים שקידמו את הבסיס המדעי-ממשקי של חקר, הגנת ושמירת הטבע<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Alexander von Humboldt</strong> - von Humboldt (1769 – 1859) was a German
+polymath, geographer, naturalist, explorer, and proponent of Romantic
+philosophy and science. Humboldt’s quantitative work on botanical
+geography laid the foundation for the field of biogeography, while his
+advocacy of long-term systematic geophysical measurement pioneered
+modern geomagnetic and meteorological monitoring.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Alexander_von_Humboldt">https://en.wikipedia.org/wiki/Alexander_von_Humboldt</a></p></li>
+<li><p><strong>Svante A. Arrhenius</strong> - Arrhenius (1859 – 1927) was a Swedish
+scientist. Arrhenius was one of the founders of the science of
+physical chemistry. He received the Nobel Prize for Chemistry in 1903.
+Arrhenius was the first to use the principles of physical chemistry to
+estimate the extent to which increases in the atmospheric <span class="math notranslate nohighlight">\(CO_{2}\)</span> are
+responsible for the Earth’s increasing surface temperature.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Svante_Arrhenius">https://en.wikipedia.org/wiki/Svante_Arrhenius</a></p></li>
+<li><p><strong>Aldo Leopold</strong> - Leopold (1887 – 1948) was an American writer,
+philosopher, naturalist, scientist, ecologist, forester,
+conservationist, and environmentalist. He was a professor at the
+University of Wisconsin and is best known for his book <em>A Sand County
+Almanac</em> (1949). Leopold was influential in the development of modern
+environmental ethics and in the movement for wilderness conservation
+promoting ecocentric or holistic ethics regarding land, and
+emphasizing biodiversity and ecology. He and was a founder of the
+science of wildlife management.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Aldo_Leopold">https://en.wikipedia.org/wiki/Aldo_Leopold</a></p></li>
+<li><p><strong>Rachel L. Carson</strong> - Carson (1907 – 1964) was an American marine
+biologist, writer, and conservationist whose book Silent Spring (1962)
+and other writings are credited with advancing the global
+environmental movement. Her widely praised 1951 bestseller The Sea
+Around Us won her a U.S. National Book Award. Late in the 1950s,
+Carson turned her attention to conservation, especially some problems
+she believed were caused by synthetic pesticides. The result was the
+book Silent Spring (1962), which brought environmental concerns to an
+unprecedented share of the American people. Although Silent Spring was
+met with fierce opposition by chemical companies, it spurred a
+reversal in national pesticide policy, which led to a nationwide ban
+on DDT and other pesticides. It also inspired a grassroots
+environmental movement that led to the creation of the U.S.
+Environmental Protection Agency.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Rachel_Carson">https://en.wikipedia.org/wiki/Rachel_Carson</a></p></li>
+<li><p><strong>Clair C. Patterson</strong> - Patterson (1922 – 1995) was an American
+geochemist. In collaboration with George Tilton, Patterson developed
+the uranium–lead dating method into lead–lead dating. By using lead
+isotopic data from the Canyon Diablo meteorite, he calculated an age
+for the Earth of 4.55 billion years, which was a figure far more
+accurate than those that existed at the time, and one that has
+remained largely unchallenged since 1956. Patterson first encountered
+lead contamination in the late 1940s as a graduate student at the
+University of Chicago. His work on this subject led to a total
+re-evaluation of the growth in industrial lead concentrations in the
+atmosphere and the human body, and his subsequent activism was seminal
+in the banning of tetraethyllead in gasoline and lead solder in food
+cans. He was the first to show that metal pollution is a global
+problem that extend back in time for millennia.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Clair_Cameron_Patterson">https://en.wikipedia.org/wiki/Clair_Cameron_Patterson</a></p></li>
+<li><p><strong>Werner Stumm</strong> – Stumm (1924 – 1999) was a Swiss chemist. During
+the early part of his career, he was influenced by the ideas of Lars
+Gunnar Sillén and Robert Garrels regarding aqueous chemical
+equilibria. He developed models where the ideas by Sillén regarding
+equilibria were combined with improved descriptions of kinetically
+controlled reactions. Stumm is also known for writing the influential
+book Aquatic chemistry, together with James J. Morgan.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Werner_Stumm">https://en.wikipedia.org/wiki/Werner_Stumm</a></p></li>
+<li><p><strong>Frank S. Rowland</strong> - Rowland (1927 – 2012) was an American Nobel
+laureate and a professor of chemistry at the University of California,
+Irvine. His research was on atmospheric chemistry and chemical
+kinetics. His best-known work was the discovery that
+chlorofluorocarbons contribute to ozone depletion.
+<a class="reference external" href="https://en.wikipedia.org/wiki/F._Sherwood_Rowland">https://en.wikipedia.org/wiki/F._Sherwood_Rowland</a></p></li>
+<li><p><strong>Edward O. Wilson</strong> - Wilson (1929 – 2021) was an American
+biologist, naturalist, ecologist, and entomologist known for
+developing the field of sociobiology. In 1956, he co-authored a paper
+defining the theory of character displacement. In 1967, he developed
+the theory of island biogeography with Robert MacArthur. Wilson’s
+work received both praise and criticism during his lifetime. His book
+Sociobiology was a particular flashpoint for controversy, and drew
+criticism from the Sociobiology Study Group. Wilson’s interpretation
+of the theory of evolution resulted in a widely reported dispute with
+Richard Dawkins. Examinations of his letters after his death revealed
+that he had supported the psychologist J. Philippe Rushton, whose work
+on race and intelligence is widely regarded by the scientific
+community as deeply flawed and racist.
+<a class="reference external" href="https://en.wikipedia.org/wiki/E._O._Wilson">https://en.wikipedia.org/wiki/E._O._Wilson</a></p></li>
+<li><p><strong>Wallace (Wally) S. Broecker</strong> - Broecker (1931 – 2019) was an
+American geochemist. He developed the idea of a global ”conveyor
+belt“ linking the circulation of the global ocean and made major
+contributions to the science of the carbon cycle and the use of
+chemical tracers and isotope dating in oceanography. Broecker
+popularized the term ”global warming“.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Wallace_Smith_Broecker">https://en.wikipedia.org/wiki/Wallace_Smith_Broecker</a></p></li>
+<li><p><strong>Syukuro Manabe</strong> - Manabe (born 1931) is a Japanese–American
+meteorologist and climatologist who pioneered the use of computers to
+simulate global climate change and natural climate variations. He was
+awarded the 2021 Nobel Prize in Physics jointly with Klaus Hasselmann
+and Giorgio Parisi, for his contributions to the physical modeling of
+earth’s climate, quantifying its variability, and predictions of
+climate change. In 1969, Manabe and Bryan published the first
+simulations of the climate by a coupled ocean-atmosphere models, in
+which the general circulation model of the atmosphere is combined with
+that of ocean. <a class="reference external" href="https://en.wikipedia.org/wiki/Syukuro_Manabe">https://en.wikipedia.org/wiki/Syukuro_Manabe</a></p></li>
+<li><p><strong>Paul Crutzen</strong> - Crutzen (1933 – 2021) was a Dutch meteorologist
+and atmospheric chemist. He and Mario Molina and Frank Sherwood
+Rowland were awarded the Nobel Prize in Chemistry in 1995 for their
+work on atmospheric chemistry and specifically for his efforts in
+studying the formation and decomposition of atmospheric ozone. In
+addition to studying the ozone layer and climate change, he
+popularized the term Anthropocene to describe a proposed new epoch in
+the Quaternary period when human actions have a drastic effect on the
+Earth. He was also amongst the first few scientists to introduce the
+idea of a nuclear winter to describe the potential climatic effects
+stemming from large-scale atmospheric pollution including smoke from
+forest fires, industrial exhausts, and other sources like oil fires.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Paul_J._Crutzen">https://en.wikipedia.org/wiki/Paul_J._Crutzen</a></p></li>
+<li><p><strong>Elinor C. Ostrom</strong> – Ostrom (1933 – 2012) was an American
+political scientist and political economist whose work was associated
+with New Institutional Economics and the resurgence of political
+economy. In 2009, she was awarded the Nobel Memorial Prize in Economic
+Sciences for her ”analysis of economic governance, especially the
+commons“, which she shared with Oliver E. Williamson. She was the
+first woman to win the Nobel Prize in Economics. Ostrom studied the
+interaction of people and ecosystems for many years and showed that
+the use of exhaustible resources by groups of people (communities,
+cooperatives, trusts, trade unions) can be rational and prevent
+depletion of the resource without either state intervention or markets
+with private property.</p></li>
+<li><p><strong>Jane M. Goodall</strong> – Goodall (born 1934) is an English primatologist
+and anthropologist. She is considered the world’s foremost expert on
+chimpanzees, after 60 years« studying the social and family
+interactions of wild chimpanzees. Goodall first went to Gombe Stream
+National Park in Tanzania to observe its chimpanzees in 1960.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Jane_Goodall">https://en.wikipedia.org/wiki/Jane_Goodall</a></p></li>
+<li><p><strong>Herman E. Daly</strong> - Daly (1938 – 2022) was an American ecological
+and Georgist economist. He is closely associated with theories of a
+steady-state economy. He was a co-founder and associate editor of the
+journal, Ecological Economics. In 1989 Daly and John B. Cobb developed
+the Index of Sustainable Economic Welfare (ISEW), which they proposed
+as a more valid measure of socio-economic progress than gross domestic
+product. He is widely credited with having originated the idea of
+uneconomic growth, though some credit this to Marilyn Waring who
+developed it more completely in her study of the UN System of National
+Accounts. Daly was the editor of a long-lived and influential
+anthology, originally published in 1973 as Toward a Steady-State
+Economy, and twice revised (under different titles), in 1980 and 1993.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Herman_Daly">https://en.wikipedia.org/wiki/Herman_Daly</a></p></li>
+<li><p><strong>James E. Hansen</strong> - (born 1941) is an American scientist, directing
+the Program on Climate Science, Awareness and Solutions of the Earth
+Institute at Columbia University. He is best known for his research in
+climatology. His 1988 Congressional testimony on climate change helped
+raise broad awareness of global warming, and he has advocated action
+to avoid dangerous climate change. In recent years, he has become a
+climate activist to mitigate the effects of global warming, on a few
+occasions leading to his arrest.
+<a class="reference external" href="https://en.wikipedia.org/wiki/James_Hansen">https://en.wikipedia.org/wiki/James_Hansen</a></p></li>
+<li><p><strong>Denis L. Meadows</strong> – Meadows (born 1942) is an American scientist
+and emeritus professor of systems management. He is known as a
+coauthor of The Limits to Growth. From 1970 to 1972 he was director of
+the ”Club of Rome Project on the Predicament of Mankind“.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Dennis_Meadows">https://en.wikipedia.org/wiki/Dennis_Meadows</a></p></li>
+<li><p><strong>John H. Seinfeld</strong> – Seinfeld (born 1942) is an American chemical
+engineer and pioneering expert in atmospheric science. His research on
+air pollution has influenced public policy, and he developed the first
+mathematical model of air quality, which has influenced air pollution
+tracking and research.
+<a class="reference external" href="https://en.wikipedia.org/wiki/John_H._Seinfeld">https://en.wikipedia.org/wiki/John_H._Seinfeld</a></p></li>
+<li><p><strong>William Rees</strong> – Rees (born 1943) has contributed to the study of
+public policy and planning relating to global environmental trends and
+the ecological conditions for sustainable socioeconomic development.
+He is the originator of the ”ecological footprint“ concept and
+co-developer of the method. Rees« book ”Our Ecological Footprint“
+(co-authored with Mathis Wackernagel), was published in 1996. The
+ecological footprint is a quantitative tool that estimates humanity’s
+ecological impact on the ecosphere in terms of appropriated ecosystem
+(land and water) area. This research reveals the fundamental
+incompatibility between continued material economic growth and
+ecological security, and has helped to reopen debate on human carrying
+capacity as a consideration in sustainable development.
+<a class="reference external" href="https://en.wikipedia.org/wiki/William_E._Rees">https://en.wikipedia.org/wiki/William_E._Rees</a></p></li>
+<li><p><strong>Mario J. Molina</strong> – Molina (1943 – 2020) was a Mexican physical
+chemist. He played a pivotal role in the discovery of the Antarctic
+ozone hole, and was a co-recipient of the 1995 Nobel Prize in
+Chemistry for his role in discovering the threat to the Earth’s ozone
+layer from chlorofluorocarbon (CFC) gases.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Mario_Molina">https://en.wikipedia.org/wiki/Mario_Molina</a></p></li>
+<li><p><strong>Johann Rockström</strong> - Rockström (born 1965) is a Swedish scientist,
+internationally recognized for his work on global sustainability
+issues. Rockström has pioneered work on the planetary boundaries
+framework, first published in 2009. The nine planetary boundaries
+presented in the framework, from climate to biodiversity, are argued
+to be fundamental in maintaining a ”safe operating space for
+humanity.“ <a class="reference external" href="https://en.wikipedia.org/wiki/Johan_Rockstr%C3%B6m">https://en.wikipedia.org/wiki/Johan_Rockström</a></p></li>
+<li><p><strong>Kate Raworth</strong> – Raworth (born 1970) is an English economist known
+for ”doughnut economics“, an economic model that balances between
+essential human needs and planetary boundaries. In 2017, Raworth
+published Doughnut Economics: Seven Ways to Think Like a 21st-Century
+Economist which elaborates on her concept of doughnut economics, first
+developed in her 2012 paper, A Safe and Just Space for Humanity. Her
+2017 book is a robust counter-proposal to mainstream economic
+thinking, and she advocates for conditions to create a sustainable
+economy. Raworth argues for a radical re-consideration of the
+foundations of economic science, and is particularly critical of the
+outdated principle of unfettered growth, in that it is destructive of
+planetary resources while ill-serving human needs including quality of
+life. Instead of focusing on the growth of the economy, Raworth
+focuses on a model where there can be ensured that everyone on earth
+has access to their basic needs, such as adequate food and education,
+while not limiting opportunities for future generations by protecting
+the ecosystem. <a class="reference external" href="https://en.wikipedia.org/wiki/Kate_Raworth">https://en.wikipedia.org/wiki/Kate_Raworth</a></p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>מנהיגים ופעילים חברתיים שהגבירו את המודעות לבעיות הסביבה<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>John Muir</strong> - Muir (1838 – 1914) was a Scottish-born
+American naturalist, author, environmental philosopher, botanist,
+zoologist, glaciologist, and early advocate for the preservation of
+wilderness in the United States. His letters, essays, and books
+describing his adventures in nature, especially in the Sierra Nevada,
+have been read by millions. His activism helped to preserve the
+Yosemite Valley and Sequoia National Park, and his example has served
+as an inspiration for the preservation of many other wilderness areas.
+The Sierra Club, which he co-founded, is a prominent American
+conservation organization. The spiritual quality and enthusiasm toward
+nature expressed in his writings has inspired readers, including
+presidents and congressmen, to take action to help preserve large
+nature areas. <a class="reference external" href="https://en.wikipedia.org/wiki/John_Muir">https://en.wikipedia.org/wiki/John_Muir</a></p></li>
+<li><p><strong>Theodor (Teddy) Roosevelt</strong> - Roosevelt (1858 – 1919) was an
+American politician, statesman, conservationist, naturalist, and
+writer who served as the 26th president of the United States from 1901
+to 1909. Roosevelt prioritized conservation and established national
+parks, forests, and monuments to preserve the nation’s natural
+resources. <a class="reference external" href="https://en.wikipedia.org/wiki/Theodore_Roosevelt">https://en.wikipedia.org/wiki/Theodore_Roosevelt</a>)</p></li>
+<li><p><strong>Luther Standing Bear</strong> - Standing Bear (1868 - 1939) was a Sicangu
+and Oglala Lakota author, educator, philosopher, and actor. He worked
+to preserve Lakota culture and sovereignty, and was at the forefront
+of a Progressive movement to change government policy toward Native
+Americans. Standing Bear helped create the popular twentieth-century
+image that Native American culture is holistic and respectful of
+nature. His commentaries have become part of college-level reading
+lists in anthropology, literature, history, and philosophy. They
+constitute a legacy and treasury of Native American thought
+(<a class="reference external" href="https://matadornetwork.com/change/10-quotes-sioux-indian-chief-will-make-question-everything-modern-culture/">https://matadornetwork.com/change/10-quotes-sioux-indian-chief-will-make-question-everything-modern-culture/</a>).
+<a class="reference external" href="https://en.wikipedia.org/wiki/Luther_Standing_Bear">https://en.wikipedia.org/wiki/Luther_Standing_Bear</a></p></li>
+<li><p><strong>Irving H. Stowe</strong> - Stowe (1915 – 1974) was a Yale lawyer,
+activist, and a founder of Greenpeace. He was named one of the ”BAM
+100“ (Brown University’s 100 most influential graduates of the 20th
+century). <a class="reference external" href="https://en.wikipedia.org/wiki/Irving_Stowe">https://en.wikipedia.org/wiki/Irving_Stowe</a></p></li>
+<li><p><strong>Gaylord Nelson</strong> - Nelson (1916 – 2005) was an American politician
+from Wisconsin who served as a United States senator and governor. He
+was a member of the Democratic Party and the founder of Earth Day,
+which launched a new wave of environmental activism.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Gaylord_Nelson">https://en.wikipedia.org/wiki/Gaylord_Nelson</a></p></li>
+<li><p><strong>Dorothy A. Stowe</strong> – Stowe (1920 – 2010) was an American-born
+Canadian social activist and environmentalist, best known for
+co-founding Greenpeace. <a class="reference external" href="https://en.wikipedia.org/wiki/Dorothy_Stowe">https://en.wikipedia.org/wiki/Dorothy_Stowe</a></p></li>
+<li><p><strong>David F. Attenborough</strong> - Attenborough (born 1926) is a British
+broadcaster, biologist, natural historian and author. He is best known
+for writing and presenting, in conjunction with the BBC Natural
+History Unit, the nine natural history documentary series forming the
+Life collection, a comprehensive survey of animal and plant life on
+Earth. <a class="reference external" href="https://en.wikipedia.org/wiki/David_Attenborough">https://en.wikipedia.org/wiki/David_Attenborough</a></p></li>
+<li><p><strong>Wangari M. Maathai</strong> - Maathai (1940 – 2011) was a Kenyan social,
+environmental, and political activist who founded the Green Belt
+Movement, an environmental non-governmental organization focused on
+the planting of trees, environmental conservation, and women’s
+rights. In 2004 she became the first African woman to win the Nobel
+Peace Prize. <a class="reference external" href="https://en.wikipedia.org/wiki/Wangari_Maathai">https://en.wikipedia.org/wiki/Wangari_Maathai</a></p></li>
+<li><p><strong>Albert (Al) A. Gore</strong> <strong>Jr</strong>. - Gore (born 1948) is an American
+politician, businessman, and environmentalist who served as the 45th
+vice president of the United States from 1993 to 2001 under President
+Bill Clinton. In 1992 Gore wrote Earth in the Balance, a text that
+became the first book written by a sitting U.S. Senator to make The
+New York Times Best Seller list since John F. Kennedy’s Profiles in
+Courage. This book placed the environmental and climate crisis at the
+forefront of USA politics. <a class="reference external" href="https://en.wikipedia.org/wiki/Al_Gore">https://en.wikipedia.org/wiki/Al_Gore</a></p></li>
+<li><p><strong>Paul F. Watson</strong> - Watson (born 1950) is a Canadian-American
+environmental, conservation and animal rights activist, who founded
+the Sea Shepherd Conservation Society, an anti-poaching and
+direct-action group focused on marine conservation activism. The
+tactics used by Sea Shepherd have attracted opposition, with the group
+accused of eco-terrorism by both the Japanese government and
+Greenpeace. <a class="reference external" href="https://en.wikipedia.org/wiki/Paul_Watson">https://en.wikipedia.org/wiki/Paul_Watson</a></p></li>
+<li><p><strong>Erin Brockovich</strong> - Brockovich (born 1960) is an American paralegal,
+consumer advocate, and environmental activist who was instrumental in
+building a case against Pacific Gas &amp; Electric Company (PG&amp;E)
+involving groundwater contamination in Hinkley, California with the
+help of attorney Ed Masry in 1993.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Erin_Brockovich">https://en.wikipedia.org/wiki/Erin_Brockovich</a></p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>דמויות מרכזיות בקידום המודעות והמחקר הסביבתי בישראל<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>היינריך מנדלסון</strong> - מנדלסון (1910 – 2002) היה זואולוג גרמני-ישראלי.
+הוא נחשב לאחד ממייסדי שימור הטבע בישראל והמחקר הזואולוגי בה וזוכה פרס
+ישראל. בין גילויו ומחקריו היו גם גילויה של הצפרדע המיוחדת עגולשון
+שחור-גחון, שנחשבת למין נדיר וחשוב למחקר. ממקימי אוניברסיטת תל אביב.
+מעבר לתרומתו הגדולה של מנדלסון בתחום האקדמי והמחקרי, הוא תרם רבות גם
+בתחום שימור ושמירת הטבע בארץ. הוא השתתף בהכרזה על שמורת הטבע הראשונה,
+בהקמת רשות שמורות הטבע (לימים רשות הטבע והגנים) ובהקמת החברה להגנת
+הטבע. יתר על כן, השתתף מנדלסון בכמה ועדות מקצועיות האיגוד העולמי
+לשמירת טבע, IUCN.</p></li>
+</ul>
+<p><a class="reference external" href="https://he.wikipedia.org/wiki/%D7%94%D7%99%D7%99%D7%A0%D7%A8%D7%99%D7%9A_%D7%9E%D7%A0%D7%93%D7%9C%D7%A1%D7%95%D7%9F">https://he.wikipedia.org/wiki/היינריך_מנדלסון</a></p>
+<ul class="simple">
+<li><p><strong>יוסף תמיר</strong> - תמיר (קְבֶנְצֶל) (1915 – 2009) היה עיתונאי, חבר הכנסת
+ופעיל איכות הסביבה. תמיר היה מיוזמי חוק נציב תלונות הציבור, חוק נציב
+קבילות החיילים, מבקר העיריות, חוק הניקיון, חוק שיפוץ בתים, שיקום
+מחצבות נטושות, נציג ציבור במועצה הארצית לתכנון ולבנייה, הריסה מנהלית
+של בנייה בלתי חוקית, וחוקים סביבתיים נוספים. תמיר כונה ”מר סביבה
+הישראלי“ בזכות פועלו למען איכות הסביבה. כחבר הכנסת, עמד בראש ועדת
+המשנה לאיכות הסביבה ובראש ועדת הפנים והגנת הסביבה. ב־1968 יזם את הקמתה
+של המועצה לישראל יפה הפועלת למניעת מפגעים סביבתיים. ב־1970 ייסד את
+הוועד העל סיעתי לאקולוגיה. בשנת 1972 ייצג את הכנסת בוועדת האו“ם
+הראשונה על סביבת האדם שהתקיימה בסטוקהולם, ובשנת 1975 הקים את ארגון הגג
+של שוחרי איכות החיים והסביבה, ”חיים וסביבה“, בראשו עמד. באותה שנה גם
+יזם והשתתף בוועידה להצלת ים התיכון מכליה אקולוגית, שנערכה במונקו.
+ב־1991 יזם את הקמת פורום המשק והכלכלה למען איכות הסביבה ושימש כנשיאו.
+נמנה עם מייסדי הביטאון ”ירוק כחול לבן“, ושימש חבר במוסדות בינלאומיים
+הפועלים למען איכות הסביבה.</p></li>
+</ul>
+<p><a class="reference external" href="https://he.wikipedia.org/wiki/%D7%99%D7%95%D7%A1%D7%A3_%D7%AA%D7%9E%D7%99%D7%A8">https://he.wikipedia.org/wiki/יוסף_תמיר</a></p>
+<ul class="simple">
+<li><p><strong>עזריה אלון</strong> - אלון (1918 – 2014) היה ממייסדי החברה להגנת
+הטבע (1953) שפעל רבות לתיעוד טבע הארץ, שמירתו והפצת מורשתו. אלון נמנה
+עם מקדמי שמורות טבע בישראל ופעל שנים רבות כמורה דרך ומדריך לידיעת
+הארץ. במהלך השנים היה אלון מזכיר או יו“ר החברה להגנת הטבע, עסק בהקמת
+בתי ספר שדה ובמאבקים ציבוריים של החברה.</p></li>
+</ul>
+<p><a class="reference external" href="https://he.wikipedia.org/wiki/%D7%A2%D7%96%D7%A8%D7%99%D7%94_%D7%90%D7%9C%D7%95%D7%9F">https://he.wikipedia.org/wiki/עזריה_אלון</a></p>
+<ul class="simple">
+<li><p><strong>לב פישלזון</strong> - פישלזון (1923 – 2013) היה זואולוג ישראלי, חוקר
+ביולוגיה ואקולוגיה ימיות ואיכות הסביבה. הוא היה פרופסור במחלקה
+לזואולוגיה באוניברסיטת תל אביב. בשנת 1951 הקים תחנת מחקר במפרץ אילת,
+שעסקה בחקר האלמוגים והפאונה שבסביבתם. פישלזון נמנה עם מייסדי
+אוניברסיטת תל אביב והחברה להגנת הטבע. היה ממייסדי האגודה הישראלית
+לאקולוגיה ובין השנים 1975–1976 כיהן כיושב הראש שלה.</p></li>
+</ul>
+<p><a class="reference external" href="https://he.wikipedia.org/wiki/%D7%9C%D7%91_%D7%A4%D7%99%D7%A9%D7%9C%D7%96%D7%95%D7%9F">https://he.wikipedia.org/wiki/לב_פישלזון</a></p>
+<ul class="simple">
+<li><p><strong>הלל שובל</strong> – שובל (1926 - 2013) הקים את התוכנית הראשונה ללימוד
+איכות הסביבה בישראל באוניברסיטה העברית, ותרם רבות להקמת מחלקת התברואה
+– המחלקה הרשמית הראשונה לבריאות הסביבה של ממשלת ישראל. הוא פעל במשך
+50 שנה לקידום תחום בריאות וסביבה בישראל ושימש כחוקר בתחום הסביבה
+והוביל את נושא מחזור מי השופכין, תוך הדגשת הנושא של זיהום מי שופכין
+חוצה גבולות.</p></li>
+<li><p><strong>אמוץ זהבי</strong> - זהָבִי (1928 – 2017) היה זואולוג וביולוג אבולוציוני
+ישראלי, פרופסור באוניברסיטת תל אביב ואחד ממייסדי החברה להגנת הטבע. הוא
+נודע בעולם בעיקר בזכות עקרון ההכבדה שהגה ופיתח בשנת 1975. בשנת 1985
+זכה זהבי יחד עם עזריה אלון, בשם החברה להגנת הטבע, בפרס ישראל. אמוץ
+זהבי היה נשוי לביולוגית אבישג זהבי, שעמה כתב על תאוריית ההכבדה.</p></li>
+</ul>
+<p><a class="reference external" href="https://he.wikipedia.org/wiki/%D7%90%D7%9E%D7%95%D7%A5_%D7%96%D7%94%D7%91%D7%99">https://he.wikipedia.org/wiki/אמוץ_זהבי</a></p>
+<ul class="simple">
+<li><p><strong>אלון טל</strong> - טל (נולד 1960 בשם אלברט רוזנטל) היה בין המייסדים של מספר
+ארגונים סביבתיים לרבות ”אדם טבע ודין“, ”מכון הערבה ללימודי הסביבה“
+ו“צפוף – הפורום לאוכלוסייה סביבה וחברה“. ב-1995 היה ממייסדי הארגון
+”ידידי כדור הארץ מזרח תיכון“ (אקופיס). טל הוא בין הראשונים בקרב
+פעילי הסביבה בישראל שיצאו נגד גידול האוכלוסייה בישראל וטענו שהיא בעיה
+חברתית וסביבתית. טל חוקר ומקדם שיתוף פעולה סביבתי חוצה גבולות בין
+ישראל לשכניה.</p></li>
+</ul>
+<p><a class="reference external" href="https://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%95%D7%9F_%D7%98%D7%9C">https://he.wikipedia.org/wiki/אלון_טל</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ch14_IL.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">הקודם</p>
+        <p class="prev-next-title">14. סיכום מצב הסביבה בישראל</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">אמנות בין לאומיות בנושאי סביבה</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">דמויות מעוררות השראה במחקר ובתנועה הסביבתית</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">מדענים שקידמו את הבסיס המדעי-ממשקי של חקר, הגנת ושמירת הטבע</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">מנהיגים ופעילים חברתיים שהגבירו את המודעות לבעיות הסביבה</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">דמויות מרכזיות בקידום המודעות והמחקר הסביבתי בישראל</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By יגאל אראל
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  יגאל אראל 2025
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
