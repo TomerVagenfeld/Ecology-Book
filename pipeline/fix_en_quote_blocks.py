@@ -119,7 +119,8 @@ def main():
         files = [Path(p) for p in sys.argv[1:]]
     else:
         # Fix all chapter markdown files
-        files = list(Path("book-source/md").glob("ch*.md"))
+        from settings import MD_DIR
+        files = list(MD_DIR.glob("ch*.md"))
 
     print(f"Fixing {len(files)} files...")
     for md_path in files:

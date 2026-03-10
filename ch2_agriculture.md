@@ -132,7 +132,7 @@
 מזון מקומי מול יבוא מזון עבור כל ארצות העולם תוך ניסיון לנתח גם מגמות
 עתידיות.[^25]
 
-```{figure} ../media/2_1.jpg
+```{figure} media/2_1.jpg
 ---
 height: 400px
 name: fig 2-1
@@ -184,7 +184,7 @@ name: fig 2-1
 עגומה משום שהוא אינו מתמקד בשיפור בין שנת 2000 ו-2020, אלא מתמקד בפער
 הקיים עדיין בהשוואה ליעדי האו\"ם לשנת 2030.[^33]
 
-```{figure} ../media/2_2.jpg
+```{figure} media/2_2.jpg
 ---
 height: 400px
 name: fig 2-2
@@ -192,7 +192,7 @@ name: fig 2-2
 איור 2.2: תנובת חקלאות (צמחים ומוצריהם) בין השנים 2000 ו-2019. מקור – FAO (2021) (FIG 20) ; CC BY-NC-SA 3.0 IGO; Reprinted with permission.
 ```
 
-```{figure} ../media/2_3.jpg
+```{figure} media/2_3.jpg
 ---
 height: 400px
 name: fig 2-3
@@ -200,7 +200,7 @@ name: fig 2-3
 איור 2.3: מספר האנשים הסובלים מתת-תזונה באזורים שונים בעולם בין 2000 ל-2020. מקור – FAO (2021) (FIG 48), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
 ```
 
-```{figure} ../media/2_4.jpg
+```{figure} media/2_4.jpg
 ---
 height: 400px
 name: fig 2-4
@@ -208,7 +208,7 @@ name: fig 2-4
 איור 2.4: אחוז האנשים הסובלים מתת-תזונה מתמדת באזורים שונים בעולם. מקור – FAO (2021) (FIG 47), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
 ```
 
-```{figure} ../media/2_5.jpg
+```{figure} media/2_5.jpg
 ---
 height: 400px
 name: fig 2-5
@@ -216,7 +216,7 @@ name: fig 2-5
 איור 2.5: מחיר המזון בין שנת 2000 ושנת 2022 (לגבי חישוב אינדקס עלות המזון (הצמוד למדד) – ראו את הדוח של FAO המצוטט בתחתית האיור). מקור – FAO (2021) (FIG 42), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
 ```
 
-```{figure} ../media/2_6.jpg
+```{figure} media/2_6.jpg
 ---
 height: 400px
 name: fig 2-6
@@ -338,7 +338,7 @@ Integrated Pest Management).[^73] הדברה משולבת נסמכת על היכ
 לייצר פרומונים באמצעות צמחים ולהוזיל משמעותית את מחירם.[^79] ימים יגידו
 האם יש אמת בדווח הראשוני הזה.
 
-```{figure} ../media/2_7.jpg
+```{figure} media/2_7.jpg
 ---
 height: 400px
 name: fig 2-7
@@ -387,7 +387,7 @@ Haber-Bosch ליצירת דשנים של חנקן (ראו פרק 4) ובכריי
 וכן שבחקלאות מקיימת ובחקלאות \"תעשייתית\" נעשה שימוש הולך וגובר בחקלאות
 מדייקת (ראו למעלה).
 
-```{figure} ../media/2_8.jpg
+```{figure} media/2_8.jpg
 ---
 height: 400px
 name: fig 2-8
@@ -461,7 +461,7 @@ Organization of the United Nations) לקידום הנושא של חקלאות פ
 ברזיל, אוסטרליה), רק באוסטרליה החקלאות האורגנית מהווה חלק משמעותי
 (כ-10%) מכלל העיבוד החקלאי (איור 2.9).
 
-```{figure} ../media/2_9.jpg
+```{figure} media/2_9.jpg
 ---
 height: 400px
 name: fig 2-9
@@ -564,7 +564,7 @@ fertilization).[^135] בשלושים השנים האחרונות נעשו מחק
 התפרסמו מודלים המנבאים שבמקביל לשינוי בתנובה, התחממות גלובלית תאיץ את
 התפשטותם של מזיקים לאזורים ממוזגים.[^146]
 
-```{figure} ../media/2_10.jpg
+```{figure} media/2_10.jpg
 ---
 height: 400px
 name: fig 2-10
@@ -572,7 +572,7 @@ name: fig 2-10
 איור 2.10: פליטות גזי חממה מפעילות חקלאית, השוואה במשך שני העשורים הראשונים של המאה ה-21.  מקור – FAO (2021) (FIG 65), CC BY-NC-SA 3.0 IGO; Reprinted with permission.
 ```
 
-```{figure} ../media/2_11.jpg
+```{figure} media/2_11.jpg
 ---
 height: 400px
 name: fig 2-11

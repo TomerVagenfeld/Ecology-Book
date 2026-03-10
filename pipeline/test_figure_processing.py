@@ -3,12 +3,13 @@
 
 from pathlib import Path
 from insert_figures import process_markdown_insert_figures
+from settings import MD_DIR, SOURCE_RAW_INPUT, ASSETS_DIR
 
 def test_figure_processing():
     """Test the figure processing on existing markdown files."""
 
     # Test on ch2_agriculture.md (which had the broken figures)
-    md_file = Path("book-source/md/ch2_agriculture.md")
+    md_file = MD_DIR / "ch2_agriculture.md"
     if not md_file.exists():
         print(f"File not found: {md_file}")
         return
@@ -27,16 +28,15 @@ def test_figure_processing():
     print(f"Testing figure processing on: {test_md}")
 
     # Process figures
-    assets_dir = Path("book-source/raw/_figs ch. 1-14 - 120 figs & tables")
+    assets_dir = ASSETS_DIR
     if not assets_dir.exists():
         print(f"Assets directory not found: {assets_dir}")
         print("Available directories in book-source/raw:")
-        raw_dir = Path("book-source/raw")
-        if raw_dir.exists():
-            for item in raw_dir.iterdir():
+        if SOURCE_RAW_INPUT.exists():
+            for item in SOURCE_RAW_INPUT.iterdir():
                 print(f"  {item}")
         else:
-            print("  book-source/raw does not exist")
+            print(f"  {SOURCE_RAW_INPUT} does not exist")
         return
 
     process_markdown_insert_figures(

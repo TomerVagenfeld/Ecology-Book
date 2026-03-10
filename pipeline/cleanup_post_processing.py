@@ -716,7 +716,7 @@ def cleanup_chapter(md_path: Path) -> bool:
     original = text
 
     # Determine media directory for EMF lookup
-    media_dir = md_path.parent.parent / 'media'
+    media_dir = md_path.parent / 'media'
 
     # Apply passes in order
     text = remove_duplicate_figures(text)
@@ -738,8 +738,8 @@ def cleanup_chapter(md_path: Path) -> bool:
 
 
 def main():
-    md_dir = Path('book-source/md')
-    files = sorted(md_dir.glob('ch*.md'))
+    from settings import MD_DIR
+    files = sorted(MD_DIR.glob('ch*.md'))
 
     print(f"Cleaning up {len(files)} chapter files...")
     for f in files:

@@ -5,10 +5,10 @@ Regenerate figure blocks for all chapter markdown files.
 
 from pathlib import Path
 from insert_figures import process_markdown_insert_figures
-from settings import ASSETS_DIR, MEDIA_DIR
+from settings import ASSETS_DIR, MEDIA_DIR, MD_DIR
 
 def main():
-    md_files = list(Path("book-source/md").glob("ch*.md"))
+    md_files = list(MD_DIR.glob("ch*.md"))
 
     print(f"Regenerating figures for {len(md_files)} files...")
 

@@ -5,7 +5,7 @@ import os, shutil, subprocess
 from glob import glob
 from pathlib import Path
 from tqdm import tqdm
-from settings import PANDOC_ATTR, BOOK_ROOT, SOURCE_RAW_INPUT, SOURCE_DIR, MD_DIR, MEDIA_DIR, ASSETS_DIR
+from settings import PANDOC_ATTR, BOOK_ROOT, REPO_ROOT, SOURCE_RAW_INPUT, SOURCE_DIR, MD_DIR, MEDIA_DIR, ASSETS_DIR
 from docx_processing import convert_numbered_to_headings_keep_bullets
 from md_post_processing import (
     mark_english_blocks_file,
@@ -34,7 +34,6 @@ def generate_md_files(input_dir, output_dir, copy_raw=False):
     # folders
     os.makedirs(os.path.join(output_dir, "raw"), exist_ok=True)
     os.makedirs(os.path.join(output_dir, "docx"), exist_ok=True)
-    os.makedirs(os.path.join(output_dir, "md"), exist_ok=True)
 
     if copy_raw:
         shutil.copytree(
@@ -50,7 +49,7 @@ def generate_md_files(input_dir, output_dir, copy_raw=False):
         if "front" in docx_file:
             continue
         new_docx_name = Path(docx_file).stem.replace(" ", "_") + "_headers" + Path(docx_file).suffix
-        md_output = os.path.join(output_dir, "md", Path(docx_file).stem.replace(" ", "_") + ".md")
+        md_output = os.path.join(str(REPO_ROOT), Path(docx_file).stem.replace(" ", "_") + ".md")
         new_docx_name = os.path.join(output_dir, "docx", new_docx_name)
 
         shutil.copy(docx_file, new_docx_name)
@@ -112,24 +111,24 @@ if __name__ == "__main__":
 
     # Run validation before building
     print("\n--- Validation ---")
-    validate_all(MD_DIR, BOOK_ROOT / "validation.log")
+    validate_all(MD_DIR, REPO_ROOT / "validation.log")
 
     if toc:
-        create_toc(BOOK_ROOT, MD_DIR)
+        create_toc(REPO_ROOT, MD_DIR)
         for p in MD_DIR.glob("*.md"):
-            key = (p.resolve().relative_to(BOOK_ROOT).as_posix())[:-3]
-            path = BOOK_ROOT / (key + ".md")
+            key = (p.resolve().relative_to(REPO_ROOT).as_posix())[:-3]
+            path = REPO_ROOT / (key + ".md")
             assert path.exists(), f"Missing: {path}"
     if build:
         print("[MD count]", len(list(MD_DIR.glob("*.md"))))
-        print("[Index exists]", (BOOK_ROOT / "index.md").exists())
-        print("[TOC exists]", (BOOK_ROOT / "_toc.yml").exists())
+        print("[Index exists]", (REPO_ROOT / "index.md").exists())
+        print("[TOC exists]", (REPO_ROOT / "_toc.yml").exists())
         print("---- _toc.yml ----")
 
-        if (BOOK_ROOT / "_toc.yml").exists():
+        if (REPO_ROOT / "_toc.yml").exists():
             try:
-                print((BOOK_ROOT / "_toc.yml").read_text(encoding="utf-8"))
+                print((REPO_ROOT / "_toc.yml").read_text(encoding="utf-8"))
             except UnicodeEncodeError:
                 print("[TOC contains unicode characters that cannot be displayed in console]")
 
-        build_book(BOOK_ROOT, clean=clean)
+        build_book(REPO_ROOT, clean=clean)

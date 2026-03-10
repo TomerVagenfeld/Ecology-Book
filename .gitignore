@@ -1,7 +1,7 @@
 # Build outputs
 _build/
 pipeline/_build/
-pipeline/book-source/media/
+media/
 
 # Large binary source files (not tracked in git)
 figs/

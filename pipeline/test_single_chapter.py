@@ -5,7 +5,7 @@ import os
 import shutil
 import subprocess
 from pathlib import Path
-from settings import PANDOC_ATTR, ASSETS_DIR
+from settings import PANDOC_ATTR, ASSETS_DIR, SOURCE_RAW_INPUT
 from docx_processing import convert_numbered_to_headings_keep_bullets
 from md_post_processing import (
     mark_english_blocks_file,
@@ -31,7 +31,7 @@ def test_chapter_processing(chapter_name="ch2_agriculture"):
     media_dir.mkdir(exist_ok=True)
 
     # Find source DOCX file
-    source_raw_dir = Path("book-source/raw")
+    source_raw_dir = SOURCE_RAW_INPUT
     source_docx = None
     for file_path in source_raw_dir.glob("*.docx"):
         if "ch2" in file_path.name.lower() and "agriculture" in file_path.name.lower():

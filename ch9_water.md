@@ -40,7 +40,7 @@
 ק\"מ מעוקב של מים (זמן שהות של כשבוע); ונהרות מכילים כ-1,200 ק\"מ מעוקב
 של מים, כעשירית מכמות המים באטמוספרה, עם זמן שהות של פחות משבועיים.
 
-```{figure} ../media/9_1.jpg
+```{figure} media/9_1.jpg
 ---
 height: 400px
 name: fig 9-1
@@ -73,7 +73,7 @@ name: fig 9-1
 מים שלא היה קיים בטבע, מים *אפורים* (מי קולחים) שכמותם באיור 9.2 מגולמת
 בתוך השטפים של מים כחולים וירוקים.
 
-```{figure} ../media/9_2.jpg
+```{figure} media/9_2.jpg
 ---
 height: 400px
 name: fig 9-2
@@ -180,7 +180,7 @@ droughts),[^29] השפיעה על התנהגות אגני ניקוז של נהר
 באופן בלתי הפיך במערכות האקולוגיות שלהן ואפילו של האוקיינוסים, ובעקבות
 זאת ליצור שינוים גלובליים במחזור הפחמן.
 
-```{figure} ../media/9_3.jpg
+```{figure} media/9_3.jpg
 ---
 height: 400px
 name: fig 9-3
@@ -188,7 +188,7 @@ name: fig 9-3
 איור 9.3: (a) תפקידי המים בחמשת המאגרים העיקריים (לא כולל מי ים), שימו לב שמים אטמוספריים מחולקים לשני תת-מאגרים. (b) הגבולות הפלנטריים של מים בהתאם למאגרי ותפקידי המים. (c) היבטים עיקריים של כל אחד ממאגרי המים. מקור – Gleeson et al. (2020), <https://doi.org/10.1029/2019WR024957>; ©2020. American Geophysical Union. All Rights Reserved. Reprinted with permission.
 ```
 
-```{figure} ../media/9_4.jpg
+```{figure} media/9_4.jpg
 ---
 height: 400px
 name: fig 9-4
@@ -196,7 +196,7 @@ name: fig 9-4
 איור 9.4: סך כל המים (מטר מעוקב) הנצרכים (עבור חקלאות, תעשייה, שימוש ביתי) לאדם בארצות שונות בשנת 2015. מקור – Our World in Data, https://ourworldindata.org/water-use-stress ; Reprinted with permission.
 ```
 
-```{figure} ../media/9_5.jpg
+```{figure} media/9_5.jpg
 ---
 height: 400px
 name: fig 9-5
@@ -267,7 +267,7 @@ name: fig 9-5
 כפול מקצב השאיבה בסהרה.[^68] כלומר, אם קצב השאיבה בסהרה יימשך, צפוי שגם
 שם יופיעו פגיעות באיכות המים.
 
-```{figure} ../media/9_6.png
+```{figure} media/9_6.png
 ---
 height: 400px
 name: fig 9-6
@@ -275,7 +275,7 @@ name: fig 9-6
 איור 9.6: הערכות שונות של שאיבת יתר של מי תהום, ומידת עליית הים שנגרמה עקב כך. מקור – Aeschbach, W., & Gleeson, T. (2012) https://doi.org/10.1038/ngeo1617 ; Reprinted with permission from Nature
 ```
 
-```{figure} ../media/9_7.jpg
+```{figure} media/9_7.jpg
 ---
 height: 400px
 name: fig 9-7
@@ -548,7 +548,7 @@ productivity)[^115] מועטה (oligotrophic), עם יצרנות ראשונית 
 Total phosphorus,[^119] chlorophyll a,[^120] and Secchi disk
 depth.[^121]
 
-```{figure} ../media/9_8.jpg
+```{figure} media/9_8.jpg
 ---
 height: 400px
 name: fig 9-8
@@ -931,7 +931,7 @@ wastewater treatment) המתבסס על בוצה משופעלת (activated sludg
 מוסכמת של הסכר, בצורה שתיקח בחשבון את צרכי שלוש המדינות החולקות את מימי
 הנילוס הכחול, קרי אתיופיה, סודן ומצרים (איור 9.9).[^239]
 
-```{figure} ../media/9_9.jpg
+```{figure} media/9_9.jpg
 ---
 height: 400px
 name: fig 9-9

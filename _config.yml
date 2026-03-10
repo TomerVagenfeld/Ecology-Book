@@ -36,11 +36,7 @@ sphinx:
         inlineMath: [["$", "$"], ["\\(", "\\)"]]
     exclude_patterns:
       - "_build/**"
-      - "_build/*"
-      - "pipeline/book-source/docx/**"
-      - "pipeline/book-source/raw/**"
-      - "pipeline/_build/**"
-      - "pipeline/test_output/**"
+      - "pipeline/**"
       - ".ipynb_checkpoints/**"
       - "igal_original_docx/**"
       - "figs/**"
