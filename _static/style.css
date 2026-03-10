@@ -5,71 +5,49 @@
 
 /* =============================================================================
    Intro / landing page — subtle CSS cover background (no images)
-   Recreates the geometric turquoise shapes from the original book cover.
-   Three layers: gray rotated rect, main teal polygon, light teal triangle.
+   Recreates the geometric turquoise diagonal shapes from the original cover.
 ============================================================================= */
-.intro-cover {
-  position: relative;
-  overflow: hidden;
+.intro-cover,
+.intro-cover > .intro-cover-inner {
+  /* Reset: no extra margin/padding from wrappers */
+  margin: 0; padding: 0;
 }
 
 /* Layer 1: Gray rotated rectangle (behind everything) */
 .intro-cover::before {
   content: "";
-  position: absolute;
-  top: -5%;
-  left: 15%;
-  width: 85%;
-  height: 110%;
-  background: #b8c0c4;
-  clip-path: polygon(18% 0%, 100% 8%, 82% 100%, 0% 92%);
-  opacity: 0.07;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #b0b8bc;
+  clip-path: polygon(20% 0%, 100% 10%, 80% 100%, 0% 90%);
+  opacity: 0.10;
   pointer-events: none;
-  z-index: 0;
+  z-index: -2;
 }
 
-/* Layer 2: Main teal polygon + light teal triangle (stacked via gradient trick) */
+/* Layer 2: Main teal polygon (large central shape) */
 .intro-cover::after {
   content: "";
-  position: absolute;
-  top: -5%;
-  left: 0;
-  right: 0;
-  height: 110%;
-  pointer-events: none;
-  z-index: 0;
-  /* Two shapes via stacked clip-paths aren't possible, so we use a single
-     combined approach: the main teal shape as background with clip-path */
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
   background: #6bafb2;
-  clip-path: polygon(
-    /* Main teal polygon (large central shape) */
-    28% 0%, 95% 0%, 100% 5%, 100% 88%, 72% 97%, 8% 97%, 5% 92%, 5% 8%
-  );
-  opacity: 0.06;
+  clip-path: polygon(30% 0%, 97% 0%, 100% 6%, 100% 86%, 70% 96%, 6% 96%, 3% 90%, 3% 10%);
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: -1;
 }
 
-/* Layer 3: Light teal triangle (top-right corner, separate element via box-shadow trick)
-   We use a child wrapper to get a third pseudo-element */
-.intro-cover > .intro-cover-inner {
-  position: relative;
-  z-index: 1;
-}
-.intro-cover > .intro-cover-inner::before {
+/* Layer 3: Light teal triangle (top-right corner) */
+.intro-cover-inner::before {
   content: "";
-  position: absolute;
-  top: -2rem;
-  right: 0;
-  width: 55%;
-  height: 35%;
-  background: #9dd4d6;
-  clip-path: polygon(35% 0%, 100% 0%, 100% 100%);
-  opacity: 0.06;
+  position: fixed;
+  top: 0; right: 0;
+  width: 55%; height: 40%;
+  background: #8fd0d4;
+  clip-path: polygon(40% 0%, 100% 0%, 100% 100%);
+  opacity: 0.10;
   pointer-events: none;
-  z-index: 0;
-}
-.intro-cover > .intro-cover-inner > * {
-  position: relative;
-  z-index: 1;
+  z-index: -1;
 }
 /* style.css — minimal, consistent, RTL-first with clean quote styling */
 
