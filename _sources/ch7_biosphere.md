@@ -616,8 +616,6 @@ name: fig 7-4
     להם חשיבות לקיומו ורווחתו של האדם, והם כוללים: שירותי אספקה למזון,
     מים וחומרי בנייה, שירותי תרבות למטרות נופש תיירות ומורשת, שירותי
     ויסות ובקרה הכוללים האבקה, בקרת אקלים ומניעת שיטפונות וסחיפת קרקע.
-    --
-
     <https://www.gov.il/he/departments/general/ecosystem_services>
 
 [^8]: "The variety of life at every hierarchical level and spatial scale

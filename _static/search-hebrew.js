@@ -103,15 +103,46 @@
     }
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function () {
-      patchSearch();
-      enhanceSearchResults();
-      hebrewizePlaceholder();
+  function addSlashShortcut() {
+    // Replace the Ctrl+K badge text with "/" in the header search button
+    var kbdBadges = document.querySelectorAll(".search-button__kbd-shortcut");
+    kbdBadges.forEach(function (badge) {
+      badge.innerHTML = '<kbd class="kbd-shortcut__modifier">/</kbd>';
     });
-  } else {
+
+    // Listen for "/" key to open the search overlay (common in docs sites)
+    document.addEventListener("keydown", function (e) {
+      // Don't trigger if user is typing in an input/textarea
+      var tag = document.activeElement && document.activeElement.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+      // Don't trigger with modifier keys
+      if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
+
+      if (e.key === "/") {
+        e.preventDefault();
+        // Find and click the search button to open the overlay
+        var searchBtn = document.querySelector(".search-button__button");
+        if (searchBtn) {
+          searchBtn.click();
+        } else {
+          // Fallback: focus the search input directly (e.g. on search.html)
+          var input = document.getElementById("search-input");
+          if (input) { input.focus(); input.select(); }
+        }
+      }
+    });
+  }
+
+  function init() {
     patchSearch();
     enhanceSearchResults();
     hebrewizePlaceholder();
+    addSlashShortcut();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
   }
 })();
