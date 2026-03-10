@@ -137,7 +137,7 @@ name: table 1-1
 height: 400px
 name: fig 1-1
 ---
-איור 1.1: גבולות פלנטריים (א) מעודכן לשנת 2023; (ב) בשנים 2009, 2015, 2023.
+איור 1.1: גבולות פלנטריים (א) מעודכן לשנת 2023; (ב) בשנים 2009, 2015, 2023. מקור: Azote for Stockholm Resilience Centre, based on analysis in Richardson et al. (2023), Steffen et al. (2015), and Rockström et al. (2009). Attribution: CC BY-NC-ND 3.0 - [Planetary boundaries - Stockholm Resilience Centre](https://www.stockholmresilience.org/research/planetary-boundaries.html), Reprinted with permission.
 ```
 
 The great smog, London (1952)
@@ -207,15 +207,6 @@ integrity); (9) שינויי אקלים (climate change).
 2009 ו-2015, אך לא בשנת 2023).[^40] אידרש לכל הנושאים הללו בפרקים הבאים
 של הספר.
 
-
-> מקור:
->
-> Azote for Stockholm Resilience Centre, based on analysis in Richardson
-> et al. (2023), Steffen et al. (2015), and Rockström et al. (2009).
-> Attribution: CC BY-NC-ND 3.0 - [Planetary boundaries - Stockholm
-> Resilience
-> Centre](https://www.stockholmresilience.org/research/planetary-boundaries.html),
-> Reprinted with permission.
 
 ## הגורמים לפגיעה בסביבה
 
