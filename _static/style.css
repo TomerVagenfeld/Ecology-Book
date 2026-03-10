@@ -295,8 +295,8 @@ span.highlighted.hl-active {
   font-size: 1.15rem !important;
 }
 
-/* Hide Ctrl+K badge inside the open overlay (redundant) */
-.search-button__wrapper.show .search-button__kbd-shortcut {
+/* Hide Ctrl+K badge everywhere — replaced by "/" via JS */
+.search-button__kbd-shortcut {
   display: none !important;
 }
 
@@ -322,6 +322,16 @@ input[name="q"], #searchbox input, .search-field input {
    Search Results Page  (search.html)
 ============================================================================= */
 
+/* Hide sidebars on search page — let content go full width */
+body.search-page .bd-sidebar-secondary,
+body.search-page .bd-sidebar-primary {
+  display: none !important;
+}
+body.search-page .bd-main {
+  flex: 1 1 100% !important;
+  max-width: 100% !important;
+}
+
 /* Search form on the results page (NOT inside the overlay) */
 .bd-main form.bd-search {
   direction: rtl;
@@ -333,7 +343,7 @@ input[name="q"], #searchbox input, .search-field input {
   border-radius: 14px;
   padding: 0.5rem 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  max-width: 560px;
+  max-width: 600px;
   margin: 1.5rem auto 1.5rem;
 }
 .bd-main form.bd-search .fa-magnifying-glass {
@@ -351,16 +361,11 @@ input[name="q"], #searchbox input, .search-field input {
   direction: rtl;
   text-align: right;
 }
-.bd-main form.bd-search .search-button__kbd-shortcut {
-  display: none;
-}
 
 /* Results container */
 #search-results {
   direction: rtl;
   text-align: right;
-  max-width: 700px;
-  margin: 0 auto;
   padding: 0 1rem;
 }
 

@@ -133,7 +133,15 @@
     });
   }
 
+  function markSearchPage() {
+    // Add body class on search.html so CSS can hide sidebars and go full-width
+    if (document.getElementById("search-results")) {
+      document.body.classList.add("search-page");
+    }
+  }
+
   function init() {
+    markSearchPage();
     patchSearch();
     enhanceSearchResults();
     hebrewizePlaceholder();
