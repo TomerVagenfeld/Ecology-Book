@@ -7,10 +7,18 @@
    Intro / landing page — subtle CSS cover background (no images)
    Recreates the geometric turquoise diagonal shapes from the original cover.
 ============================================================================= */
-.intro-cover,
-.intro-cover > .intro-cover-inner {
-  /* Reset: no extra margin/padding from wrappers */
-  margin: 0; padding: 0;
+/* Override theme's .docutils.container sidebar/margin styles */
+div.intro-cover.docutils,
+div.intro-cover-inner.docutils {
+  float: none !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+  font-size: inherit !important;
+  clear: both !important;
+  z-index: auto !important;
 }
 
 /* Layer 1: Gray rotated rectangle (behind everything) */
