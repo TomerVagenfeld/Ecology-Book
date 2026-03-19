@@ -2,6 +2,54 @@
    Base: default RTL for Hebrew content with LTR override when needed
 ============================================================================= */
 :root, body { direction: rtl; text-align: right; font-family: sans-serif; }
+
+/* =============================================================================
+   Intro / landing page — subtle CSS cover background (no images)
+   Recreates the geometric turquoise diagonal shapes from the original cover.
+============================================================================= */
+/* Ensure cover wrapper doesn't create extra margins */
+.intro-cover,
+.intro-cover-inner {
+  margin: 0;
+  padding: 0;
+}
+
+/* Layer 1: Gray rotated rectangle (behind everything) */
+.intro-cover::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #b0b8bc;
+  clip-path: polygon(20% 0%, 100% 10%, 80% 100%, 0% 90%);
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* Layer 2: Main teal polygon (large central shape) */
+.intro-cover::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #6bafb2;
+  clip-path: polygon(30% 0%, 97% 0%, 100% 6%, 100% 86%, 70% 96%, 6% 96%, 3% 90%, 3% 10%);
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Layer 3: Light teal triangle (top-right corner) */
+.intro-cover-inner::before {
+  content: "";
+  position: fixed;
+  top: 0; right: 0;
+  width: 55%; height: 40%;
+  background: #8fd0d4;
+  clip-path: polygon(40% 0%, 100% 0%, 100% 100%);
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: -1;
+}
 /* style.css — minimal, consistent, RTL-first with clean quote styling */
 
 /* Base LTR layout override (English) */
@@ -664,6 +712,32 @@ div.footnote.fn-ltr {
   cursor: zoom-in;
 }
 
+/* ---- Fullscreen image zoom overlay ---- */
+.img-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  cursor: zoom-out;
+  animation: zoomFadeIn 0.2s ease;
+}
+.img-zoom-overlay img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto !important;
+  width: auto !important;
+  object-fit: contain;
+  border-radius: 4px;
+}
+@keyframes zoomFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 /* =============================================================================
    Mobile optimizations: Compact, readable, touch-friendly
 ============================================================================= */
@@ -831,4 +905,44 @@ div.footnote.fn-ltr {
   margin-left: 0 !important;
 
   list-style-position: outside;
+}
+
+/* =============================================================================
+   Intro page: transparent backgrounds so CSS cover shapes show through.
+   Uses :has() to scope ONLY to pages containing .intro-cover (the intro page).
+============================================================================= */
+body:has(.intro-cover) {
+  background: transparent;
+}
+
+body:has(.intro-cover) .bd-main,
+body:has(.intro-cover) .bd-content,
+body:has(.intro-cover) .bd-article-container,
+body:has(.intro-cover) .bd-article {
+  background: transparent;
+}
+
+body:has(.intro-cover) .bd-header-article {
+  background: transparent;
+}
+
+body:has(.intro-cover) .bd-sidebar-primary,
+body:has(.intro-cover) .bd-sidebar-secondary {
+  background: transparent;
+}
+
+body:has(.intro-cover) .bd-footer-content,
+body:has(.intro-cover) .bd-footer {
+  background: transparent;
+}
+
+body:has(.intro-cover) .bd-container,
+body:has(.intro-cover) .bd-container__inner {
+  background: transparent;
+}
+
+/* Dark mode: restore dark background so page isn't blinding white */
+html[data-theme="dark"] body:has(.intro-cover),
+html[data-mode="dark"] body:has(.intro-cover) {
+  background: var(--pst-color-background);
 }

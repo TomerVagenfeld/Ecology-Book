@@ -1,3 +1,5 @@
+<div class="intro-cover">
+<div class="intro-cover-inner">
 
 # **משבר הסביבה והאקלים - הזוית המדעית**
 
@@ -47,3 +49,6 @@
 ואהבתם.
 
 - ירושלים, מרץ 2025
+
+</div>
+</div>
