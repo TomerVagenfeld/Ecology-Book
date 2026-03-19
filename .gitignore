@@ -29,6 +29,9 @@ Thumbs.db
 # Logs
 *.log
 
+# Author update staging area
+pipeline/staging/
+
 # Test/debug output
 pipeline/test_output/
 pipeline/screenshots/
