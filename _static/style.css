@@ -947,6 +947,83 @@ html[data-mode="dark"] body:has(.intro-cover) {
   background: var(--pst-color-background);
 }
 
+/* ── Global page background (geometric, same as intro cover) ───────────── */
+
+/* Applied early by JS to avoid flash-of-no-background */
+html.with-book-bg-pre body,
+body.with-book-bg {
+  background-color: #f4f7f8;
+}
+
+/* Layer 1: gray rotated rectangle */
+body.with-book-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: #b0b8bc;
+  clip-path: polygon(20% 0%, 100% 10%, 80% 100%, 0% 90%);
+  opacity: 0.13;
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* Layer 2: main teal polygon */
+body.with-book-bg::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: #6bafb2;
+  clip-path: polygon(30% 0%, 97% 0%, 100% 6%, 100% 86%, 70% 96%, 6% 96%, 3% 90%, 3% 10%);
+  opacity: 0.13;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Content area: white card over the background */
+body.with-book-bg .bd-article {
+  background: rgba(255, 255, 255, 0.90);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 1px 8px rgba(107, 175, 178, 0.10);
+}
+
+/* Dark mode */
+html[data-theme="dark"] body.with-book-bg,
+html[data-mode="dark"] body.with-book-bg {
+  background-color: #1a1f24;
+}
+html[data-theme="dark"] body.with-book-bg .bd-article,
+html[data-mode="dark"] body.with-book-bg .bd-article {
+  background: rgba(30, 36, 42, 0.92);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.30);
+}
+
+/* ── Background toggle button ───────────────────────────────────────────── */
+#bg-toggle-btn {
+  position: fixed;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  z-index: 1000;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--pst-color-border, #dee2e6);
+  background: var(--pst-color-surface, #fff);
+  color: var(--pst-color-muted, #6c757d);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+  padding: 0;
+}
+#bg-toggle-btn:hover { opacity: 1; }
+#bg-toggle-btn.bg-off {
+  opacity: 0.30;
+}
+#bg-toggle-btn.bg-off:hover { opacity: 0.75; }
+
 /* ── Chapter version badge ──────────────────────────────────────────────── */
 .chapter-version-badge {
   display: inline-block;

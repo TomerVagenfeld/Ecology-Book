@@ -10,8 +10,9 @@ const CHAPTER_VERSIONS = {
 
 (function () {
   function getPageSlug() {
-    const path = window.location.pathname;
-    const filename = path.split("/").pop().replace(/\.html$/, "");
+    const path = window.location.pathname.replace(/\/+$/, ""); // strip trailing slashes
+    const parts = path.split("/");
+    const filename = parts[parts.length - 1].replace(/\.html$/, "");
     return filename;
   }
 
@@ -27,9 +28,15 @@ const CHAPTER_VERSIONS = {
     const version = getVersion(slug);
     if (!version) return;
 
-    // Target the content h1 (inside .bd-content section, not the header copy)
-    const h1 = document.querySelector(".bd-content section > h1");
+    // Find the main content h1 — try progressively broader selectors
+    const h1 =
+      document.querySelector(".bd-content section > h1") ||
+      document.querySelector("article.bd-article h1") ||
+      document.querySelector(".bd-content h1");
     if (!h1) return;
+
+    // Don't inject twice (e.g. if script somehow runs twice)
+    if (h1.nextElementSibling && h1.nextElementSibling.classList.contains("chapter-version-badge")) return;
 
     const badge = document.createElement("div");
     badge.className = "chapter-version-badge";
