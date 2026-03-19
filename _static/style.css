@@ -599,7 +599,7 @@ body.search-page .bd-main {
   /* For Hebrew RTL: secondary (page TOC) on LEFT, main in MIDDLE, primary (book TOC) on RIGHT */
   .bd-sidebar-secondary { order: 0; flex: 0 0 var(--bd-sidebar-secondary-width, 18rem); } /* LEFT  */
   .bd-main               { order: 1; flex: 1 1 auto; }                                      /* MIDDLE */
-  .bd-sidebar-primary   { order: 2; flex: 0 0 var(--bd-sidebar-primary-width, 18rem); }    /* RIGHT */
+  .bd-sidebar-primary   { order: 2; flex: 0 0 var(--bd-sidebar-primary-width, 18rem) !important; } /* RIGHT */
 
   /* Restore RTL text flow inside panes (since the container is LTR now) */
   .bd-sidebar-secondary,
@@ -621,12 +621,6 @@ body.search-page .bd-main {
     width: 0 !important; flex-basis: 0 !important;
     margin: 0 !important; padding: 0 !important; overflow: hidden !important;
   }
-  /* When secondary collapses, restore primary's flex-basis so it keeps its
-     reserved space in the flex layout and the right margin doesn't appear */
-  body.rtl-secondary-collapsed .bd-sidebar-primary {
-    flex: 0 0 var(--bd-sidebar-primary-width, 18rem) !important;
-  }
-
   #pst-primary-sidebar-modal,
   #pst-primary-sidebar-modal::backdrop { display: none !important; }
 
