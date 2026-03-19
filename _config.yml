@@ -52,6 +52,7 @@ sphinx:
     - "search-hebrew.js"
     - "search-scroll.js"
     - "image-zoom.js"
+    - "chapter-version.js"
 
 html:
   use_issues_button: false

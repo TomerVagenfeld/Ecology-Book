@@ -145,6 +145,57 @@ def run_pipeline_for_chapter(docx_name: str, dry_run: bool = False) -> None:
 
 
 # ---------------------------------------------------------------------------
+# chapter-version.js update
+# ---------------------------------------------------------------------------
+
+_HEBREW_MONTHS = {
+    1: "ינואר", 2: "פברואר", 3: "מרץ", 4: "אפריל", 5: "מאי", 6: "יוני",
+    7: "יולי", 8: "אוגוסט", 9: "ספטמבר", 10: "אוקטובר", 11: "נובמבר", 12: "דצמבר",
+}
+
+
+def _docx_month_label(docx_diffs: list[dict]) -> str:
+    """Derive a Hebrew month/year label from the newest staged DOCX mtime."""
+    import datetime
+    newest = None
+    for d in docx_diffs:
+        src = Path(d.get("source_path", "")) if d.get("source_path") else None
+        if src and src.exists():
+            mtime = src.stat().st_mtime
+            if newest is None or mtime > newest:
+                newest = mtime
+    if newest:
+        dt = datetime.datetime.fromtimestamp(newest)
+        return f"{_HEBREW_MONTHS[dt.month]} {dt.year}"
+    dt = datetime.datetime.now()
+    return f"{_HEBREW_MONTHS[dt.month]} {dt.year}"
+
+
+def update_chapter_versions_js(changed_docx: list[dict], version_date: str | None) -> None:
+    """Update the default version date in _static/chapter-version.js."""
+    js_path = REPO_ROOT / "_static" / "chapter-version.js"
+    if not js_path.exists():
+        print(f"  Warning: {js_path} not found, skipping version update.")
+        return
+
+    if not version_date:
+        version_date = _docx_month_label(changed_docx)
+
+    text = js_path.read_text(encoding="utf-8")
+    updated = re.sub(
+        r'(default:\s*")[^"]+(")',
+        rf'\g<1>{version_date}\g<2>',
+        text,
+    )
+    if updated == text:
+        print(f"  Warning: could not find 'default:' in chapter-version.js to update.")
+        return
+
+    js_path.write_text(updated, encoding="utf-8")
+    print(f"  Updated chapter-version.js: default -> \"{version_date}\"")
+
+
+# ---------------------------------------------------------------------------
 # Main apply logic
 # ---------------------------------------------------------------------------
 
@@ -266,6 +317,10 @@ def apply(args: argparse.Namespace) -> None:
                 continue
             run_pipeline_for_chapter(d["name"], dry_run=dry_run)
 
+    # --- Update chapter-version.js ---
+    if changed_docx and not args.figs_only:
+        update_chapter_versions_js(changed_docx, args.version_date)
+
     # --- Validate ---
     if not args.skip_pipeline:
         print()
@@ -291,6 +346,9 @@ def main() -> None:
                         help="Copy files only, do not re-run the pipeline.")
     parser.add_argument("--dry-run", action="store_true",
                         help="Print what would be done without changing anything.")
+    parser.add_argument("--version-date",
+                        help="Hebrew date label for chapter-version.js (e.g. 'נובמבר 2025'). "
+                             "Default: auto-derived from staged DOCX file dates.")
     args = parser.parse_args()
     apply(args)
 
