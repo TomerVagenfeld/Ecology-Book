@@ -597,9 +597,10 @@ body.search-page .bd-main {
 
   /* Visual positions: 0=left, 1=middle, 2=right */
   /* For Hebrew RTL: secondary (page TOC) on LEFT, main in MIDDLE, primary (book TOC) on RIGHT */
-  .bd-sidebar-secondary { order: 0; flex: 0 0 var(--bd-sidebar-secondary-width, 18rem); } /* LEFT  */
+  .bd-sidebar-secondary  { order: 0; flex: 0 0 var(--bd-sidebar-secondary-width, 18rem); } /* LEFT  */
   .bd-main               { order: 1; flex: 1 1 auto; }                                      /* MIDDLE */
-  .bd-sidebar-primary   { order: 2; flex: 0 0 var(--bd-sidebar-primary-width, 18rem) !important; } /* RIGHT */
+  .bd-sidebar-primary    { order: 2; flex: 0 0 var(--bd-sidebar-primary-width, 18rem) !important; } /* RIGHT */
+  .bd-article-container  { flex: 1 1 auto; }                                                /* expand to fill freed sidebar space */
 
   /* Restore RTL text flow inside panes (since the container is LTR now) */
   .bd-sidebar-secondary,
