@@ -625,6 +625,10 @@ body.search-page .bd-main {
   #pst-primary-sidebar-modal,
   #pst-primary-sidebar-modal::backdrop { display: none !important; }
 
+  /* Also suppress the secondary sidebar modal on desktop */
+  #pst-secondary-sidebar-modal,
+  #pst-secondary-sidebar-modal::backdrop { display: none !important; }
+
   /* Show the secondary sidebar toggle on desktop (theme hides it by default) */
   .sidebar-toggle.secondary-toggle {
     display: flex !important;
