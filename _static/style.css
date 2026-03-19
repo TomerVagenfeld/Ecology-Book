@@ -979,11 +979,13 @@ body.with-book-bg::after {
   z-index: -1;
 }
 
-/* Content area: white card over the background */
-body.with-book-bg .bd-article {
-  background: rgba(255, 255, 255, 0.90);
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
+/* Semi-transparent overlay on all major UI panels */
+body.with-book-bg .bd-article,
+body.with-book-bg .bd-sidebar-primary,
+body.with-book-bg .bd-sidebar-secondary,
+body.with-book-bg .bd-header-article,
+body.with-book-bg .bd-footer-content {
+  background: rgba(255, 255, 255, 0.50) !important;
   box-shadow: 0 1px 8px rgba(107, 175, 178, 0.10);
 }
 
@@ -993,36 +995,35 @@ html[data-mode="dark"] body.with-book-bg {
   background-color: #1a1f24;
 }
 html[data-theme="dark"] body.with-book-bg .bd-article,
-html[data-mode="dark"] body.with-book-bg .bd-article {
-  background: rgba(30, 36, 42, 0.92);
+html[data-theme="dark"] body.with-book-bg .bd-sidebar-primary,
+html[data-theme="dark"] body.with-book-bg .bd-sidebar-secondary,
+html[data-theme="dark"] body.with-book-bg .bd-header-article,
+html[data-theme="dark"] body.with-book-bg .bd-footer-content,
+html[data-mode="dark"] body.with-book-bg .bd-article,
+html[data-mode="dark"] body.with-book-bg .bd-sidebar-primary,
+html[data-mode="dark"] body.with-book-bg .bd-sidebar-secondary,
+html[data-mode="dark"] body.with-book-bg .bd-header-article,
+html[data-mode="dark"] body.with-book-bg .bd-footer-content {
+  background: rgba(30, 36, 42, 0.50) !important;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.30);
 }
 
-/* ── Background toggle button ───────────────────────────────────────────── */
+/* ── Background toggle button (lives in .header-article-items__end) ─────── */
 #bg-toggle-btn {
-  position: fixed;
-  bottom: 1.2rem;
-  left: 1.2rem;
-  z-index: 1000;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  border: 1px solid var(--pst-color-border, #dee2e6);
-  background: var(--pst-color-surface, #fff);
+  background: transparent;
+  border: none;
   color: var(--pst-color-muted, #6c757d);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.55;
-  transition: opacity 0.2s;
-  padding: 0;
+  padding: 0.25rem 0.4rem;
+  font-size: 0.85rem;
+  line-height: 1;
+  border-radius: 4px;
+  transition: color 0.2s, opacity 0.2s;
+  opacity: 0.70;
 }
-#bg-toggle-btn:hover { opacity: 1; }
-#bg-toggle-btn.bg-off {
-  opacity: 0.30;
-}
-#bg-toggle-btn.bg-off:hover { opacity: 0.75; }
+#bg-toggle-btn:hover { opacity: 1; color: var(--pst-color-primary, #6bafb2); }
+#bg-toggle-btn.bg-off { opacity: 0.40; }
+#bg-toggle-btn.bg-off:hover { opacity: 0.80; }
 
 /* ── Chapter version badge ──────────────────────────────────────────────── */
 .chapter-version-badge {

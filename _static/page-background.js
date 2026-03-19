@@ -20,35 +20,76 @@
     }
   }
 
-  function createButton() {
+  function buildButton() {
     const btn = document.createElement("button");
     btn.id = "bg-toggle-btn";
     btn.setAttribute("aria-label", "החלף רקע עמוד");
     btn.title = isEnabled() ? "הסתר רקע" : "הצג רקע";
-    btn.innerHTML = `<svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
-      <path d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4z" opacity=".35"/>
-      <circle cx="6.5" cy="8.5" r="1.5"/>
-      <path d="M2.5 15l4-5 3 3.5 2.5-3L16.5 15z"/>
-    </svg>`;
+    btn.innerHTML = `<i class="fas fa-image"></i>`;
     btn.addEventListener("click", () => {
       const next = !isEnabled();
       localStorage.setItem(STORAGE_KEY, next);
       applyState(next);
     });
-    document.body.appendChild(btn);
+    return btn;
   }
 
-  function init() {
-    applyState(isEnabled());
-    createButton();
+  function placeInHeader(btn) {
+    const end = document.querySelector(".header-article-items__end");
+    if (!end) return false;
+    // Safely detach button from wherever it currently is
+    btn.remove();
+    const wrap = document.createElement("div");
+    wrap.className = "header-article-item";
+    wrap.appendChild(btn);
+    end.insertAdjacentElement("afterbegin", wrap);
+    return true;
+  }
+
+  function watchAndKeepInHeader(btn) {
+    let debounceTimer = null;
+    const observer = new MutationObserver(() => {
+      if (btn.closest(".header-article-items__end")) return; // already in place
+      // Debounce: wait for the theme's DOM churn to settle before re-injecting
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        if (!btn.closest(".header-article-items__end")) {
+          placeInHeader(btn);
+        }
+      }, 300);
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // After 15 s the page should be fully stable — stop watching
+    setTimeout(() => {
+      observer.disconnect();
+      clearTimeout(debounceTimer);
+      // If still not in header by now, fall back to fixed positioning
+      if (!btn.closest(".header-article-items__end")) {
+        btn.remove();
+        btn.style.cssText = "position:fixed;top:0.5rem;right:5rem;z-index:200;";
+        document.body.appendChild(btn);
+      }
+    }, 15000);
+  }
+
+  function injectButton() {
+    const btn = buildButton();
+    const placed = placeInHeader(btn);
+    if (placed) {
+      watchAndKeepInHeader(btn);
+    } else {
+      // Header not found yet — keep trying with observer
+      watchAndKeepInHeader(btn);
+    }
   }
 
   // Apply class immediately (before paint) to avoid flash
   if (isEnabled()) document.documentElement.classList.add(BG_CLASS + "-pre");
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  // Apply background on DOMContentLoaded (early, avoids flash)
+  document.addEventListener("DOMContentLoaded", () => applyState(isEnabled()));
+
+  // Inject button on window.load — after Bootstrap/theme JS have run
+  window.addEventListener("load", () => injectButton());
 })();
