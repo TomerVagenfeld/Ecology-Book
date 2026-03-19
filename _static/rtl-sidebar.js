@@ -1,5 +1,15 @@
 // Keep desktop interactive: don't open the <dialog>; collapse the static sidebar instead.
 document.addEventListener("DOMContentLoaded", () => {
+  // Dispose Bootstrap tooltips on sidebar toggles — they fire too aggressively
+  // (Bootstrap initialises them via data-bs-toggle="tooltip" and shows on focus/scroll)
+  setTimeout(() => {
+    document.querySelectorAll(".sidebar-toggle").forEach(btn => {
+      try { bootstrap.Tooltip.getInstance(btn)?.dispose(); } catch(e) {}
+      btn.removeAttribute("data-bs-toggle");
+      btn.removeAttribute("data-bs-original-title");
+    });
+  }, 500);
+
   const primaryToggle = document.querySelector(".sidebar-toggle.primary-toggle");
   const primaryDialog = document.getElementById("pst-primary-sidebar-modal");
   if (primaryToggle) {

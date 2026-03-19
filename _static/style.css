@@ -624,6 +624,11 @@ body.search-page .bd-main {
 
   #pst-primary-sidebar-modal,
   #pst-primary-sidebar-modal::backdrop { display: none !important; }
+
+  /* Show the secondary sidebar toggle on desktop (theme hides it by default) */
+  .sidebar-toggle.secondary-toggle {
+    display: flex !important;
+  }
 }
 /* Push the primary toggle to the outer edge */
 #pst-primary-sidebar-toggle {
@@ -1015,7 +1020,7 @@ html[data-mode="dark"] body.with-book-bg .bd-footer-content {
   color: var(--pst-color-muted, #6c757d);
   cursor: pointer;
   padding: 0.25rem 0.4rem;
-  font-size: 0.85rem;
+  font-size: 1.5rem;
   line-height: 1;
   border-radius: 4px;
   transition: color 0.2s, opacity 0.2s;
