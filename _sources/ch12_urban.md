@@ -218,8 +218,8 @@ pollution).[^47] דוגמא בולטת לזיהומי עבר היא העופרת
 במהלך השנים נעשו מאמצים רבים לתעד ולהעריך את מידת זיהום האוויר של
 מגה-ערים. למשל, ב-2008 התפרסם מאמר שדירג את המגה-ערים על פי כמות פליטת
 גזים וחלקיקים לנפש, בעיקר על סמך מדד זהום אוויר כללי (MPI --
-multi-pollutant index) הלוקח בחשבון גופרית דו חמצנית ($SO_{2}$), תחמוצת
-חנקן ($NO_{2}$) וכלל החלקיקים המרחפים (TSP -- total suspended particles),
+multi-pollutant index) הלוקח בחשבון גופרית דו חמצנית ($SO_2$), תחמוצת
+חנקן ($NO_2$) וכלל החלקיקים המרחפים (TSP -- total suspended particles),
 ובמקביל התבצעה הערכה של שטחן ושל צפיפותן. מדידה זו אפשרה גם לדרג את
 זיהום האוויר לפי מספר נתון של תושבים (למשל זיהום למיליון תושבים) או
 ליחידת שטח, תהליך הנקרא נרמול של הזיהום לפי מספר תושבים או לפי שטח
@@ -276,7 +276,7 @@ SOx, VOC) והתפלגות החלקיקים המרחפים.[^70] במסגרת ה
 במרחק ממרכז העיר, במורד הרוח[^76] וכן ניטור של הולכי רגל.[^77] בערים בהן
 נעשו מאמצים כאלה, יש דיווחים על הצלחות בהפחתת זיהום אוויר כמו למשל בסין,
 וכפי שציינו בפרק 11 גם בלונדון. אולם, לעיתים התמונה מורכבת יותר. מסתבר
-שהורדת הפליטות של גופרית דו חמצנית ($SO_{2}$) ללא הפחתה במקביל בפליטות פיח
+שהורדת הפליטות של גופרית דו חמצנית ($SO_2$) ללא הפחתה במקביל בפליטות פיח
 (BC) איננה מספיקה כדי להוריד את שכיחותם ועוצמתם של אירועי ערפיח הגורמים
 לנזק בריאותי ואף עלול לגרום להתחממות מקומית.[^78] דוגמא בולטת למורכבות
 של זיהום האוויר העירוני והגורמים לו מוצגת באיור 12.1. באיור רואים את
@@ -311,8 +311,11 @@ SOx, VOC) והתפלגות החלקיקים המרחפים.[^70] במסגרת ה
 height: 400px
 name: fig 12-1
 ---
-איור 12.1: זיהום אוויר חלקיקי (PM2.5, PM10) ואוזון בסין Eastern China - top row, and the Beijing to Shanghai corridor - bottom row. מקור – Commons Attribution License. Reprinted with permission. See also the Berkeley Report[^86].
+איור 12.1: זיהום אוויר חלקיקי (PM2.5, PM10) ואוזון בסין Eastern China - top row, and the Beijing to Shanghai corridor - bottom row. מקור – Eastern China - top row, and the Beijing to Shanghai corridor - bottom row. מקור --
 ```
+
+Commons Attribution License. Reprinted with permission. See also the
+Berkeley Report[^86].
 
 ## אקלים המרחב העירוני
 
@@ -369,7 +372,7 @@ name: fig 12-1
 height: 400px
 name: fig 12-2
 ---
-איור 12.2: מדד חום וקור (H) של מספר ערים החל מ-1950 ועד 2020. שימו לב למגמה של עלייה איטית אך עקבית בערכי H של כל הערים, למעט ברלין, שם היה ערך יציב על 1990, ומאז איחודה ב-1990 התחילה עלייה בערכי ה-H (יש להתעלם מהקו המקווקו המסמן את המגמה ולבחון אך ורק את הערכים עצמם המופיעים כנקודות כחולות). מקור – <https://eos.org/geofizz/hotness-and-coldness-indexes-based-on-the-fahrenheit-scale> ; CC BY-NC-ND 3.0. Reprinted with permission.
+איור 12.2: מדד חום וקור (H) של מספר ערים החל מ-1950 ועד 2020. שימו לב למגמה של עלייה איטית אך עקבית בערכי H של כל הערים, למעט ברלין, שם היה ערך יציב על 1990, ומאז איחודה ב-1990 התחילה עלייה בערכי ה-H (יש להתעלם מהקו המקווקו המסמן את המגמה ולבחון אך ורק את הערכים עצמם המופיעים כנקודות כחולות). מקור – ![](media/image2.png) <https://eos.org/geofizz/hotness-and-coldness-indexes-based-on-the-fahrenheit-scale> ; CC BY-NC-ND 3.0. Reprinted with permission.
 ```
 
 ### אי החום העירוני (urban heat island)
@@ -414,6 +417,15 @@ name: fig 12-3
 ---
 איור 12.3: אי חום עירוני בטוקיו שהחל להיווצר בשנות העשרים של המאה הקודמת. מקור האיור – Matsumoto, J., Fujibe, F., & Takahashi, H. (2017) https://doi.org/10.1016/j.jes.2017.04.012 ; © 2017 The Research Center for Eco-Environmental Sciences, Chinese Academy of Sciences. Published by Elsevier B.V. Reprinted with permission.
 ```
+
+Matsumoto, J., Fujibe, F., & Takahashi, H. (2017)
+<https://doi.org/10.1016/j.jes.2017.04.012> ;
+
+© 2017 The Research Center for Eco-Environmental Sciences, Chinese
+Academy of Sciences. Published by Elsevier B.V. Reprinted with
+permission.
+
+![](media/image3.jpeg)
 
 ### השפעות החום העודף בסביבה העירונית
 

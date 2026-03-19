@@ -84,7 +84,7 @@
   scientist. Arrhenius was one of the founders of the science of
   physical chemistry. He received the Nobel Prize for Chemistry in 1903.
   Arrhenius was the first to use the principles of physical chemistry to
-  estimate the extent to which increases in the atmospheric $CO_{2}$ are
+  estimate the extent to which increases in the atmospheric $CO_2$ are
   responsible for the Earth\'s increasing surface temperature.
   <https://en.wikipedia.org/wiki/Svante_Arrhenius>
 

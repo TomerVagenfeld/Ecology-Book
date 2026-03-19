@@ -702,7 +702,7 @@ body.search-page .bd-main {
 .header-article-items__start { order: 1; }  /* right side in RTL */
 .header-article-items__end   { order: 2; }  /* left side in RTL */
 
-.bd-article p { text-align: justify; } /* don’t force lists; handled below */
+.bd-article p { text-align: justify; font-size: 1.2em; } /* don’t force lists; handled below */
 
 /* =============================================================================
    Footnotes (JS assigns .fn-rtl / .fn-ltr)
