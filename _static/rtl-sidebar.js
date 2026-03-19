@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (secondaryDialog && secondaryDialog.open && typeof secondaryDialog.close === "function") {
         secondaryDialog.close();
       }
+      // Also uncheck the checkbox-based toggle so the overlay doesn't appear
+      const cb = document.getElementById("pst-secondary-sidebar-checkbox");
+      if (cb) cb.checked = false;
 
       document.body.classList.toggle("rtl-secondary-collapsed");
     });
